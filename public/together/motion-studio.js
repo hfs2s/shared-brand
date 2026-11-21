@@ -208,3 +208,96 @@ for (const example of document.querySelectorAll('[data-motion-highlight]')) {
     );
   });
 }
+
+const handoff = document.querySelector('[data-handoff]');
+if (handoff) {
+  const scenes = {
+    call: {
+      context: 'Elio Live', from: 'Conversation', to: 'Stage',
+      kind: 'Launch brief', title: 'Opening remarks', detail: 'Draft by Elio',
+      send: 'Share on Stage', undo: 'Return to conversation',
+      ready: 'In conversation', received: 'Shared on Stage'
+    },
+    room: {
+      context: 'Launch room', from: 'Room chat', to: 'Pinned in room',
+      kind: 'Room note', title: 'Decisions from today', detail: 'Launch team',
+      send: 'Pin to room', undo: 'Unpin note',
+      ready: 'In room chat', received: 'Pinned in the launch room'
+    },
+    review: {
+      context: 'Editorial review', from: 'In review', to: 'Approved',
+      kind: 'Cover proof', title: 'Sunday edition', detail: 'Issue 08',
+      send: 'Approve proof', undo: 'Reopen review',
+      ready: 'Awaiting approval', received: 'Approved for publication'
+    }
+  };
+  const sheet = handoff.querySelector('.handoff-sheet');
+  const beds = handoff.querySelectorAll('.handoff-bed');
+  const corners = [...sheet.querySelectorAll('.handoff-corner')];
+  const action = handoff.querySelector('[data-transfer]');
+  const status = handoff.querySelector('output');
+  const slow = handoff.querySelector('[data-slow]');
+  const choices = [...handoff.querySelectorAll('[data-scene]')];
+  let scene = scenes.call;
+  let delivered = false;
+
+  function stopMovement() {
+    for (const animation of sheet.getAnimations({subtree: true})) animation.cancel();
+  }
+
+  function updateResult() {
+    action.textContent = delivered ? scene.undo : scene.send;
+    status.textContent = delivered ? scene.received : scene.ready;
+    sheet.toggleAttribute('data-registered', delivered);
+  }
+
+  function transfer() {
+    const previous = sheet.getBoundingClientRect();
+    stopMovement();
+    delivered = !delivered;
+    beds[Number(delivered)].append(sheet);
+    updateResult();
+    if (lessMotion.matches) return;
+
+    const next = sheet.getBoundingClientRect();
+    const speed = slow.checked ? 4 : 1;
+    const travel = enter * speed;
+    sheet.animate([
+      {transform: 'translate(' + (previous.x - next.x) + 'px, ' + (previous.y - next.y) + 'px)'},
+      {transform: 'none'}
+    ], {duration: travel, easing: ease});
+    if (delivered) {
+      corners.forEach((corner, index) => {
+        const offset = index === 0 ? '-4px, -4px' : '4px, 4px';
+        corner.animate([{opacity: 0}, {opacity: 1}], {delay: travel, duration: 1, fill: 'backwards'});
+        corner.animate([
+          {transform: 'translate(' + offset + ')'},
+          {transform: 'none'}
+        ], {delay: travel, duration: fast * speed, easing: 'steps(2, end)', fill: 'backwards'});
+      });
+    }
+  }
+
+  action.addEventListener('click', transfer);
+  for (const choice of choices) {
+    choice.addEventListener('click', () => {
+      if (scene === scenes[choice.dataset.scene]) return;
+      stopMovement();
+      scene = scenes[choice.dataset.scene];
+      delivered = false;
+      beds[0].append(sheet);
+      for (const key of ['context', 'from', 'to', 'kind', 'title', 'detail']) {
+        handoff.querySelector('[data-' + key + ']').textContent = scene[key];
+      }
+      handoff.querySelector('.handoff-context img').hidden = scene !== scenes.call;
+      for (const button of choices) button.setAttribute('aria-pressed', String(button === choice));
+      updateResult();
+    });
+  }
+  lessMotion.addEventListener('change', stopMovement);
+  let boardWidth = handoff.clientWidth;
+  new ResizeObserver(() => {
+    if (boardWidth !== handoff.clientWidth) stopMovement();
+    boardWidth = handoff.clientWidth;
+  }).observe(handoff);
+}

@@ -3847,7 +3847,29 @@ Read the copy in its real layout and test the actions it describes.
 
 [Open the working examples](https://brand.getshared.ai/brand/motion)
 
-Use animation to show the result of an action and help people follow changes in place.
+In Shared, you can follow a piece of work from one person or place to another. The work moves like a sheet of paper. Two ink corners click into place when it lands.
+
+
+### [The handoff](https://brand.getshared.ai/brand/motion#handoff-heading)
+
+A brief can move from a conversation to the Stage and still feel like the same brief. Try handing it over, then bringing it back.
+
+
+#### [Carry the original](https://brand.getshared.ai/brand/motion#handoff)
+
+Move the sheet on a direct line for 220 ms with Shared ease. Keep its title, scale and orientation. People should be able to track it with their eyes.
+
+
+#### [Register the landing](https://brand.getshared.ai/brand/motion#handoff)
+
+Once the destination accepts the work, two opposite ink corners close the last 4 px in two steps over 120 ms. Leave the corners and the written result in place.
+
+
+#### [Hold the room still](https://brand.getshared.ai/brand/motion#handoff)
+
+Keep the speaker, navigation and controls fixed. Use the handoff for a change of place or ownership. Typing, hovering and routine saves use ordinary feedback.
+
+If a transfer is pending, keep the sheet at its source and show a status there. If it fails, keep it available for retry. With reduced motion, show the sheet, corners and result together at the destination.
 
 
 ### [Easing lab](https://brand.getshared.ai/brand/motion#easing)

@@ -12,11 +12,45 @@
 <main id="main">
   <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
     <h1>Motion</h1>
-    <p>Use animation to show the result of an action and help people follow changes in place.</p>
-    <div class="family-links"><a href="#easing">Easing lab</a><a href="#buttons">Buttons</a><a href="#panels">Panels</a><a href="#page-transitions">Page transitions</a><a href="#sequences">Animation sequences</a><a href="#transitions">Interface transitions</a><a href="#timing">Timing</a><a href="#accessibility">Reduced motion</a></div>
+    <p>In Shared, you can follow a piece of work from one person or place to another. The work moves like a sheet of paper. Two ink corners click into place when it lands.</p>
+    <div class="family-links"><a href="#handoff">The handoff</a><a href="#easing">Easing lab</a><a href="#buttons">Buttons</a><a href="#panels">Panels</a><a href="#page-transitions">Page transitions</a><a href="#sequences">Animation sequences</a><a href="#transitions">Interface transitions</a><a href="#timing">Timing</a><a href="#accessibility">Reduced motion</a></div>
   </div></div></header>
   <!-- motion-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion" aria-current=page>Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
-  <section class="wrap mo-section" id="easing">
+  <section class="wrap mo-section" id="handoff" aria-labelledby="handoff-heading">
+  <h2 id="handoff-heading">The handoff</h2>
+  <p>A brief can move from a conversation to the Stage and still feel like the same brief. Try handing it over, then bringing it back.</p>
+  <div class="handoff-studio" data-handoff>
+    <div class="handoff-toolbar">
+      <div class="motion-view-controls" role="group" aria-label="Handoff examples">
+        <button type="button" class="motion-control" data-scene="call" aria-pressed="true">Live call</button>
+        <button type="button" class="motion-control" data-scene="room" aria-pressed="false">Room</button>
+        <button type="button" class="motion-control" data-scene="review" aria-pressed="false">Approval</button>
+      </div>
+      <label><input type="checkbox" data-slow> Slow motion</label>
+    </div>
+    <div class="handoff-board">
+      <div class="handoff-context"><img src="media/elio.webp" alt="" width="44" height="44"><strong data-context>Elio Live</strong></div>
+      <div class="handoff-spread">
+        <div class="handoff-slot"><span data-from>Conversation</span><div class="handoff-bed">
+          <div class="handoff-sheet"><small data-kind>Launch brief</small><strong data-title>Opening remarks</strong><span data-detail>Draft by Elio</span><i class="handoff-corner" aria-hidden="true"></i><i class="handoff-corner" aria-hidden="true"></i></div>
+        </div></div>
+        <div class="handoff-slot"><span data-to>Stage</span><div class="handoff-bed"></div></div>
+      </div>
+    </div>
+    <div class="handoff-footer">
+      <button class="motion-control" type="button" data-transfer>Share on Stage</button>
+      <output role="status">In conversation</output>
+    </div>
+  </div>
+  <div class="handoff-rules">
+    <div><h3>Carry the original</h3><p>Move the sheet on a direct line for 220 ms with Shared ease. Keep its title, scale and orientation. People should be able to track it with their eyes.</p></div>
+    <div><h3>Register the landing</h3><p>Once the destination accepts the work, two opposite ink corners close the last 4 px in two steps over 120 ms. Leave the corners and the written result in place.</p></div>
+    <div><h3>Hold the room still</h3><p>Keep the speaker, navigation and controls fixed. Use the handoff for a change of place or ownership. Typing, hovering and routine saves use ordinary feedback.</p></div>
+  </div>
+  <p class="handoff-note">If a transfer is pending, keep the sheet at its source and show a status there. If it fails, keep it available for retry. With reduced motion, show the sheet, corners and result together at the destination.</p>
+</section>
+
+<section class="wrap mo-section" id="easing">
   <h2>Easing lab</h2>
   <p>Each marker travels the same distance for the same duration. Play them side by side to see where each curve spends its time.</p>
   <div class="motion-lab" data-easing-lab>
