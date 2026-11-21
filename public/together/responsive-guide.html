@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Responsive | Shared</title>
+  <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
+  <link rel="stylesheet" href="layout-guides.css">
+  <script src="studio-nav.js" defer></script><script src="layout-guides.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
+    <h1>Responsive</h1>
+    <p>Keep the same work, navigation, and next action available from a phone to a wide desktop.</p>
+    <div class="family-links"><a href="#responsive-workbench">Resize the workbench</a><a href="#mobile-checks">Mobile checks</a><a href="/brand/grid">Grid</a></div>
+  </div></div></header>
+  <!-- layout-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive" aria-current=page>Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion">Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
+  <div class="wrap layout-guide">
+    <section id="responsive-workbench" class="layout-guide-section">
+      <h2>Reflow a workbench</h2>
+      <p>Start with one reading column. Add a rail and put supporting context beside the stage only when the available width can hold both comfortably.</p>
+      <div class="layout-lesson" data-layout-lesson>
+        <div class="layout-settings" data-layout-settings hidden>
+          <label>Preview width <input type="range" min="280" max="1120" value="1120" data-layout-width></label>
+          <output data-layout-size></output>
+        </div>
+        <div class="layout-fit" data-layout-fit>
+          <div class="layout-canvas" data-layout-canvas>
+            <div class="responsive-workbench" data-layout-view>
+              <div class="workbench-nav"><strong>Open Studio</strong><span class="workbench-rail">Workspace · Rooms · Live</span><span class="workbench-menu">Menu</span></div>
+              <div class="workbench-stage"><h3>Stage</h3><p>Choose the lead photograph for the launch brief.</p></div>
+              <div class="workbench-context"><h3>Context</h3><p>Spring launch · Creative studio</p></div>
+              <div class="workbench-compose"><strong>Composer</strong><p>Type to Elio</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Keep the stage first in the main content and move optional context below it on phones. Use the <a href="/brand#nav-app-sidebar">app sidebar</a> or <a href="/brand#nav-doc-sidebar">documentation sidebar</a> patterns to keep navigation available at narrow widths.</p>
+    </section>
+    <section id="mobile-checks" class="layout-guide-section">
+      <h2>Mobile checks</h2>
+      <dl class="layout-rules">
+        <div><dt>Read from top to bottom</dt><dd>Keep visual order, reading order, and keyboard order aligned. Put the title, current state, and main action ahead of supporting material.</dd></div>
+        <div><dt>Keep controls usable</dt><dd>Use at least 44 px for touch targets. Let button groups wrap and allow text and labels to grow at 200% zoom.</dd></div>
+        <div><dt>Contain wide material</dt><dd>Let a long table or code example scroll within its own labelled region. Keep the page itself inside the viewport.</dd></div>
+        <div><dt>Test at the edges</dt><dd>Check 320 and 390 px phones, a tablet, and a wide desktop. Test long labels, open drawers, keyboard focus, and a direct link to a section.</dd></div>
+      </dl>
+    </section>
+  </div>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand">Brand guide</a><a href="/brand/grid">Grid</a></div></footer>
+</body></html>

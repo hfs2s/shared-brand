@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grid | Shared</title>
+  <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
+  <link rel="stylesheet" href="layout-guides.css">
+  <script src="studio-nav.js" defer></script><script src="layout-guides.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
+    <h1>Grid</h1>
+    <p>Align page regions to a shared column system. Let the grid respond to the space the content actually has.</p>
+    <div class="family-links"><a href="#grid-specimen">Try the grid</a><a href="#grid-rules">Spans and spacing</a><a href="/brand/responsive">Responsive</a></div>
+  </div></div></header>
+  <!-- layout-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid" aria-current=page>Grid</a><a href="/brand/motion">Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
+  <div class="wrap layout-guide">
+    <section class="layout-guide-section" id="grid-specimen">
+      <h2>Column grid</h2>
+      <p>Resize the example to see four, eight, and twelve columns. The preview reports the available width and its current column count.</p>
+      <div class="layout-lesson" data-layout-lesson>
+        <div class="layout-settings" data-layout-settings hidden>
+          <label>Preview width <input type="range" min="280" max="1120" value="1120" data-layout-width></label>
+          <output data-layout-size></output>
+          <label class="layout-overlay-control"><input type="checkbox" data-layout-overlay checked> Show columns</label>
+        </div>
+        <div class="layout-fit" data-layout-fit>
+          <div class="layout-canvas" data-layout-canvas data-show-grid>
+            <div class="columns-example" data-layout-view>
+              <div class="sample-heading"><strong>Page heading</strong></div>
+              <div class="sample-main"><strong>Main content</strong><p>The work gets the largest region.</p></div>
+              <div class="sample-side"><strong>Supporting context</strong><p>Move it below the work on narrow screens.</p></div>
+              <div class="sample-footer"><strong>Actions</strong></div>
+              <div class="columns-overlay" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="layout-guide-section" id="grid-rules">
+      <h2>Spans and spacing</h2>
+      <dl class="layout-rules">
+        <div><dt>Narrow · 4 columns</dt><dd>Below 640 px of available width, let the page regions span all four columns and stack in reading order.</dd></div>
+        <div><dt>Medium · 8 columns</dt><dd>At 640 px, use eight columns. Give work and supporting context a 5 + 3 split when each remains readable.</dd></div>
+        <div><dt>Wide · 12 columns</dt><dd>At 1024 px, use twelve columns. Use an 8 + 4 split for work and context. Keep headings and task actions aligned to the page grid.</dd></div>
+        <div><dt>Gutters, gaps, and reading width</dt><dd>Use <code>--gutter</code> for the page edge, <code>--content-gap</code> between page regions, and <code>--wrap-max</code> for the outer width. Limit long text to about 65–72 characters per line.</dd></div>
+      </dl>
+      <p>Measure the content area after a sidebar takes its space. Let card grids wrap according to their minimum usable width. The paper texture uses <code>--grid-step</code> independently of the layout columns.</p>
+    </section>
+  </div>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand">Brand guide</a><a href="/brand/responsive">Responsive</a></div></footer>
+</body></html>

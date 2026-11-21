@@ -4,6 +4,8 @@ window.sharedStudioSectionRoutes = Object.freeze({
   "/brand/icons/sketch": "/together/sketch-icons",
   "/brand/motion": "/together/motion-guide",
   "/brand/loaders": "/together/motion",
+  "/brand/responsive": "/together/responsive-guide",
+  "/brand/grid": "/together/grid-guide",
   "/components/generative": "/together/generative",
   "/artifacts/photography": "/together/photography",
   "/artifacts/video": "/together/video",

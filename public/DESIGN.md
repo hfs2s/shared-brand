@@ -3187,6 +3187,86 @@ First paint
 
 - Reveal each view after its styles and fonts are ready. Reserve the brand animation for an eligible full-page load. Navigation within the studio keeps the header in place.
 
+## Responsive
+
+[Open the working examples](https://brand.getshared.ai/brand/responsive)
+
+Keep the same work, navigation, and next action available from a phone to a wide desktop.
+
+
+### [Reflow a workbench](https://brand.getshared.ai/brand/responsive#responsive-workbench)
+
+Start with one reading column. Add a rail and put supporting context beside the stage only when the available width can hold both comfortably.
+
+
+#### [Stage](https://brand.getshared.ai/brand/responsive#responsive-workbench)
+
+Choose the lead photograph for the launch brief.
+
+
+#### [Context](https://brand.getshared.ai/brand/responsive#responsive-workbench)
+
+Spring launch · Creative studio
+
+Type to Elio
+
+Keep the stage first in the main content and move optional context below it on phones. Use the app sidebar or documentation sidebar patterns to keep navigation available at narrow widths.
+
+
+### [Mobile checks](https://brand.getshared.ai/brand/responsive#mobile-checks)
+
+Read from top to bottom
+
+- Keep visual order, reading order, and keyboard order aligned. Put the title, current state, and main action ahead of supporting material.
+
+Keep controls usable
+
+- Use at least 44 px for touch targets. Let button groups wrap and allow text and labels to grow at 200% zoom.
+
+Contain wide material
+
+- Let a long table or code example scroll within its own labelled region. Keep the page itself inside the viewport.
+
+Test at the edges
+
+- Check 320 and 390 px phones, a tablet, and a wide desktop. Test long labels, open drawers, keyboard focus, and a direct link to a section.
+
+## Grid
+
+[Open the working examples](https://brand.getshared.ai/brand/grid)
+
+Align page regions to a shared column system. Let the grid respond to the space the content actually has.
+
+
+### [Column grid](https://brand.getshared.ai/brand/grid#grid-specimen)
+
+Resize the example to see four, eight, and twelve columns. The preview reports the available width and its current column count.
+
+The work gets the largest region.
+
+Move it below the work on narrow screens.
+
+
+### [Spans and spacing](https://brand.getshared.ai/brand/grid#grid-rules)
+
+Narrow · 4 columns
+
+- Below 640 px of available width, let the page regions span all four columns and stack in reading order.
+
+Medium · 8 columns
+
+- At 640 px, use eight columns. Give work and supporting context a 5 + 3 split when each remains readable.
+
+Wide · 12 columns
+
+- At 1024 px, use twelve columns. Use an 8 + 4 split for work and context. Keep headings and task actions aligned to the page grid.
+
+Gutters, gaps, and reading width
+
+- Use --gutter for the page edge, --content-gap between page regions, and --wrap-max for the outer width. Limit long text to about 65–72 characters per line.
+
+Measure the content area after a sidebar takes its space. Let card grids wrap according to their minimum usable width. The paper texture uses --grid-step independently of the layout columns.
+
 ## Writing
 
 [Open the working examples](https://brand.getshared.ai/copy)
