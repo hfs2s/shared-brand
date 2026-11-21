@@ -268,12 +268,14 @@ if (handoff) {
     ], {duration: travel, easing: ease});
     if (delivered) {
       corners.forEach((corner, index) => {
-        const offset = index === 0 ? '-4px, -4px' : '4px, 4px';
+        const distance = tokens.getPropertyValue('--motion-register-distance').trim() || '4px';
+        const delta = index === 0 ? '-' + distance : distance;
+        const offset = delta + ', ' + delta;
         corner.animate([{opacity: 0}, {opacity: 1}], {delay: travel, duration: 1, fill: 'backwards'});
         corner.animate([
           {transform: 'translate(' + offset + ')'},
           {transform: 'none'}
-        ], {delay: travel, duration: fast * speed, easing: 'steps(2, end)', fill: 'backwards'});
+        ], {delay: travel, duration: fast * speed, easing: tokens.getPropertyValue('--motion-register-ease').trim() || 'steps(2, end)', fill: 'backwards'});
       });
     }
   }
@@ -300,4 +302,170 @@ if (handoff) {
     if (boardWidth !== handoff.clientWidth) stopMovement();
     boardWidth = handoff.clientWidth;
   }).observe(handoff);
+}
+
+const study = document.querySelector('#motion-study');
+if (study) {
+  const frames = [
+    {
+      title: 'Open the room', note: 'The blue binding holds its place while the cover draws back, revealing the people and the proof inside.',
+      gesture: 'Cover retracts to the binding', timing: '220 ms · Shared ease',
+      anchor: 'Binding and room title bar', cue: 'Room closed', next: 'Open room'
+    },
+    {
+      title: 'Open the room', note: 'Follow the blue binding back to the room cover when you close the review. The room keeps its position in both directions.',
+      gesture: 'Cover retracts to the binding', timing: '220 ms · Shared ease',
+      anchor: 'Binding and room title bar', cue: 'Les has the floor', next: 'Pass to Elio'
+    },
+    {
+      title: 'Pass the floor', note: 'The blue rule travels from Les to Elio in one beat. The portraits stay still so the eye can follow the change of speaker.',
+      gesture: 'Speaker rule crosses the rail', timing: '120 ms · Shared ease',
+      anchor: 'Both portraits and the proof', cue: 'Elio has the floor', next: 'Apply edit'
+    },
+    {
+      title: 'Mark the revision', note: 'Elio changes the opening time from ten to noon. A line of blue ink draws under the replacement and stays there for review.',
+      gesture: 'Underline draws from the first letter', timing: '220 ms · Shared ease',
+      anchor: 'Baseline and surrounding copy', cue: 'Opening time revised', next: 'Approve proof'
+    },
+    {
+      title: 'Print the decision', note: 'Two corners close around the word “Approved”. The decision belongs to this proof, so its mark stays on the paper.',
+      gesture: 'Opposite corners close 4 px', timing: '120 ms · Two equal steps',
+      anchor: 'Proof and approval label', cue: 'Proof approved', next: 'Close room'
+    }
+  ];
+  const score = study.querySelector('.score');
+  const play = study.querySelector('[data-score-play]');
+  const next = study.querySelector('.score-next');
+  const inside = study.querySelector('.score-inside');
+  const cover = study.querySelector('.score-cover');
+  const choices = [...study.querySelectorAll('[data-frame]')];
+  const inspector = score.querySelector('.score-inspect');
+  const position = inspector.querySelector('input');
+  const elapsed = inspector.querySelector('output');
+  const slow = study.querySelector('.score-slow input');
+  let frame = 0;
+  let timer = null;
+  let inspected = [];
+
+  function finishInspection() {
+    for (const animation of inspected) animation.finish();
+    inspected = [];
+    inspector.open = false;
+  }
+
+  function cutTo(index) {
+    score.setAttribute('data-cut', '');
+    render(index);
+    void score.offsetWidth;
+    score.removeAttribute('data-cut');
+    void score.offsetWidth;
+  }
+
+  function render(index) {
+    frame = index;
+    const item = frames[index];
+    score.dataset.scoreState = String(index);
+    score.dataset.floor = index >= 2 ? 'elio' : 'les';
+    score.toggleAttribute('data-edited', index >= 3);
+    score.toggleAttribute('data-approved', index === 4);
+    inside.inert = index === 0;
+    inside.setAttribute('aria-hidden', String(index === 0));
+    cover.setAttribute('aria-hidden', String(index > 0));
+    for (const choice of choices) choice.setAttribute('aria-pressed', String(Number(choice.dataset.frame) === index));
+    score.querySelector('.score-new').textContent = index >= 3 ? 'noon' : 'ten';
+    score.querySelector('.score-verdict').textContent = index === 4 ? 'Approved' : 'In review';
+    score.querySelector('.score-direction h3').textContent = item.title;
+    score.querySelector('.score-direction p').textContent = item.note;
+    score.querySelector('[data-gesture]').textContent = item.gesture;
+    score.querySelector('[data-time]').textContent = item.timing;
+    score.querySelector('[data-anchor]').textContent = item.anchor;
+    score.querySelector('.score-cue').textContent = item.cue;
+    next.textContent = item.next;
+  }
+
+  function stop() {
+    clearTimeout(timer);
+    timer = null;
+    play.textContent = frame === 4 ? 'Replay review' : 'Play review';
+  }
+
+  function schedule() {
+    if (frame === 4) {
+      stop();
+      return;
+    }
+    play.textContent = 'Pause review';
+    timer = setTimeout(() => {
+      render(frame + 1);
+      schedule();
+    }, 3200);
+  }
+
+  for (const choice of choices) {
+    choice.addEventListener('click', () => {
+      const chapter = Number(choice.dataset.frame);
+      finishInspection();
+      if (chapter !== frame + 1) cutTo(chapter - 1);
+      render(chapter);
+      stop();
+    });
+  }
+  play.addEventListener('click', () => {
+    if (timer !== null) {
+      stop();
+      return;
+    }
+    finishInspection();
+    if (frame === 4) cutTo(0);
+    if (frame === 0) render(1);
+    schedule();
+  });
+  next.addEventListener('click', () => {
+    finishInspection();
+    render((frame + 1) % frames.length);
+    stop();
+  });
+  slow.addEventListener('change', () => {
+    finishInspection();
+    score.toggleAttribute('data-slow', slow.checked);
+  });
+  function scrub() {
+    const time = Number(position.value);
+    const fraction = time / Number(position.max);
+    for (const animation of inspected) {
+      animation.currentTime = fraction * animation.effect.getTiming().duration;
+    }
+    elapsed.value = time + ' ms';
+    position.setAttribute('aria-valuetext', elapsed.value);
+  }
+
+  function inspect() {
+    if (!inspector.open) {
+      finishInspection();
+      return;
+    }
+    stop();
+    const chapter = Math.max(frame, 1);
+    const duration = chapter === 1 || chapter === 3 ? enter : fast;
+    cutTo(chapter - 1);
+    render(chapter);
+    position.max = String(duration);
+    position.disabled = lessMotion.matches;
+    position.value = lessMotion.matches ? position.max : '0';
+    inspector.querySelector('p').textContent = lessMotion.matches
+      ? 'Reduced motion is on. The finished frame is shown.'
+      : 'Drag to inspect the selected gesture. Arrow keys move one millisecond.';
+    void score.offsetWidth;
+    inspected = score.getAnimations({subtree: true});
+    for (const animation of inspected) animation.pause();
+    scrub();
+  }
+
+  inspector.addEventListener('toggle', inspect);
+  position.addEventListener('input', scrub);
+  lessMotion.addEventListener('change', () => {
+    finishInspection();
+    stop();
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
 }

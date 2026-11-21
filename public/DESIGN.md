@@ -3847,7 +3847,56 @@ Read the copy in its real layout and test the actions it describes.
 
 [Open the working examples](https://brand.getshared.ai/brand/motion)
 
-In Shared, you can follow a piece of work from one person or place to another. The work moves like a sheet of paper. Two ink corners click into place when it lands.
+Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. See how those gestures work together in an Elio room.
+
+
+### [Launch review](https://brand.getshared.ai/brand/motion#study-title)
+
+
+#### [Open the room](https://brand.getshared.ai/brand/motion#motion-study)
+
+The blue binding holds its place while the cover draws back, revealing the people and the proof inside.
+
+Movement
+
+- Cover retracts to the binding
+
+Timing
+
+- 220 ms · Shared ease
+
+Stays still
+
+- Binding and room title bar
+
+Drag to inspect the selected gesture. Arrow keys move one millisecond.
+
+
+### [Using the gestures](https://brand.getshared.ai/brand/motion#motion-language)
+
+Choose the gesture by what the person needs to follow. Keep one point still throughout each change.
+
+
+#### [Open along a binding](https://brand.getshared.ai/brand/motion#motion-language)
+
+For a room or document, reveal the inside from the edge that held its cover. On Back, close against the same edge. A modal or unrelated page gets an ordinary entrance.
+
+
+#### [Pass the floor](https://brand.getshared.ai/brand/motion#motion-language)
+
+A short blue rule sits under the person speaking. Move it when the call confirms a new speaker. During silence, clear the speaker label and rule. Keep the portraits, mute button and captions stationary.
+
+
+#### [Underline the revision](https://brand.getshared.ai/brand/motion#motion-language)
+
+When someone accepts an edit, show the replacement immediately and draw one line beneath the changed words. Keep the previous wording in the review history. Apply this once per accepted edit.
+
+
+#### [Print the decision](https://brand.getshared.ai/brand/motion#motion-language)
+
+Use the two ink corners from the handoff to register a confirmed approval. Print the verdict inside the proof. If someone reopens the review, clear the corners and restore its review status.
+
+Bind each gesture to a confirmed state change. Keep the same element mounted so reversing a gesture starts at its current position. For reduced motion, remove transitions and show the open room, speaker label, marked words, or written verdict immediately.
 
 
 ### [The handoff](https://brand.getshared.ai/brand/motion#handoff-heading)

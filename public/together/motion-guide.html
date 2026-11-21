@@ -10,13 +10,82 @@
 <link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
 <main id="main">
-  <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
+  <header class="wrap score-intro">
     <h1>Motion</h1>
-    <p>In Shared, you can follow a piece of work from one person or place to another. The work moves like a sheet of paper. Two ink corners click into place when it lands.</p>
-    <div class="family-links"><a href="#handoff">The handoff</a><a href="#easing">Easing lab</a><a href="#buttons">Buttons</a><a href="#panels">Panels</a><a href="#page-transitions">Page transitions</a><a href="#sequences">Animation sequences</a><a href="#transitions">Interface transitions</a><a href="#timing">Timing</a><a href="#accessibility">Reduced motion</a></div>
-  </div></div></header>
+    <p>Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. See how those gestures work together in an Elio room.</p>
+  </header>
   <!-- motion-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion" aria-current=page>Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
-  <section class="wrap mo-section" id="handoff" aria-labelledby="handoff-heading">
+  <section class="wrap score-section" id="motion-study" aria-labelledby="study-title">
+  <div class="score-heading">
+    <h2 id="study-title">Launch review</h2>
+    <button class="motion-control score-play" type="button" data-score-play>Play review</button>
+  </div>
+  <div class="score" data-score-state="0">
+    <div class="score-stage">
+      <div class="score-mast"><span>Elio Live</span><span>Launch room</span></div>
+      <div class="score-book">
+        <div class="score-inside" inert aria-hidden="true">
+          <div class="score-people">
+            <div class="score-person"><b aria-hidden="true">L</b><span>Les</span></div>
+            <div class="score-person"><img src="media/elio.webp" alt="" width="36" height="36"><span>Elio</span></div>
+            <i class="score-speaker" aria-hidden="true"></i>
+          </div>
+          <div class="score-proof">
+            <img class="score-proof-art" src="media/artifact-poster-paper-relief.webp" alt="Yellow, blue and mint folded-paper study">
+            <div class="score-proof-text">
+              <small>Invitation proof</small><strong>Open studio</strong>
+              <div class="score-line">Doors open at <span class="score-new">ten</span>.</div>
+              <span class="score-verdict">In review</span>
+            </div>
+          </div>
+        </div>
+        <div class="score-cover">
+          <div class="score-cover-type"><span>Launch room</span><strong>Open<br>studio</strong><small>Invitation &amp; print review</small></div>
+          <img src="media/artifact-poster-cobalt-workbench.webp" alt="A cobalt sheet held on a drafting table">
+        </div>
+      </div>
+      <div class="score-caption"><span class="score-cue">Room closed</span><button type="button" class="motion-control score-next">Open room</button></div>
+    </div>
+    <div class="score-notes">
+      <div class="score-choices" role="group" aria-label="Review chapters">
+        <button type="button" data-frame="1" aria-pressed="false">Open room</button>
+        <button type="button" data-frame="2" aria-pressed="false">Pass the floor</button>
+        <button type="button" data-frame="3" aria-pressed="false">Edit proof</button>
+        <button type="button" data-frame="4" aria-pressed="false">Approve</button>
+      </div>
+      <div class="score-direction" aria-live="polite" aria-atomic="true"><h3>Open the room</h3><p>The blue binding holds its place while the cover draws back, revealing the people and the proof inside.</p></div>
+      <dl class="score-spec"><div><dt>Movement</dt><dd data-gesture>Cover retracts to the binding</dd></div><div><dt>Timing</dt><dd data-time>220 ms · Shared ease</dd></div><div><dt>Stays still</dt><dd data-anchor>Binding and room title bar</dd></div></dl>
+      <label class="score-slow"><input type="checkbox"> Play gestures at ¼ speed</label>
+      <details class="score-inspect"><summary>Inspect frame by frame</summary>
+        <label for="score-position">Gesture time <output for="score-position">0 ms</output></label>
+        <input id="score-position" type="range" min="0" max="220" step="1" value="0">
+        <p>Drag to inspect the selected gesture. Arrow keys move one millisecond.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap mo-section" id="motion-language">
+  <h2>Using the gestures</h2>
+  <p>Choose the gesture by what the person needs to follow. Keep one point still throughout each change.</p>
+  <div class="score-rules">
+    <article><h3>Open along a binding</h3><p>For a room or document, reveal the inside from the edge that held its cover. On Back, close against the same edge. A modal or unrelated page gets an ordinary entrance.</p><code>clip-path · 220 ms · Shared ease</code></article>
+    <article><h3>Pass the floor</h3><p>A short blue rule sits under the person speaking. Move it when the call confirms a new speaker. During silence, clear the speaker label and rule. Keep the portraits, mute button and captions stationary.</p><code>translate · 120 ms · Shared ease</code></article>
+    <article><h3>Underline the revision</h3><p>When someone accepts an edit, show the replacement immediately and draw one line beneath the changed words. Keep the previous wording in the review history. Apply this once per accepted edit.</p><code>scaleX · 220 ms · left to right</code></article>
+    <article><h3>Print the decision</h3><p>Use the two ink corners from the handoff to register a confirmed approval. Print the verdict inside the proof. If someone reopens the review, clear the corners and restore its review status.</p><code>4 px · 2 steps · 120 ms</code></article>
+  </div>
+  <details class="score-reference"><summary>Implementation and reduced motion</summary>
+    <p>Bind each gesture to a confirmed state change. Keep the same element mounted so reversing a gesture starts at its current position. For reduced motion, remove transitions and show the open room, speaker label, marked words, or written verdict immediately.</p>
+    <pre><code>--motion-fast: 120ms;
+--motion-enter: 220ms;
+--motion-ease: cubic-bezier(.2,.8,.2,1);
+--motion-register-ease: steps(2, end);
+--motion-register-distance: 4px;</code></pre>
+  </details>
+  <nav class="family-links" aria-label="Motion examples"><a href="#handoff">Handoff</a><a href="#easing">Easing lab</a><a href="#buttons">Buttons</a><a href="#panels">Panels</a><a href="#page-transitions">Page transitions</a><a href="#sequences">Sequences</a><a href="#transitions">Interface transitions</a><a href="#timing">Timing</a><a href="#accessibility">Reduced motion</a></nav>
+</section>
+
+<section class="wrap mo-section" id="handoff" aria-labelledby="handoff-heading">
   <h2 id="handoff-heading">The handoff</h2>
   <p>A brief can move from a conversation to the Stage and still feel like the same brief. Try handing it over, then bringing it back.</p>
   <div class="handoff-studio" data-handoff>
