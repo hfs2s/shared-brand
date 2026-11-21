@@ -5,7 +5,7 @@
   <title>Responsive | Shared</title>
   <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
-  <link rel="stylesheet" href="layout-guides.css">
+  <link rel="stylesheet" href="layout-guides.css"><link rel="stylesheet" href="layout-patterns.css">
   <script src="studio-nav.js" defer></script><script src="layout-guides.js" defer></script>
 <link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
@@ -13,10 +13,125 @@
   <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
     <h1>Responsive</h1>
     <p>Keep the same work, navigation, and next action available from a phone to a wide desktop.</p>
-    <div class="family-links"><a href="#responsive-workbench">Resize the workbench</a><a href="#mobile-checks">Mobile checks</a><a href="/brand/grid">Grid</a></div>
+    <div class="family-links"><a href="#responsive-layouts">Standard layouts</a><a href="#responsive-workbench">Resize the workbench</a><a href="#responsive-decisions">Reflow decisions</a><a href="#mobile-checks">Mobile checks</a><a href="/brand/grid">Grid</a></div>
   </div></div></header>
   <!-- layout-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive" aria-current=page>Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion">Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
   <div class="wrap layout-guide">
+    <section id="responsive-layouts" class="layout-guide-section">
+  <h2>Standard responsive layouts</h2>
+  <p>Set a preview width to compare how the same content changes across seven common layouts. The control resizes every example below.</p>
+  <div class="layout-lesson layout-pattern-gallery" data-layout-lesson>
+    <div class="layout-settings" data-layout-settings hidden>
+      <label>Preview width <input type="range" min="280" max="1120" value="1120" data-layout-width></label><output data-layout-size></output>
+      <div class="layout-presets" role="group" aria-label="Preview width presets">
+        <button type="button" data-layout-preset="360">360 px</button><button type="button" data-layout-preset="720">720 px</button><button type="button" data-layout-preset="1080">1080 px</button>
+      </div>
+    </div>
+    <div class="layout-fit" data-layout-fit>
+      <article class="layout-pattern" id="layout-landing">
+        <h3>Landing page</h3>
+        <p>Put the title, purpose, and main action before the illustration. Let the illustration move alongside the introduction once both have room.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-landing" data-layout-view>
+            <div class="pattern-region pattern-main"><strong>Open Studio</strong><p>Bring a draft and leave with a next step.</p><a class="pattern-action" href="#landing-details">See event details</a></div>
+            <div class="pattern-region pattern-support pattern-visual gridpaper"><strong>Friday’s programme</strong><span>Welcome · Review · Handoff</span></div>
+            <div class="pattern-region pattern-foot" id="landing-details"><strong>Event details</strong><span>Room 04 · 14:00 CET</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="layout-pattern" id="layout-app">
+        <h3>App shell with side navigation</h3>
+        <p>Use a rail for persistent app destinations. On phones, move the same destinations behind an explicit Menu control and keep the current page in the header.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-shell" data-layout-view>
+            <div class="pattern-region pattern-mast"><strong>Elio · Live</strong><span class="pattern-mobile-only">Menu</span></div>
+            <div class="pattern-region pattern-rail"><strong>Workspace</strong><span>Overview · Rooms · Live</span></div>
+            <div class="pattern-region pattern-main"><strong>Stage</strong><p>Review the launch brief together.</p></div>
+            <div class="pattern-region pattern-foot"><strong>Composer</strong><span>Type to Elio</span></div>
+          </div>
+        </div>
+        <p class="layout-pattern-link"><a href="/brand#nav-app-sidebar">Try the working app drawer</a></p>
+      </article>
+      <article class="layout-pattern" id="layout-doc">
+        <h3>Documentation article</h3>
+        <p>Keep a readable article measure beside the chapter outline. On phones, use one Contents disclosure above the article and keep links to individual headings.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-doc" data-layout-view>
+            <div class="pattern-region pattern-rail"><strong><span class="pattern-wide-only">On this page</span><span class="pattern-mobile-only">Contents</span></strong><span class="pattern-wide-only">Ownership · Placement · Verification</span></div>
+            <div class="pattern-region pattern-main"><strong>Multi-node architecture</strong><p>Assign a node owner. Record where work runs and how to recover it.</p></div>
+          </div>
+        </div>
+        <p class="layout-pattern-link"><a href="/brand#nav-doc-sidebar">Try the working documentation outline</a></p>
+      </article>
+      <article class="layout-pattern" id="layout-detail">
+        <h3>List and detail</h3>
+        <p>Keep selection and detail side by side when there is room. For longer lists on phones, open the item as its own view with a clear way back to the selection.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-list-detail" data-layout-view>
+            <div class="pattern-region pattern-mast"><strong>Campaign rooms</strong></div>
+            <div class="pattern-region pattern-rail"><strong>Rooms</strong><span>Spring launch · Open Studio · Field notes</span></div>
+            <div class="pattern-region pattern-main"><strong>Spring launch</strong><p>Choose the lead photograph and name the editor.</p></div>
+          </div>
+        </div>
+      </article>
+      <article class="layout-pattern" id="layout-collection">
+        <h3>Collection and filters</h3>
+        <p>Put search and filters before the results. Let controls wrap on small screens and let the cards wrap below as soon as their titles and status labels need more room.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-cards" data-layout-view>
+            <div class="pattern-region pattern-mast pattern-filters"><strong>Campaign rooms</strong><span>Search rooms · All statuses</span></div>
+            <div class="pattern-region pattern-tile"><strong>Spring launch</strong><span>In review</span></div>
+            <div class="pattern-region pattern-tile"><strong>Open Studio</strong><span>Ready</span></div>
+            <div class="pattern-region pattern-tile"><strong>Field notes</strong><span>Draft</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="layout-pattern" id="layout-form">
+        <h3>Form and review</h3>
+        <p>Keep the fields in one reading sequence. Put optional guidance beside the form when it fits. Keep the save action with the form when the guidance moves below.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-form" data-layout-view>
+            <form class="pattern-region pattern-main" data-layout-form>
+              <strong>Room settings</strong>
+              <div class="pattern-field"><label for="preview-room">Room name</label><input id="preview-room" name="room" value="Spring launch" required maxlength="80"></div>
+              <div class="pattern-field"><label for="preview-access">Access</label><select id="preview-access" name="access"><option value="invited">Invited people</option><option value="members">Workspace members</option></select></div>
+              <button class="pattern-action" type="submit" disabled>Save preview settings</button><p role="status"></p>
+            </form>
+            <div class="pattern-region pattern-support"><strong>Access summary</strong><p data-layout-access>Invited people join with the address on their invitation.</p></div>
+          </div>
+        </div>
+      </article>
+      <article class="layout-pattern" id="layout-table">
+        <h3>Data table</h3>
+        <p>Keep comparison rows intact. Allow the table to scroll inside a labelled region when the fields exceed the width. Put essential identifiers first and let the surrounding page stay still.</p>
+        <div class="layout-canvas" data-layout-canvas>
+          <div class="pattern-view pattern-table" data-layout-view>
+            <div class="pattern-region pattern-main">
+              <div class="pattern-table-scroll" role="region" aria-label="Room activity table" tabindex="0">
+                <table><caption>Room activity</caption><thead><tr><th scope="col">Room</th><th scope="col">State</th><th scope="col">Owner</th><th scope="col">Next review</th></tr></thead><tbody>
+                  <tr><th scope="row">Spring launch</th><td>Review</td><td>Creative studio</td><td>Thu · 12:00 CET</td></tr>
+                  <tr><th scope="row">Open Studio</th><td>Ready</td><td>Events</td><td>Fri · 14:00 CET</td></tr>
+                </tbody></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="responsive-decisions" class="layout-guide-section">
+  <h2>Choose how a layout changes</h2>
+  <dl class="layout-rules">
+    <div><dt>Stack</dt><dd>Use when the same content belongs in the same page. Move supporting context below the primary task and keep the document order consistent.</dd></div>
+    <div><dt>Wrap</dt><dd>Use for card lists, action groups, and other peers. Test the longest realistic label and let the row break before text or touch targets get cramped.</dd></div>
+    <div><dt>Disclose</dt><dd>Use for secondary navigation or optional detail. Keep a labelled control in reach and make the current choice clear even when the panel is closed.</dd></div>
+    <div><dt>Open a separate view</dt><dd>Use for deep detail when list and detail compete for space. Preserve search, selection, and the list’s scroll position when the reader returns.</dd></div>
+    <div><dt>Scroll a region</dt><dd>Use for material with a meaningful two-dimensional order, such as a table or timeline. Give the region a name, a visible scroll affordance, and keyboard access.</dd></div>
+    <div><dt>Choose a breakpoint by fit</dt><dd>Resize with real labels and data. Change the layout when it can no longer fit the work and controls. Use a container query when the same component can live inside different shells.</dd></div>
+  </dl>
+</section>
+
     <section id="responsive-workbench" class="layout-guide-section">
       <h2>Reflow a workbench</h2>
       <p>Start with one reading column. Add a rail and put supporting context beside the stage only when the available width can hold both comfortably.</p>

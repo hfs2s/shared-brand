@@ -5,7 +5,7 @@
   <title>Grid | Shared</title>
   <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
-  <link rel="stylesheet" href="layout-guides.css">
+  <link rel="stylesheet" href="layout-guides.css"><link rel="stylesheet" href="layout-patterns.css">
   <script src="studio-nav.js" defer></script><script src="layout-guides.js" defer></script>
 <link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
@@ -13,10 +13,120 @@
   <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
     <h1>Grid</h1>
     <p>Align page regions to a shared column system. Let the grid respond to the space the content actually has.</p>
-    <div class="family-links"><a href="#grid-specimen">Try the grid</a><a href="#grid-rules">Spans and spacing</a><a href="/brand/responsive">Responsive</a></div>
+    <div class="family-links"><a href="#grid-layouts">Standard layouts</a><a href="#grid-specimen">Try the grid</a><a href="#grid-rules">Spans and spacing</a><a href="/brand/responsive">Responsive</a></div>
   </div></div></header>
   <!-- layout-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid" aria-current=page>Grid</a><a href="/brand/motion">Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
   <div class="wrap layout-guide">
+    <section id="grid-layouts" class="layout-guide-section">
+  <h2>Standard grid layouts</h2>
+  <p>Resize the examples together. Turn the overlay on to see where each region starts and ends. The span recipes assume the width available to the composition after its gutters.</p>
+  <div class="layout-lesson layout-pattern-gallery" data-layout-lesson>
+    <div class="layout-settings" data-layout-settings hidden>
+      <label>Preview width <input type="range" min="280" max="1120" value="1120" data-layout-width></label><output data-layout-size></output>
+      <div class="layout-presets" role="group" aria-label="Preview width presets">
+        <button type="button" data-layout-preset="360">360 px</button><button type="button" data-layout-preset="720">720 px</button><button type="button" data-layout-preset="1080">1080 px</button>
+      </div>
+      <label class="layout-overlay-control"><input type="checkbox" data-layout-overlay checked> Show columns</label>
+    </div>
+    <div class="layout-fit" data-layout-fit>
+      <article class="layout-pattern" id="grid-reading">
+        <h3>Centered reading column</h3>
+        <p>Use for a policy, article, or report with one reading path. Align the heading, prose, and references to a centered lane.</p>
+        <p class="layout-span">4 of 4 · centered 6 of 8 · centered 8 of 12</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-reading" data-layout-view>
+          <div class="pattern-region pattern-main"><strong>Workshop notes</strong><p>The brief, decisions, and next actions sit in one reading column.</p></div>
+          <div class="pattern-region pattern-foot"><strong>Related reading</strong><span>Launch brief · Review notes</span></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+      <article class="layout-pattern" id="grid-editorial">
+        <h3>Editorial feature</h3>
+        <p>Use for an opening section with a clear message and a supporting image or diagram. Keep the introduction first and let later sections follow the same grid.</p>
+        <p class="layout-span">4 + 4 stacked · 5 + 3 · 7 + 5</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-landing" data-layout-view>
+          <div class="pattern-region pattern-main"><strong>Make it easier to join</strong><p>Show when the workshop starts and where to go.</p></div>
+          <div class="pattern-region pattern-support pattern-visual gridpaper"><strong>Entrance and arrival</strong><span>Programme illustration</span></div>
+          <div class="pattern-region pattern-foot"><strong>Programme</strong></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+      <article class="layout-pattern" id="grid-collection">
+        <h3>Card collection</h3>
+        <p>Use equal spans for peers when title, status, and next action share a consistent structure. Let cards wrap in source order and keep their text independent of neighboring card height.</p>
+        <p class="layout-span">One, two, then three cards per row · 4 columns per card</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-cards" data-layout-view>
+          <div class="pattern-region pattern-mast"><strong>Campaign rooms</strong></div>
+          <div class="pattern-region pattern-tile"><strong>Spring launch</strong><span>In review</span></div>
+          <div class="pattern-region pattern-tile"><strong>Open Studio</strong><span>Ready</span></div>
+          <div class="pattern-region pattern-tile"><strong>Field notes</strong><span>Draft</span></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+      <article class="layout-pattern" id="grid-split">
+        <h3>Split workspace</h3>
+        <p>Use a dominant region for the work and a narrower inspector for context. Stack the inspector after the work on phones. Keep shared actions aligned to the full grid.</p>
+        <p class="layout-span">4 + 4 stacked · 5 + 3 · 8 + 4</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-split" data-layout-view>
+          <div class="pattern-region pattern-mast"><strong>Launch review</strong></div>
+          <div class="pattern-region pattern-main"><strong>Stage</strong><p>Compare two photographs for the campaign.</p></div>
+          <div class="pattern-region pattern-support"><strong>Inspector</strong><span>Owner · Creative studio</span></div>
+          <div class="pattern-region pattern-foot"><strong>Review actions</strong></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+      <article class="layout-pattern" id="grid-dashboard">
+        <h3>Dashboard with detail</h3>
+        <p>Use a shallow strip for summary metrics and a wider second row for the main analysis. Keep the primary chart before its supporting list in the document order.</p>
+        <p class="layout-span">Metrics: one, two, then four per row · detail: stacked, equal halves, or 8 + 4</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-dashboard" data-layout-view>
+          <div class="pattern-region pattern-mast"><strong>Review activity</strong></div>
+          <div class="pattern-region pattern-tile"><strong>12</strong><span>Reviews</span></div>
+          <div class="pattern-region pattern-tile"><strong>8</strong><span>Decisions</span></div>
+          <div class="pattern-region pattern-tile"><strong>4</strong><span>Open actions</span></div>
+          <div class="pattern-region pattern-tile"><strong>3</strong><span>Active rooms</span></div>
+          <div class="pattern-region pattern-main"><strong>Weekly progress</strong><p>Review counts by day.</p></div>
+          <div class="pattern-region pattern-support"><strong>Open actions</strong><span>Next owner and due date</span></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+      <article class="layout-pattern" id="grid-offset">
+        <h3>Offset feature</h3>
+        <p>Use an offset for a featured section inside an editorial page. Create the inset with column lines so the heading and content align. Drop the offset when space is tight.</p>
+        <p class="layout-span">Full width · columns 2–8 · columns 3–11</p>
+        <div class="layout-canvas" data-layout-canvas data-show-grid><div class="pattern-view pattern-offset" data-layout-view>
+          <div class="pattern-region pattern-mast"><strong>Open Studio highlights</strong></div>
+          <div class="pattern-region pattern-main"><strong>One decision per review</strong><p>Give each draft a named owner and a next step.</p></div>
+          <div class="columns-overlay" aria-hidden="true"></div>
+        </div></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="grid-implementation" class="layout-guide-section">
+  <h2>Build and nest the grid</h2>
+  <dl class="layout-rules">
+    <div><dt>Line up the shell</dt><dd>Align the page title, stage, and action bar to the parent grid. Subtract any navigation rail before deciding the number of content columns.</dd></div>
+    <div><dt>Keep consistent gutters</dt><dd>Use the page gutter once at the outside of the page. Use the grid gap between regions. Use a card’s internal padding for its own label and content.</dd></div>
+    <div><dt>Nest by purpose</dt><dd>Use subgrid when a child needs to share its parent’s track lines. Use a local wrapping grid for repeatable cards with a minimum readable width.</dd></div>
+    <div><dt>Use the available width</dt><dd>Use zero-minimum fractional tracks for columns that can shrink and let long words wrap inside them. Reserve fixed widths for controls or media that actually need them.</dd></div>
+  </dl>
+  <h3>Start with a named container</h3>
+  <p>Use width-based column changes in the page composition. A split pattern can set its own medium and wide spans without changing the base grid.</p>
+  <pre class="layout-code" tabindex="0" aria-label="CSS column grid example"><code>.page-content { container: page-content / inline-size; }
+.page-grid {
+  --columns: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: var(--content-gap);
+}
+@container page-content (min-width: 640px) {
+  .page-grid { --columns: 8; }
+}
+@container page-content (min-width: 1024px) {
+  .page-grid { --columns: 12; }
+}</code></pre>
+</section>
+
     <section class="layout-guide-section" id="grid-specimen">
       <h2>Column grid</h2>
       <p>Resize the example to see four, eight, and twelve columns. The preview reports the available width and its current column count.</p>

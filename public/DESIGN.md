@@ -3194,6 +3194,93 @@ First paint
 Keep the same work, navigation, and next action available from a phone to a wide desktop.
 
 
+### [Standard responsive layouts](https://brand.getshared.ai/brand/responsive#responsive-layouts)
+
+Set a preview width to compare how the same content changes across seven common layouts. The control resizes every example below.
+
+
+#### [Landing page](https://brand.getshared.ai/brand/responsive#layout-landing)
+
+Put the title, purpose, and main action before the illustration. Let the illustration move alongside the introduction once both have room.
+
+Bring a draft and leave with a next step.
+
+
+#### [App shell with side navigation](https://brand.getshared.ai/brand/responsive#layout-app)
+
+Use a rail for persistent app destinations. On phones, move the same destinations behind an explicit Menu control and keep the current page in the header.
+
+Review the launch brief together.
+
+Try the working app drawer
+
+
+#### [Documentation article](https://brand.getshared.ai/brand/responsive#layout-doc)
+
+Keep a readable article measure beside the chapter outline. On phones, use one Contents disclosure above the article and keep links to individual headings.
+
+Assign a node owner. Record where work runs and how to recover it.
+
+Try the working documentation outline
+
+
+#### [List and detail](https://brand.getshared.ai/brand/responsive#layout-detail)
+
+Keep selection and detail side by side when there is room. For longer lists on phones, open the item as its own view with a clear way back to the selection.
+
+Choose the lead photograph and name the editor.
+
+
+#### [Collection and filters](https://brand.getshared.ai/brand/responsive#layout-collection)
+
+Put search and filters before the results. Let controls wrap on small screens and let the cards wrap below as soon as their titles and status labels need more room.
+
+
+#### [Form and review](https://brand.getshared.ai/brand/responsive#layout-form)
+
+Keep the fields in one reading sequence. Put optional guidance beside the form when it fits. Keep the save action with the form when the guidance moves below.
+
+Invited people join with the address on their invitation.
+
+
+#### [Data table](https://brand.getshared.ai/brand/responsive#layout-table)
+
+Keep comparison rows intact. Allow the table to scroll inside a labelled region when the fields exceed the width. Put essential identifiers first and let the surrounding page stay still.
+
+- Room ∣ State ∣ Owner ∣ Next review
+
+- Spring launch ∣ Review ∣ Creative studio ∣ Thu · 12:00 CET
+
+- Open Studio ∣ Ready ∣ Events ∣ Fri · 14:00 CET
+
+
+### [Choose how a layout changes](https://brand.getshared.ai/brand/responsive#responsive-decisions)
+
+Stack
+
+- Use when the same content belongs in the same page. Move supporting context below the primary task and keep the document order consistent.
+
+Wrap
+
+- Use for card lists, action groups, and other peers. Test the longest realistic label and let the row break before text or touch targets get cramped.
+
+Disclose
+
+- Use for secondary navigation or optional detail. Keep a labelled control in reach and make the current choice clear even when the panel is closed.
+
+Open a separate view
+
+- Use for deep detail when list and detail compete for space. Preserve search, selection, and the list’s scroll position when the reader returns.
+
+Scroll a region
+
+- Use for material with a meaningful two-dimensional order, such as a table or timeline. Give the region a name, a visible scroll affordance, and keyboard access.
+
+Choose a breakpoint by fit
+
+- Resize with real labels and data. Change the layout when it can no longer fit the work and controls. Use a container query when the same component can live inside different shells.
+
+
 ### [Reflow a workbench](https://brand.getshared.ai/brand/responsive#responsive-workbench)
 
 Start with one reading column. Add a rail and put supporting context beside the stage only when the available width can hold both comfortably.
@@ -3236,6 +3323,87 @@ Test at the edges
 [Open the working examples](https://brand.getshared.ai/brand/grid)
 
 Align page regions to a shared column system. Let the grid respond to the space the content actually has.
+
+
+### [Standard grid layouts](https://brand.getshared.ai/brand/grid#grid-layouts)
+
+Resize the examples together. Turn the overlay on to see where each region starts and ends. The span recipes assume the width available to the composition after its gutters.
+
+
+#### [Centered reading column](https://brand.getshared.ai/brand/grid#grid-reading)
+
+Use for a policy, article, or report with one reading path. Align the heading, prose, and references to a centered lane.
+
+4 of 4 · centered 6 of 8 · centered 8 of 12
+
+The brief, decisions, and next actions sit in one reading column.
+
+
+#### [Editorial feature](https://brand.getshared.ai/brand/grid#grid-editorial)
+
+Use for an opening section with a clear message and a supporting image or diagram. Keep the introduction first and let later sections follow the same grid.
+
+4 + 4 stacked · 5 + 3 · 7 + 5
+
+Show when the workshop starts and where to go.
+
+
+#### [Card collection](https://brand.getshared.ai/brand/grid#grid-collection)
+
+Use equal spans for peers when title, status, and next action share a consistent structure. Let cards wrap in source order and keep their text independent of neighboring card height.
+
+One, two, then three cards per row · 4 columns per card
+
+
+#### [Split workspace](https://brand.getshared.ai/brand/grid#grid-split)
+
+Use a dominant region for the work and a narrower inspector for context. Stack the inspector after the work on phones. Keep shared actions aligned to the full grid.
+
+4 + 4 stacked · 5 + 3 · 8 + 4
+
+Compare two photographs for the campaign.
+
+
+#### [Dashboard with detail](https://brand.getshared.ai/brand/grid#grid-dashboard)
+
+Use a shallow strip for summary metrics and a wider second row for the main analysis. Keep the primary chart before its supporting list in the document order.
+
+Metrics: one, two, then four per row · detail: stacked, equal halves, or 8 + 4
+
+Review counts by day.
+
+
+#### [Offset feature](https://brand.getshared.ai/brand/grid#grid-offset)
+
+Use an offset for a featured section inside an editorial page. Create the inset with column lines so the heading and content align. Drop the offset when space is tight.
+
+Full width · columns 2–8 · columns 3–11
+
+Give each draft a named owner and a next step.
+
+
+### [Build and nest the grid](https://brand.getshared.ai/brand/grid#grid-implementation)
+
+Line up the shell
+
+- Align the page title, stage, and action bar to the parent grid. Subtract any navigation rail before deciding the number of content columns.
+
+Keep consistent gutters
+
+- Use the page gutter once at the outside of the page. Use the grid gap between regions. Use a card’s internal padding for its own label and content.
+
+Nest by purpose
+
+- Use subgrid when a child needs to share its parent’s track lines. Use a local wrapping grid for repeatable cards with a minimum readable width.
+
+Use the available width
+
+- Use zero-minimum fractional tracks for columns that can shrink and let long words wrap inside them. Reserve fixed widths for controls or media that actually need them.
+
+
+#### [Start with a named container](https://brand.getshared.ai/brand/grid#grid-implementation)
+
+Use width-based column changes in the page composition. A split pattern can set its own medium and wide spans without changing the base grid.
 
 
 ### [Column grid](https://brand.getshared.ai/brand/grid#grid-specimen)
