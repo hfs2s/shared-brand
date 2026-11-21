@@ -1,0 +1,65 @@
+.studio-hero {position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:100vh; min-height:100svh; padding:clamp(24px,4.4vw,84px); overflow:hidden; color:var(--paper); background:#28201b}
+.studio-hero picture,.studio-hero picture img,.studio-hero::after {position:absolute; inset:0; width:100%; height:100%}
+.studio-hero picture {z-index:-2}
+.studio-hero picture img {object-fit:cover; object-position:50% 40%}
+.studio-hero::after {content:""; z-index:-1; background:linear-gradient(0deg,rgba(24,17,12,.82),rgba(24,17,12,.48) 23%,transparent 61%)}
+.studio-hero h1 {margin:0 0 .18em; font:400 clamp(70px,8.7vw,166px)/.88 var(--display-serif); letter-spacing:-.04em; color:var(--paper)}
+.studio-hero h1 em {font-style:italic; color:var(--lemon)}
+.film-trigger,.hero-down,.screening button,.scene-picker button {display:inline-flex; gap:.8em; align-items:center; justify-content:center; min-height:44px; font:600 13px var(--mono); cursor:pointer; text-decoration:none}
+.film-trigger {margin-top:12px; padding:0 16px; background:var(--paper); color:var(--ink); box-shadow:4px 4px 0 var(--ink)}
+.film-trigger small {font:inherit; border-left:1px solid var(--line); padding-left:.75em}
+.hero-down {align-self:flex-end; margin-left:auto; border:1px solid currentColor; border-radius:50%; width:44px; color:white; font-size:24px}
+.hero-down:hover {color:var(--lemon)}
+.screening {box-sizing:border-box; max-width:min(96vw,1400px); padding:8px; border:1px solid var(--line); background:var(--ink); color:var(--paper)}
+.screening::backdrop {background:#141411eb}
+.screening form {text-align:right}
+.screening button {background:transparent; color:inherit; padding:0 16px; border:0}
+.screening video {display:block; width:min(88vw,1350px); max-height:75svh}
+.spread,.stories,.character {padding:var(--section-space) var(--gutter)}
+.spread {display:grid; grid-template-columns:1fr 2fr; gap:var(--content-gap); align-items:start}
+.folio {display:flex; align-items:center; gap:12px; font:600 12px/1.4 var(--mono); text-transform:uppercase; letter-spacing:.09em}
+.folio img {width:44px; image-rendering:pixelated}
+.spread h2,.character h2,.stories h2 {margin:0; text-wrap:balance}
+.spread p {max-width:55ch; margin:20px 0 0; font:400 var(--type-lead)/1.48 var(--sans)}
+.vision {background-color:var(--paper); background-image:radial-gradient(#71523922 .9px,transparent 1px); background-size:8px 8px}
+.stories {color:var(--paper); background:var(--ink)}
+.stories header {display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap; margin-bottom:24px}
+.stories .folio,.character .folio {margin-bottom:14px}
+.scene-picker {display:flex; gap:4px; flex-wrap:wrap}
+.scene-picker button {color:var(--paper); background:transparent; border:1px solid #a0998d; padding:0 20px}
+.scene-picker button[aria-pressed=true] {background:var(--lemon); color:var(--ink); border-color:var(--lemon)}
+.scene {margin:0; display:grid; grid-template-columns:2fr 1fr; min-height:clamp(280px,33vw,530px); background:var(--paper); color:var(--ink)}
+.scene>img {width:100%; height:100%; max-height:530px; object-fit:cover}
+.scene[data-agent=Lola]>img {object-fit:contain; background:var(--lemon)}
+.scene figcaption {align-self:end; padding:clamp(22px,3vw,52px)}
+.scene p {margin-top:14px; max-width:38ch}
+.scene[hidden],.scene-picker[hidden] {display:none}
+.ethos {background:var(--mint)}
+.character {background:var(--stock)}
+.qualities {display:grid; grid-template-columns:repeat(5,1fr); margin-top:36px; gap:4px}
+.qualities div {padding:clamp(14px,2vw,32px); min-width:0; border:1px solid #0002; background:var(--paper); box-shadow:0 3px 0 #0002}
+.qualities div:nth-child(2) {background:var(--lemon)}
+.qualities div:nth-child(3) {background:var(--mint)}
+.qualities div:nth-child(4) {background:#f5bb90}
+.qualities div:nth-child(5) {background:#dae1f9}
+.qualities img {width:clamp(48px,5vw,84px); image-rendering:pixelated; margin-bottom:30px}
+.qualities dt {font-weight:650; font-size:clamp(18px,1.6vw,28px); letter-spacing:-.03em}
+.qualities dd {margin-top:5px; font-size:14px}
+.namesake {background:var(--blue); color:white}
+.namesake a {display:inline-flex; align-items:center; min-height:44px; margin-top:15px; color:var(--lemon)}
+@media(max-width:760px){
+  .studio-hero picture img {object-position:49% center}
+  .studio-hero h1 {font-size:clamp(52px,12vw,92px)}
+  .spread,.scene {grid-template-columns:1fr}
+  .scene>img {height:clamp(200px,55vw,350px)}
+  .scene figcaption {min-height:155px}
+  .qualities {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qualities div:last-child {grid-column:1/-1}
+  .qualities img {margin-bottom:12px}
+}
+.release-bird {position:absolute; transform:translate(-50%,-50%); display:grid; place-items:center; padding:0; min-width:44px; min-height:44px; border:none; border-radius:50%; cursor:pointer; background:transparent}
+.release-bird span {display:grid; place-items:center; width:31px; height:31px; border:1px solid var(--ink); border-radius:50%; background:var(--lemon); color:var(--ink); box-shadow:0 0 0 5px #fff6; font-size:21px}
+.release-bird:is(:hover,:focus-visible)::after {content:"Release the bird"; position:absolute; top:100%; white-space:nowrap; padding:4px 8px; color:var(--ink); background:var(--paper); font:12px var(--mono)}
+.flying-bird {position:absolute; width:74px; pointer-events:none; image-rendering:pixelated; filter:drop-shadow(2px 5px 2px #3214)}
+
+.bird-pixel {position:absolute; width:9px; height:9px; pointer-events:none; box-shadow:2px 2px 0 #241b1530}
