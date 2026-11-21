@@ -72,10 +72,13 @@
   .rotating .scene {transition:none; transform:none}
 }
 
+.hero-motion {position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:50% 40%; opacity:0}
+.hero-motion.has-frame {opacity:1}
+.motion-toggle {position:absolute; top:clamp(18px,3vw,44px); right:clamp(18px,3vw,44px); width:44px; height:44px; border-radius:50%; border:1px solid #fff9; color:white; background:#201e1bbf; cursor:pointer; font:600 16px var(--mono)}
 .community-mark {display:flex; align-items:center; gap:12px; margin-bottom:clamp(16px,2vw,30px); font:600 13px/1.3 var(--mono)}
 .community-mark img {flex:none; width:40px; height:40px; object-fit:contain}
 @media(max-width:760px) and (orientation:portrait) {
-  .studio-hero picture img {object-position:50% 40%}
+  .studio-hero picture img,.hero-motion {object-position:50% 40%}
   .scene {grid-template-rows:auto 1fr}
   .scene>img {height:auto; aspect-ratio:2.3; align-self:start}
   .scene figcaption {align-self:start}

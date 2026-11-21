@@ -110,3 +110,53 @@ const observer = new IntersectionObserver(entries => {
   }
 }, {threshold:.15});
 document.querySelectorAll('.spread > div,.qualities > div').forEach(item => observer.observe(item));
+
+function setupHeroMotion(video) {
+  const toggle = document.querySelector('.motion-toggle');
+  const portrait = matchMedia('(max-width: 760px) and (orientation: portrait)');
+  let onScreen = false;
+  let pausedByUser = false;
+
+  function sync() {
+    toggle.hidden = quiet.matches || (!pausedByUser && video.readyState < 2);
+    if (quiet.matches || document.hidden || !onScreen || pausedByUser) {
+      video.pause();
+      if (quiet.matches) video.classList.remove('has-frame');
+      return;
+    }
+    const url = portrait.matches ? video.dataset.tall : video.dataset.wide;
+    if (video.getAttribute('src') !== url) video.src = url;
+    video.play().catch(error => {
+      if (error.name === 'NotAllowedError' && !quiet.matches) {
+        pausedByUser = true;
+        toggle.hidden = false;
+        toggle.setAttribute('aria-label', 'Resume hero motion');
+        toggle.textContent = '▶';
+      }
+    });
+  }
+
+  video.addEventListener('playing', () => {
+    video.classList.add('has-frame');
+    toggle.hidden = false;
+  });
+  video.addEventListener('error', () => {
+    toggle.hidden = true;
+    video.classList.remove('has-frame');
+  });
+  toggle.addEventListener('click', () => {
+    pausedByUser = !pausedByUser;
+    toggle.setAttribute('aria-label', pausedByUser ? 'Resume hero motion' : 'Pause hero motion');
+    toggle.textContent = pausedByUser ? '▶' : 'Ⅱ';
+    sync();
+  });
+  new IntersectionObserver(([entry]) => {
+    onScreen = entry.isIntersecting;
+    sync();
+  }).observe(video);
+  document.addEventListener('visibilitychange', sync);
+  quiet.addEventListener('change', sync);
+  portrait.addEventListener('change', sync);
+}
+const heroMotion = document.querySelector('.hero-motion');
+if (heroMotion) setupHeroMotion(heroMotion);
