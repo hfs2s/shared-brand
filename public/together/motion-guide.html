@@ -5,17 +5,175 @@
   <title>Motion | Shared</title>
   <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
-  <link rel="stylesheet" href="motion.css">
-  <script src="studio-nav.js" defer></script><script src="motion.js" defer></script>
+  <link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="motion-studio.css">
+  <script src="studio-nav.js" defer></script><script src="motion.js" defer></script><script src="motion-studio.js" defer></script>
 <link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
 <main id="main">
   <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
     <h1>Motion</h1>
     <p>Use animation to show the result of an action and help people follow changes in place.</p>
-    <div class="family-links"><a href="#transitions">Interface transitions</a><a href="#timing">Timing and easing</a><a href="#accessibility">Reduced motion</a></div>
+    <div class="family-links"><a href="#easing">Easing lab</a><a href="#buttons">Buttons</a><a href="#panels">Panels</a><a href="#page-transitions">Page transitions</a><a href="#sequences">Animation sequences</a><a href="#transitions">Interface transitions</a><a href="#timing">Timing</a><a href="#accessibility">Reduced motion</a></div>
   </div></div></header>
   <!-- motion-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion" aria-current=page>Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
+  <section class="wrap mo-section" id="easing">
+  <h2>Easing lab</h2>
+  <p>Each marker travels the same distance for the same duration. Play them side by side to see where each curve spends its time.</p>
+  <div class="motion-lab" data-easing-lab>
+    <div class="motion-lab-controls">
+      <label for="easing-duration">Duration</label>
+      <select id="easing-duration"><option value="120">120 ms</option><option value="220">220 ms</option><option value="360">360 ms</option><option value="900" selected>900 ms · inspect</option></select>
+      <button type="button" class="motion-control motion-primary" data-easing-play>Play curves</button>
+      <button type="button" class="motion-control" data-easing-pause disabled>Pause</button>
+      <button type="button" class="motion-control" data-easing-reset>Reset</button>
+      <output role="status" data-easing-status>Ready</output>
+    </div>
+    <dl class="easing-lanes">
+      <div data-easing="linear"><dt>Linear</dt><dd><code>linear</code><p>Use for a sweep that needs to represent time evenly.</p><div class="easing-track" aria-hidden="true"><span></span></div></dd></div>
+      <div data-easing="cubic-bezier(.2,.8,.2,1)"><dt>Shared ease</dt><dd><code>cubic-bezier(.2,.8,.2,1)</code><p>Respond quickly and settle gently. Use this as the default for compact interface movement.</p><div class="easing-track" aria-hidden="true"><span></span></div></dd></div>
+      <div data-easing="cubic-bezier(0,0,.2,1)"><dt>Ease out</dt><dd><code>cubic-bezier(0,0,.2,1)</code><p>Reveal a surface quickly, then slow as it arrives at rest.</p><div class="easing-track" aria-hidden="true"><span></span></div></dd></div>
+      <div data-easing="cubic-bezier(.4,0,1,1)"><dt>Ease in</dt><dd><code>cubic-bezier(.4,0,1,1)</code><p>Give a departing surface a short takeoff before it leaves the frame.</p><div class="easing-track" aria-hidden="true"><span></span></div></dd></div>
+      <div data-easing="cubic-bezier(.4,0,.2,1)"><dt>Ease in and out</dt><dd><code>cubic-bezier(.4,0,.2,1)</code><p>Use when a visible object moves between two resting positions.</p><div class="easing-track" aria-hidden="true"><span></span></div></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="wrap mo-section" id="buttons">
+  <h2>Buttons and controls</h2>
+  <p>Keep the hit area stable. Show focus and state in text or shape as soon as someone acts.</p>
+  <div class="motion-examples">
+    <article class="motion-example" id="button-press">
+      <h3>Press and release</h3><p>Compress the button surface slightly while pressed. Releasing it returns the surface to rest and keeps the label readable.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control motion-primary press-control" data-motion-play data-motion-message="Draft saved in preview."><span>Save draft</span></button>
+        <output role="status" class="motion-receipt">Ready</output>
+      </div>
+      <p class="motion-spec">Press ≤120 ms · preserve the outline and hit area</p>
+    </article>
+    <article class="motion-example" id="button-toggle">
+      <h3>Toggle with a persistent state</h3><p>Move the thumb a short distance and update the written state at the same time.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control motion-toggle" data-motion-toggle aria-pressed="false"><span>Captions</span><i aria-hidden="true"></i><span data-toggle-status>Off</span></button>
+      </div>
+      <p class="motion-spec">120 ms · Shared ease · state stays visible</p>
+    </article>
+    <article class="motion-example" id="button-segment">
+      <h3>Segment selection</h3><p>Move one indicator between adjacent choices. Update the selected label immediately and leave keyboard focus on the control.</p>
+      <div class="motion-example-stage">
+        <div class="motion-segments" role="group" aria-label="Viewer layout" data-motion-segments>
+          <button type="button" class="motion-control" aria-pressed="true">People</button>
+          <button type="button" class="motion-control" aria-pressed="false">Stage</button>
+        </div>
+      </div>
+      <p class="motion-spec">120 ms · ease in and out · stable control width</p>
+    </article>
+    <article class="motion-example" id="button-confirm">
+      <h3>Inline confirmation</h3><p>Keep the original action in place and show a nearby receipt when the result is known.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-play data-motion-message="Review marked complete in preview.">Finish review</button>
+        <output role="status" class="motion-receipt">Ready</output>
+      </div>
+      <p class="motion-spec">120 ms fade · announce once</p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap mo-section" id="panels">
+  <h2>Panels and overlays</h2>
+  <p>Animate the surface nearest the action. Close it with a clear control or Escape, and return focus when it closes.</p>
+  <div class="motion-examples">
+    <article class="motion-example" id="panel-drawer">
+      <h3>Side drawer</h3><p>Bring a temporary panel in from the edge it belongs to. Keep the page underneath stationary.</p>
+      <div class="motion-example-stage motion-drawer-stage" data-motion-drawer>
+        <button type="button" class="motion-control" aria-expanded="false" aria-controls="motion-drawer">Review details</button>
+        <div class="motion-drawer" id="motion-drawer" inert><strong>Review details</strong><p>Owner · Creative studio</p><button type="button" class="motion-control" data-motion-dismiss>Close details</button></div>
+      </div>
+      <p class="motion-spec">220 ms in · 120 ms out · move the drawer only</p>
+    </article>
+    <article class="motion-example" id="panel-dialog">
+      <h3>Dialog entrance</h3><p>Reveal the dialog with a small move and a fade. Focus the first useful action and leave the underlying page still.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-dialog-open aria-controls="motion-dialog">Open review dialog</button>
+        <dialog class="motion-dialog" id="motion-dialog" aria-labelledby="motion-dialog-title"><h4 id="motion-dialog-title">Review the draft</h4><p>Check the lead photograph before publishing.</p><button type="button" class="motion-control motion-primary" data-motion-dialog-close>Done</button></dialog>
+      </div>
+      <p class="motion-spec">220 ms · short entrance · native dialog focus and Escape</p>
+    </article>
+    <article class="motion-example" id="panel-alert">
+      <h3>Status banner</h3><p>Use a reserved area for an important state change. Fade in the message close to the affected work.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-play data-motion-message="Connection restored.">Restore connection</button>
+        <output role="status" class="motion-receipt motion-banner">Connection paused</output>
+      </div>
+      <p class="motion-spec">120 ms · readable state at every point</p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap mo-section" id="page-transitions">
+  <h2>Page and view transitions</h2>
+  <p>Keep the shell, page title location, and persistent controls steady. Animate the region whose content changes.</p>
+  <div class="motion-examples">
+    <article class="motion-example" id="page-drilldown" data-motion-views="slide">
+      <h3>Forward and back</h3><p>Move detail in from the right when opening an item. Reverse the direction when returning to the list.</p>
+      <div class="motion-view-controls" role="group" aria-label="Room navigation"><button type="button" class="motion-control" data-motion-view="list" aria-pressed="true">Room list</button><button type="button" class="motion-control" data-motion-view="detail" aria-pressed="false">Spring launch</button></div>
+      <div class="motion-view-stage"><div class="motion-pane" data-motion-pane="list"><strong>Campaign rooms</strong><p>Spring launch · Open Studio · Field notes</p></div><div class="motion-pane" data-motion-pane="detail" hidden><strong>Spring launch</strong><p>Choose the lead photograph for the first draft.</p></div></div>
+      <p class="motion-spec">220 ms · directional · restore the list’s position in the real route</p>
+    </article>
+    <article class="motion-example" id="page-crossfade" data-motion-views="fade">
+      <h3>Workbench crossfade</h3><p>Swap adjacent views in place when neither is deeper than the other. Keep the composer below both views.</p>
+      <div class="motion-view-controls" role="group" aria-label="Workbench view"><button type="button" class="motion-control" data-motion-view="chat" aria-pressed="true">Chat</button><button type="button" class="motion-control" data-motion-view="stage" aria-pressed="false">Stage</button></div>
+      <div class="motion-view-stage"><div class="motion-pane" data-motion-pane="chat"><strong>Chat</strong><p>Elio · Which photograph should we use?</p></div><div class="motion-pane" data-motion-pane="stage" hidden><strong>Stage</strong><p>Spring launch · Two photographs</p></div></div>
+      <div class="motion-mock-composer">Composer · Type to Elio</div>
+      <p class="motion-spec">120 ms fade · persistent composer</p>
+    </article>
+    <article class="motion-example" id="page-steps" data-motion-views="step">
+      <h3>Step change</h3><p>Move the new step in a short distance to mark progress. Keep the step labels visible during the change.</p>
+      <div class="motion-view-controls" role="group" aria-label="Publishing steps"><button type="button" class="motion-control" data-motion-view="brief" aria-pressed="true">Brief</button><button type="button" class="motion-control" data-motion-view="review" aria-pressed="false">Review</button><button type="button" class="motion-control" data-motion-view="publish" aria-pressed="false">Publish</button></div>
+      <div class="motion-view-stage"><div class="motion-pane" data-motion-pane="brief"><strong>Brief</strong><p>Confirm the purpose and audience.</p></div><div class="motion-pane" data-motion-pane="review" hidden><strong>Review</strong><p>Choose the draft to publish.</p></div><div class="motion-pane" data-motion-pane="publish" hidden><strong>Publish</strong><p>Check the destination before publishing.</p></div></div>
+      <p class="motion-spec">220 ms · keep progress labels outside the moving panel</p>
+    </article>
+    <article class="motion-example" id="page-shared-element" data-motion-views="shared">
+      <h3>Shared element</h3><p>Carry a recognizable object into the detail view. A short scale change connects the selected card with the larger header.</p>
+      <div class="motion-view-controls" role="group" aria-label="Brief layout"><button type="button" class="motion-control" data-motion-view="card" aria-pressed="true">Card</button><button type="button" class="motion-control" data-motion-view="header" aria-pressed="false">Detail</button></div>
+      <div class="motion-view-stage"><div class="motion-pane" data-motion-pane="card"><strong class="motion-shared-key">Launch brief</strong><p>Collection card</p></div><div class="motion-pane" data-motion-pane="header" hidden><strong class="motion-shared-key motion-shared-large">Launch brief</strong><p>Detail heading</p></div></div>
+      <p class="motion-spec">220 ms · scale the object, preserve the text and route</p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap mo-section" id="sequences">
+  <h2>Animation sequences</h2>
+  <p>Use animation to show order or continuity. Let the final content stay in view after the animation ends.</p>
+  <div class="motion-examples">
+    <article class="motion-example" id="sequence-stagger">
+      <h3>Stagger a short result set</h3><p>Bring in a few related results with a small delay between items. Cap the stagger for long lists.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-play data-motion-message="Three rooms shown.">Show rooms</button>
+        <ul class="motion-stagger"><li>Spring launch</li><li>Open Studio</li><li>Field notes</li></ul>
+        <output role="status" class="motion-receipt">Ready</output>
+      </div>
+      <p class="motion-spec">220 ms per item · 45 ms between items · 90 ms maximum stagger here</p>
+    </article>
+    <article class="motion-example" id="sequence-reorder" data-motion-list>
+      <h3>Reorder a list</h3><p>Move each row from its old position to its new one. Update the reading order with the visual order.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-reorder>Move first room to end</button>
+        <ol class="motion-reorder"><li>Spring launch</li><li>Open Studio</li><li>Field notes</li></ol>
+        <output role="status" class="motion-receipt">Ready</output>
+      </div>
+      <p class="motion-spec">220 ms · animate position · announce the result</p>
+    </article>
+    <article class="motion-example" id="sequence-highlight" data-motion-highlight>
+      <h3>Highlight an update</h3><p>Give only the changed value a brief tint. Keep the updated value visible after the tint fades.</p>
+      <div class="motion-example-stage">
+        <button type="button" class="motion-control" data-motion-increment>Add a review</button>
+        <div class="motion-metric">Reviews <output data-motion-count role="status">12</output></div>
+      </div>
+      <p class="motion-spec">360 ms · one tint · keep the layout unchanged</p>
+    </article>
+  </div>
+</section>
+
   <section class="wrap mo-section" id="transitions">
     <h2>Interface transitions</h2>
     <p>Run each example to see how a change can read without moving the surrounding page.</p>
@@ -47,11 +205,13 @@
         <dt>--motion-fast · 120 ms</dt><dd>Use for compact feedback such as a selection, color change, or label swap.</dd>
         <dt>--motion-enter · 220 ms</dt><dd>Use when a panel or confirmation needs a visible entrance.</dd>
         <dt>--motion-ease</dt><dd>Use the Shared easing curve for entrances. Keep decorative travel short and use opacity for changes within a fixed region.</dd>
+        <dt>360 ms · longer accent</dt><dd>Reserve this for a brief highlight or a coordinated series. Use 900 ms in the lab to study the curves.</dd>
       </dl></div>
       <div><h3>When to animate</h3>
         <p>Update the action state immediately so the user can keep working. Preserve the panel dimensions and avoid animating surrounding controls when a section gains new content.</p>
         <p>Keep the composer and call controls still when Elio Live switches from Chat to Stage. Animate the material inside the work area when it helps the caller find the change.</p>
         <p>For pending work, use a truthful progress label and the <a href="/brand/loaders">Loaders</a> patterns.</p>
+        <p>When someone reverses an action before it finishes, cancel the old movement and continue from the visible state where possible. Keep the latest state authoritative.</p>
       </div>
     </div>
   </section>

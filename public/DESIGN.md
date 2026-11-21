@@ -3843,6 +3843,255 @@ Read the copy in its real layout and test the actions it describes.
 
 - Could this example be mistaken for a real claim? Verify shipped capabilities and editorial claims. Label illustrative scenes, obtain approval for customer quotations and identify AI agents wherever readers could mistake them for real staff.
 
+## Motion
+
+[Open the working examples](https://brand.getshared.ai/brand/motion)
+
+Use animation to show the result of an action and help people follow changes in place.
+
+
+### [Easing lab](https://brand.getshared.ai/brand/motion#easing)
+
+Each marker travels the same distance for the same duration. Play them side by side to see where each curve spends its time.
+
+Linear
+
+- linearUse for a sweep that needs to represent time evenly.
+
+Shared ease
+
+- cubic-bezier(.2,.8,.2,1)Respond quickly and settle gently. Use this as the default for compact interface movement.
+
+Ease out
+
+- cubic-bezier(0,0,.2,1)Reveal a surface quickly, then slow as it arrives at rest.
+
+Ease in
+
+- cubic-bezier(.4,0,1,1)Give a departing surface a short takeoff before it leaves the frame.
+
+Ease in and out
+
+- cubic-bezier(.4,0,.2,1)Use when a visible object moves between two resting positions.
+
+
+### [Buttons and controls](https://brand.getshared.ai/brand/motion#buttons)
+
+Keep the hit area stable. Show focus and state in text or shape as soon as someone acts.
+
+
+#### [Press and release](https://brand.getshared.ai/brand/motion#button-press)
+
+Compress the button surface slightly while pressed. Releasing it returns the surface to rest and keeps the label readable.
+
+Press ≤120 ms · preserve the outline and hit area
+
+
+#### [Toggle with a persistent state](https://brand.getshared.ai/brand/motion#button-toggle)
+
+Move the thumb a short distance and update the written state at the same time.
+
+120 ms · Shared ease · state stays visible
+
+
+#### [Segment selection](https://brand.getshared.ai/brand/motion#button-segment)
+
+Move one indicator between adjacent choices. Update the selected label immediately and leave keyboard focus on the control.
+
+120 ms · ease in and out · stable control width
+
+
+#### [Inline confirmation](https://brand.getshared.ai/brand/motion#button-confirm)
+
+Keep the original action in place and show a nearby receipt when the result is known.
+
+120 ms fade · announce once
+
+
+### [Panels and overlays](https://brand.getshared.ai/brand/motion#panels)
+
+Animate the surface nearest the action. Close it with a clear control or Escape, and return focus when it closes.
+
+
+#### [Side drawer](https://brand.getshared.ai/brand/motion#panel-drawer)
+
+Bring a temporary panel in from the edge it belongs to. Keep the page underneath stationary.
+
+Owner · Creative studio
+
+220 ms in · 120 ms out · move the drawer only
+
+
+#### [Dialog entrance](https://brand.getshared.ai/brand/motion#panel-dialog)
+
+Reveal the dialog with a small move and a fade. Focus the first useful action and leave the underlying page still.
+
+220 ms · short entrance · native dialog focus and Escape
+
+
+#### [Status banner](https://brand.getshared.ai/brand/motion#panel-alert)
+
+Use a reserved area for an important state change. Fade in the message close to the affected work.
+
+120 ms · readable state at every point
+
+
+### [Page and view transitions](https://brand.getshared.ai/brand/motion#page-transitions)
+
+Keep the shell, page title location, and persistent controls steady. Animate the region whose content changes.
+
+
+#### [Forward and back](https://brand.getshared.ai/brand/motion#page-drilldown)
+
+Move detail in from the right when opening an item. Reverse the direction when returning to the list.
+
+Spring launch · Open Studio · Field notes
+
+Choose the lead photograph for the first draft.
+
+220 ms · directional · restore the list’s position in the real route
+
+
+#### [Workbench crossfade](https://brand.getshared.ai/brand/motion#page-crossfade)
+
+Swap adjacent views in place when neither is deeper than the other. Keep the composer below both views.
+
+Elio · Which photograph should we use?
+
+Spring launch · Two photographs
+
+120 ms fade · persistent composer
+
+
+#### [Step change](https://brand.getshared.ai/brand/motion#page-steps)
+
+Move the new step in a short distance to mark progress. Keep the step labels visible during the change.
+
+Confirm the purpose and audience.
+
+Choose the draft to publish.
+
+Check the destination before publishing.
+
+220 ms · keep progress labels outside the moving panel
+
+
+#### [Shared element](https://brand.getshared.ai/brand/motion#page-shared-element)
+
+Carry a recognizable object into the detail view. A short scale change connects the selected card with the larger header.
+
+Collection card
+
+Detail heading
+
+220 ms · scale the object, preserve the text and route
+
+
+### [Animation sequences](https://brand.getshared.ai/brand/motion#sequences)
+
+Use animation to show order or continuity. Let the final content stay in view after the animation ends.
+
+
+#### [Stagger a short result set](https://brand.getshared.ai/brand/motion#sequence-stagger)
+
+Bring in a few related results with a small delay between items. Cap the stagger for long lists.
+
+- Spring launch
+
+- Open Studio
+
+- Field notes
+
+220 ms per item · 45 ms between items · 90 ms maximum stagger here
+
+
+#### [Reorder a list](https://brand.getshared.ai/brand/motion#sequence-reorder)
+
+Move each row from its old position to its new one. Update the reading order with the visual order.
+
+- Spring launch
+
+- Open Studio
+
+- Field notes
+
+220 ms · animate position · announce the result
+
+
+#### [Highlight an update](https://brand.getshared.ai/brand/motion#sequence-highlight)
+
+Give only the changed value a brief tint. Keep the updated value visible after the tint fades.
+
+360 ms · one tint · keep the layout unchanged
+
+
+### [Interface transitions](https://brand.getshared.ai/brand/motion#transitions)
+
+Run each example to see how a change can read without moving the surrounding page.
+
+
+#### [Disclosure](https://brand.getshared.ai/brand/motion#transitions)
+
+Reveal details beside their trigger. Keep the trigger and its focus in place.
+
+
+#### [Confirmation](https://brand.getshared.ai/brand/motion#transitions)
+
+Show a short confirmation when the action completes. Announce the result once.
+
+
+#### [View change](https://brand.getshared.ai/brand/motion#transitions)
+
+Crossfade inside a stable frame. In Rooms, keep call controls in place as the viewer changes.
+
+
+### [Timing and easing](https://brand.getshared.ai/brand/motion#timing)
+
+
+#### [Shared tokens](https://brand.getshared.ai/brand/motion#timing)
+
+--motion-fast · 120 ms
+
+- Use for compact feedback such as a selection, color change, or label swap.
+
+--motion-enter · 220 ms
+
+- Use when a panel or confirmation needs a visible entrance.
+
+--motion-ease
+
+- Use the Shared easing curve for entrances. Keep decorative travel short and use opacity for changes within a fixed region.
+
+360 ms · longer accent
+
+- Reserve this for a brief highlight or a coordinated series. Use 900 ms in the lab to study the curves.
+
+
+#### [When to animate](https://brand.getshared.ai/brand/motion#timing)
+
+Update the action state immediately so the user can keep working. Preserve the panel dimensions and avoid animating surrounding controls when a section gains new content.
+
+Keep the composer and call controls still when Elio Live switches from Chat to Stage. Animate the material inside the work area when it helps the caller find the change.
+
+For pending work, use a truthful progress label and the Loaders patterns.
+
+When someone reverses an action before it finishes, cancel the old movement and continue from the visible state where possible. Keep the latest state authoritative.
+
+
+### [Reduced motion](https://brand.getshared.ai/brand/motion#accessibility)
+
+
+#### [Show the result immediately](https://brand.getshared.ai/brand/motion#accessibility)
+
+Honor prefers-reduced-motion: reduce. Remove transforms and decorative loops, then show the same final state without a transition.
+
+
+#### [Keep state and focus available](https://brand.getshared.ai/brand/motion#accessibility)
+
+Use labels, focus, and semantic states to convey what changed. Preserve keyboard focus through an update and use polite announcements for meaningful results.
+
+See the Elio Live workbench
+
 ## Loaders
 
 [Open the working examples](https://brand.getshared.ai/brand/loaders)
