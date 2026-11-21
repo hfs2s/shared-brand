@@ -1,6 +1,4 @@
-(() => {
-  const rail = document.querySelector('[data-document-menu]');
-  if (!rail) return;
+for (const rail of document.querySelectorAll('[data-document-menu]')) {
   const reveal = item => {
     if (!item) return;
     const bounds = item.getBoundingClientRect();
@@ -10,4 +8,4 @@
   };
   void document.fonts.ready.then(() => reveal(rail.querySelector('[aria-current="page"],[aria-selected="true"]')));
   rail.addEventListener('focusin', event => reveal(event.target.closest('a')));
-})();
+}

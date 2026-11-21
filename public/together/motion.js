@@ -79,7 +79,7 @@ document.querySelectorAll('[data-demo]').forEach(card => {
     cancelAnimationFrame(frame);
     retry = phase === 'failed';
     phase = 'playing';
-    elapsed = 0;
+    elapsed = transition && matchMedia('(prefers-reduced-motion: reduce)').matches ? duration : 0;
     previous = performance.now();
     card.classList.remove('playing', 'paused', 'shown');
     void card.offsetWidth;

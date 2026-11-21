@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Motion | Shared</title>
+  <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="family-pages.css">
+  <link rel="stylesheet" href="motion.css">
+  <script src="studio-nav.js" defer></script><script src="motion.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="family-intro gridpaper"><div class="wrap family-lead"><div class="family-lead-copy">
+    <h1>Motion</h1>
+    <p>Use animation to show the result of an action and help people follow changes in place.</p>
+    <div class="family-links"><a href="#transitions">Interface transitions</a><a href="#timing">Timing and easing</a><a href="#accessibility">Reduced motion</a></div>
+  </div></div></header>
+  <!-- motion-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/motion" aria-current=page>Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
+  <section class="wrap mo-section" id="transitions">
+    <h2>Interface transitions</h2>
+    <p>Run each example to see how a change can read without moving the surrounding page.</p>
+    <div class="mo-grid">
+      <article class="mo-card" data-demo="disclose">
+        <div class="mo-stage"><div class="panel"><b>Project details</b><span>Owner · Studio team</span></div></div>
+        <div class="mo-copy"><h3>Disclosure</h3><p>Reveal details beside their trigger. Keep the trigger and its focus in place.</p>
+          <div class="mo-controls"><button type="button" class="run" aria-label="Run disclosure">Run</button><button type="button" class="pause" disabled aria-label="Pause disclosure">Pause</button><span class="state" role="status">Ready</span></div>
+        </div>
+      </article>
+      <article class="mo-card" data-demo="toast">
+        <div class="mo-stage"><div class="toast"><i aria-hidden="true">✓</i> Draft saved</div></div>
+        <div class="mo-copy"><h3>Confirmation</h3><p>Show a short confirmation when the action completes. Announce the result once.</p>
+          <div class="mo-controls"><button type="button" class="run" aria-label="Run confirmation">Run</button><button type="button" class="pause" disabled aria-label="Pause confirmation">Pause</button><span class="state" role="status">Ready</span></div>
+        </div>
+      </article>
+      <article class="mo-card" data-demo="swap">
+        <div class="mo-stage"><div class="swap"><b>People</b><b>Stage</b></div></div>
+        <div class="mo-copy"><h3>View change</h3><p>Crossfade inside a stable frame. In Rooms, keep call controls in place as the viewer changes.</p>
+          <div class="mo-controls"><button type="button" class="run" aria-label="Run view change">Run</button><button type="button" class="pause" disabled aria-label="Pause view change">Pause</button><span class="state" role="status">Ready</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="wrap mo-section" id="timing">
+    <h2>Timing and easing</h2>
+    <div class="mo-guides">
+      <div><h3>Shared tokens</h3><dl>
+        <dt>--motion-fast · 120 ms</dt><dd>Use for compact feedback such as a selection, color change, or label swap.</dd>
+        <dt>--motion-enter · 220 ms</dt><dd>Use when a panel or confirmation needs a visible entrance.</dd>
+        <dt>--motion-ease</dt><dd>Use the Shared easing curve for entrances. Keep decorative travel short and use opacity for changes within a fixed region.</dd>
+      </dl></div>
+      <div><h3>When to animate</h3>
+        <p>Update the action state immediately so the user can keep working. Preserve the panel dimensions and avoid animating surrounding controls when a section gains new content.</p>
+        <p>Keep the composer and call controls still when Elio Live switches from Chat to Stage. Animate the material inside the work area when it helps the caller find the change.</p>
+        <p>For pending work, use a truthful progress label and the <a href="/brand/loaders">Loaders</a> patterns.</p>
+      </div>
+    </div>
+  </section>
+  <section class="wrap mo-section" id="accessibility">
+    <h2>Reduced motion</h2>
+    <div class="mo-guides">
+      <div><h3>Show the result immediately</h3><p>Honor <code>prefers-reduced-motion: reduce</code>. Remove transforms and decorative loops, then show the same final state without a transition.</p></div>
+      <div><h3>Keep state and focus available</h3><p>Use labels, focus, and semantic states to convey what changed. Preserve keyboard focus through an update and use polite announcements for meaningful results.</p></div>
+    </div>
+    <p><a href="/components/pages#live-workbench">See the Elio Live workbench</a></p>
+  </section>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand/loaders">Loaders</a><a href="/brand">Brand guide</a></div></footer>
+</body></html>

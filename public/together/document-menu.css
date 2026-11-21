@@ -6,3 +6,5 @@
 .document-menu a:is([aria-selected="true"],[aria-current="page"]){border-bottom-color:var(--blue)}
 .document-menu a:focus-visible{outline-offset:-4px}
 @media(max-width:760px){.document-menu a{min-height:46px}}
+.icon-subnav{margin-block:.7rem;border-bottom:1px solid var(--line)}
+.icon-subnav a{min-height:44px}
