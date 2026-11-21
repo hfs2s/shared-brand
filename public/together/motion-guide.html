@@ -12,9 +12,10 @@
 <main id="main">
   <header class="wrap score-intro">
     <h1>Motion</h1>
-    <p>Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. See how those gestures work together in an Elio room.</p>
+    <p>Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. Follow the work through a room review, a Stage presentation, and a live call.</p>
   </header>
   <!-- motion-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icons</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Nav</a><a href="/brand#assets">Assets</a><a href="/brand/responsive">Responsive</a><a href="/brand/grid">Grid</a><a href="/brand/motion" aria-current=page>Motion</a><a href="/brand/loaders">Loaders</a></div></nav><!-- /studio-document-menu -->
+  <nav class="wrap study-links" aria-label="Motion studies"><a href="#motion-study">Launch review</a><a href="#stage-study">Stage presentation</a><a href="#live-study">Elio Live call</a></nav>
   <section class="wrap score-section" id="motion-study" aria-labelledby="study-title">
   <div class="score-heading">
     <h2 id="study-title">Launch review</h2>
@@ -63,6 +64,78 @@
       </details>
     </div>
   </div>
+</section>
+
+
+<section class="wrap score-section product-study" id="stage-study" aria-labelledby="stage-title" data-study="stage" data-player-name="Stage" data-reset="Reset Stage">
+  <div class="score-heading"><h2 id="stage-title">Stage presentation</h2><button class="motion-control score-play" type="button" data-score-play>Play Stage</button></div>
+  <p class="product-lead">Present a two-slide material study with Juan. Cue the screen, mark the paper samples, advance to the drafting study, then clear the screen.</p>
+  <div class="score" data-score-state="0">
+    <div class="score-stage"><div class="score-mast"><span>Juan on Stage</span><span>Material study</span></div>
+      <div class="deck-scene">
+  <img class="deck-room" src="media/juan-stage/neutral.jpg" alt="Juan seated at the studio table" width="1920" height="1080" loading="lazy">
+  <div class="deck-screen" aria-hidden="true"><div class="deck-mat">
+    <div class="deck-slide">
+      <img src="media/artifact-poster-material-samples.webp" alt="" loading="lazy">
+      <div class="deck-type"><small>Material study · 01</small><strong>Paper<br>samples</strong></div>
+      <i class="deck-bracket" aria-hidden="true"></i>
+    </div>
+    <div class="deck-slide deck-second" aria-hidden="true">
+      <img src="media/artifact-poster-mint-drafting.webp" alt="" loading="lazy">
+      <div class="deck-type"><small>Material study · 02</small><strong>Cut &amp;<br>fold</strong></div>
+    </div>
+  </div></div>
+</div>
+      <div class="score-caption"><span class="score-cue">Presenter on screen</span><button type="button" class="motion-control score-next">Cue slide</button></div>
+    </div>
+    <div class="score-notes">
+      <div class="score-choices" role="group" aria-label="Stage presentation chapters"><button type="button" data-frame="1" data-title="Bring the work on screen" data-note="Reveal the slide from the screen edge beside Juan. Its edge gives the audience a path from the presenter to the material." data-move="Reveal from the left edge" data-ms="220" data-fixed="Presenter and screen bounds" data-cue="Slide 1 of 2" aria-pressed="false">Cue slide</button><button type="button" data-frame="2" data-title="Point once, then hold" data-note="Draw one blue bracket around the paper samples as Juan calls them out. Keep it on the slide while he talks." data-move="Draw the bracket down the image" data-ms="120" data-fixed="Image crop and slide title" data-cue="Paper samples marked" aria-pressed="false">Mark detail</button><button type="button" data-frame="3" data-title="Turn to the next sheet" data-note="The drafting study slides over the samples inside the same screen. Wait for a presenter cue before advancing." data-move="New sheet enters from the right" data-ms="220" data-fixed="Camera and slide baseline" data-cue="Slide 2 of 2" aria-pressed="false">Advance slide</button><button type="button" data-frame="4" data-title="Give the floor back" data-note="Retract the sheet toward the presenter when the explanation ends. Leave the camera framing intact." data-move="Wipe back to the screen edge" data-ms="220" data-fixed="Presenter and room" data-cue="Back to Juan" aria-pressed="false">Clear screen</button></div>
+      <div class="score-direction" aria-live="polite" aria-atomic="true"><h3>Bring the work on screen</h3><p>Reveal the slide from the screen edge beside Juan. Its edge gives the audience a path from the presenter to the material.</p></div>
+      <dl class="score-spec"><div><dt>Movement</dt><dd data-gesture>Reveal from the left edge</dd></div><div><dt>Timing</dt><dd data-time>220 ms · Shared ease</dd></div><div><dt>Stays still</dt><dd data-anchor>Presenter and screen bounds</dd></div></dl>
+      <label class="score-slow"><input type="checkbox"> Play gestures at ¼ speed</label>
+      <details class="score-inspect"><summary>Inspect frame by frame</summary>
+        <label for="stage-position">Gesture time <output for="stage-position">0 ms</output></label>
+        <input id="stage-position" type="range" min="0" max="220" step="1" value="0">
+        <p>Drag to inspect the selected gesture. Arrow keys move one millisecond.</p>
+      </details>
+    </div>
+  </div>
+  <details class="score-reference product-reference"><summary>Stage presentation motion rules</summary><dl><dt>Bring the work on screen</dt><dd>Reveal the slide from the screen edge beside Juan. Its edge gives the audience a path from the presenter to the material. 220 ms with Shared ease.</dd><dt>Point once, then hold</dt><dd>Draw one blue bracket around the paper samples as Juan calls them out. Keep it on the slide while he talks. 120 ms with Shared ease.</dd><dt>Turn to the next sheet</dt><dd>The drafting study slides over the samples inside the same screen. Wait for a presenter cue before advancing. 220 ms with Shared ease.</dd><dt>Give the floor back</dt><dd>Retract the sheet toward the presenter when the explanation ends. Leave the camera framing intact. 220 ms with Shared ease.</dd></dl></details>
+  <p class="product-guidance">Keep slides inside the right two-thirds of the frame. On a phone, scale the whole frame together so Juan and the slide stay in view. <a href="/artifacts/video#screen-reserve">See the Stage framing guide</a>.</p>
+</section>
+<section class="wrap score-section product-study" id="live-study" aria-labelledby="live-title" data-study="live" data-player-name="Live" data-reset="Reset call">
+  <div class="score-heading"><h2 id="live-title">Elio Live call</h2><button class="motion-control score-play" type="button" data-score-play>Play Live</button></div>
+  <p class="product-lead">Follow a call from the first open mic to a captioned reply. Interrupt Elio, then carry the conversation into Chat.</p>
+  <div class="score" data-score-state="0">
+    <div class="score-stage"><div class="score-mast"><span>Elio Live</span><span>Call preview</span></div>
+      <div class="onair-scene">
+  <div class="onair-person"><img src="media/elio.webp" width="250" height="320" alt="Elio" loading="lazy"><div><strong>Elio</strong><span data-call-state>Ready</span></div></div>
+  <div class="onair-work">
+    <div class="onair-turns"><span>Your turn</span><span>Elio</span><i aria-hidden="true"></i></div>
+    <div class="onair-window">
+      <div class="onair-material"><small>On Stage</small><strong>Open studio</strong><img src="media/artifact-poster-cobalt-workbench.webp" alt="Cobalt paper on the drafting table" loading="lazy"></div>
+      <div class="onair-chat" aria-hidden="true"><small>Chat</small><p><b>You</b>Which paper should we use?</p><p><b>Elio</b>Try the cobalt stock.</p></div>
+    </div>
+  </div>
+  <div class="onair-caption"><small>Captions</small><span aria-hidden="true">Elio · Try the cobalt stock.</span></div>
+  <label class="onair-compose"><span>Draft to Elio</span><input type="text" maxlength="160" placeholder="Type a reply…" autocomplete="off"></label>
+</div>
+      <div class="score-caption"><span class="score-cue">Ready to talk</span><button type="button" class="motion-control score-next">Open mic</button></div>
+    </div>
+    <div class="score-notes">
+      <div class="score-choices" role="group" aria-label="Elio Live call chapters"><button type="button" data-frame="1" data-title="Mark the open microphone" data-note="When the call accepts audio, a short ink line opens under Your turn. A written mic state stays beside the portrait." data-move="Underline the caller’s turn" data-ms="120" data-fixed="Elio’s portrait and composer" data-cue="Microphone open" aria-pressed="false">Open mic</button><button type="button" data-frame="2" data-title="Set the caption in place" data-note="Reveal Elio’s first complete phrase from its baseline when his reply starts. Keep enough room for a second line." data-move="Reveal the caption from below" data-ms="220" data-fixed="Portrait and transcript baseline" data-cue="Elio speaking" aria-pressed="false">Hear reply</button><button type="button" data-frame="3" data-title="Return the turn immediately" data-note="Release Elio’s speaking mark and return the blue rule to the caller. Keep the last caption readable while the caller answers." data-move="Pass the rule back to Your turn" data-ms="120" data-fixed="Last caption and input field" data-cue="Elio interrupted · your turn" aria-pressed="false">Interrupt</button><button type="button" data-frame="4" data-title="Carry the conversation into Chat" data-note="Bring the transcript into the work area. Try typing a draft before switching. Its text and the call stay in place." data-move="Reveal Chat across the work area" data-ms="220" data-fixed="Draft, call state and portrait" data-cue="Chat open · call continues" aria-pressed="false">Open Chat</button></div>
+      <div class="score-direction" aria-live="polite" aria-atomic="true"><h3>Mark the open microphone</h3><p>When the call accepts audio, a short ink line opens under Your turn. A written mic state stays beside the portrait.</p></div>
+      <dl class="score-spec"><div><dt>Movement</dt><dd data-gesture>Underline the caller’s turn</dd></div><div><dt>Timing</dt><dd data-time>120 ms · Shared ease</dd></div><div><dt>Stays still</dt><dd data-anchor>Elio’s portrait and composer</dd></div></dl>
+      <label class="score-slow"><input type="checkbox"> Play gestures at ¼ speed</label>
+      <details class="score-inspect"><summary>Inspect frame by frame</summary>
+        <label for="live-position">Gesture time <output for="live-position">0 ms</output></label>
+        <input id="live-position" type="range" min="0" max="120" step="1" value="0">
+        <p>Drag to inspect the selected gesture. Arrow keys move one millisecond.</p>
+      </details>
+    </div>
+  </div>
+  <details class="score-reference product-reference"><summary>Elio Live call motion rules</summary><dl><dt>Mark the open microphone</dt><dd>When the call accepts audio, a short ink line opens under Your turn. A written mic state stays beside the portrait. 120 ms with Shared ease.</dd><dt>Set the caption in place</dt><dd>Reveal Elio’s first complete phrase from its baseline when his reply starts. Keep enough room for a second line. 220 ms with Shared ease.</dd><dt>Return the turn immediately</dt><dd>Release Elio’s speaking mark and return the blue rule to the caller. Keep the last caption readable while the caller answers. 120 ms with Shared ease.</dd><dt>Carry the conversation into Chat</dt><dd>Bring the transcript into the work area. Try typing a draft before switching. Its text and the call stay in place. 220 ms with Shared ease.</dd></dl></details>
+  <p class="product-guidance">Show the call state in words as soon as it changes. Keep the composer mounted across views so the caller can complete a draft. <a href="/components/pages#live-workbench">See the Live workbench</a>.</p>
 </section>
 
 <section class="wrap mo-section" id="motion-language">

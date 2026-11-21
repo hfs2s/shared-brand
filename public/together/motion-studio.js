@@ -304,9 +304,7 @@ if (handoff) {
   }).observe(handoff);
 }
 
-const study = document.querySelector('#motion-study');
-if (study) {
-  const frames = [
+const reviewFrames = [
     {
       title: 'Open the room', note: 'The blue binding holds its place while the cover draws back, revealing the people and the proof inside.',
       gesture: 'Cover retracts to the binding', timing: '220 ms · Shared ease',
@@ -333,11 +331,55 @@ if (study) {
       anchor: 'Proof and approval label', cue: 'Proof approved', next: 'Close room'
     }
   ];
+
+function studyFrames(study) {
+  const choices = [...study.querySelectorAll('[data-frame]')];
+  const chapters = choices.map((button, index) => ({
+    title: button.dataset.title, note: button.dataset.note,
+    gesture: button.dataset.move, timing: button.dataset.ms + ' ms · Shared ease',
+    anchor: button.dataset.fixed, cue: button.dataset.cue, duration: Number(button.dataset.ms),
+    next: choices[index + 1]?.textContent ?? study.dataset.reset
+  }));
+  return [{
+    ...chapters[0], cue: study.querySelector('.score-cue').textContent, next: choices[0].textContent
+  }, ...chapters];
+}
+
+function renderReview(score, index) {
+  score.dataset.floor = index >= 2 ? 'elio' : 'les';
+  score.toggleAttribute('data-edited', index >= 3);
+  score.toggleAttribute('data-approved', index === 4);
+  const inside = score.querySelector('.score-inside');
+  inside.inert = index === 0;
+  inside.setAttribute('aria-hidden', String(index === 0));
+  score.querySelector('.score-cover').setAttribute('aria-hidden', String(index > 0));
+  score.querySelector('.score-new').textContent = index >= 3 ? 'noon' : 'ten';
+  score.querySelector('.score-verdict').textContent = index === 4 ? 'Approved' : 'In review';
+}
+
+function renderStage(score, index) {
+  score.querySelector('.deck-screen').setAttribute('aria-hidden', String(index === 0 || index === 4));
+  score.querySelector('.deck-slide').setAttribute('aria-hidden', String(index >= 3));
+  score.querySelector('.deck-second').setAttribute('aria-hidden', String(index < 3));
+}
+
+function renderLive(score, index) {
+  const labels = ['Ready', 'Listening', 'Speaking', 'Listening', 'Listening'];
+  score.querySelector('[data-call-state]').textContent = labels[index];
+  score.querySelector('.onair-caption span').setAttribute('aria-hidden', String(index < 2));
+  score.querySelector('.onair-chat').setAttribute('aria-hidden', String(index !== 4));
+  score.querySelector('.onair-material').setAttribute('aria-hidden', String(index === 4));
+}
+
+const renderSurface = {review: renderReview, stage: renderStage, live: renderLive};
+for (const study of document.querySelectorAll('.score-section')) {
+  const kind = study.dataset.study || 'review';
+  const frames = kind === 'review' ? reviewFrames : studyFrames(study);
+  const name = study.dataset.playerName || 'review';
+  const last = frames.length - 1;
   const score = study.querySelector('.score');
   const play = study.querySelector('[data-score-play]');
   const next = study.querySelector('.score-next');
-  const inside = study.querySelector('.score-inside');
-  const cover = study.querySelector('.score-cover');
   const choices = [...study.querySelectorAll('[data-frame]')];
   const inspector = score.querySelector('.score-inspect');
   const position = inspector.querySelector('input');
@@ -365,15 +407,8 @@ if (study) {
     frame = index;
     const item = frames[index];
     score.dataset.scoreState = String(index);
-    score.dataset.floor = index >= 2 ? 'elio' : 'les';
-    score.toggleAttribute('data-edited', index >= 3);
-    score.toggleAttribute('data-approved', index === 4);
-    inside.inert = index === 0;
-    inside.setAttribute('aria-hidden', String(index === 0));
-    cover.setAttribute('aria-hidden', String(index > 0));
+    renderSurface[kind](score, index);
     for (const choice of choices) choice.setAttribute('aria-pressed', String(Number(choice.dataset.frame) === index));
-    score.querySelector('.score-new').textContent = index >= 3 ? 'noon' : 'ten';
-    score.querySelector('.score-verdict').textContent = index === 4 ? 'Approved' : 'In review';
     score.querySelector('.score-direction h3').textContent = item.title;
     score.querySelector('.score-direction p').textContent = item.note;
     score.querySelector('[data-gesture]').textContent = item.gesture;
@@ -386,15 +421,15 @@ if (study) {
   function stop() {
     clearTimeout(timer);
     timer = null;
-    play.textContent = frame === 4 ? 'Replay review' : 'Play review';
+    play.textContent = (frame === last ? 'Replay ' : 'Play ') + name;
   }
 
   function schedule() {
-    if (frame === 4) {
+    if (frame === last) {
       stop();
       return;
     }
-    play.textContent = 'Pause review';
+    play.textContent = 'Pause ' + name;
     timer = setTimeout(() => {
       render(frame + 1);
       schedule();
@@ -416,7 +451,8 @@ if (study) {
       return;
     }
     finishInspection();
-    if (frame === 4) cutTo(0);
+    study.dispatchEvent(new Event('studyplay', {bubbles: true}));
+    if (frame === last) cutTo(0);
     if (frame === 0) render(1);
     schedule();
   });
@@ -431,9 +467,9 @@ if (study) {
   });
   function scrub() {
     const time = Number(position.value);
-    const fraction = time / Number(position.max);
+    const playbackTime = time * (slow.checked ? 4 : 1);
     for (const animation of inspected) {
-      animation.currentTime = fraction * animation.effect.getTiming().duration;
+      animation.currentTime = Math.min(playbackTime, animation.effect.getTiming().duration);
     }
     elapsed.value = time + ' ms';
     position.setAttribute('aria-valuetext', elapsed.value);
@@ -446,7 +482,7 @@ if (study) {
     }
     stop();
     const chapter = Math.max(frame, 1);
-    const duration = chapter === 1 || chapter === 3 ? enter : fast;
+    const duration = frames[chapter].duration ?? (chapter === 1 || chapter === 3 ? enter : fast);
     cutTo(chapter - 1);
     render(chapter);
     position.max = String(duration);
@@ -461,6 +497,7 @@ if (study) {
     scrub();
   }
 
+  document.addEventListener('studyplay', event => { if (event.target !== study && timer !== null) stop(); });
   inspector.addEventListener('toggle', inspect);
   position.addEventListener('input', scrub);
   lessMotion.addEventListener('change', () => {

@@ -3847,7 +3847,7 @@ Read the copy in its real layout and test the actions it describes.
 
 [Open the working examples](https://brand.getshared.ai/brand/motion)
 
-Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. See how those gestures work together in an Elio room.
+Paper opens along a binding. Ink marks who has the floor, where a proof changed, and when a decision is final. Follow the work through a room review, a Stage presentation, and a live call.
 
 
 ### [Launch review](https://brand.getshared.ai/brand/motion#study-title)
@@ -3870,6 +3870,94 @@ Stays still
 - Binding and room title bar
 
 Drag to inspect the selected gesture. Arrow keys move one millisecond.
+
+
+### [Stage presentation](https://brand.getshared.ai/brand/motion#stage-title)
+
+Present a two-slide material study with Juan. Cue the screen, mark the paper samples, advance to the drafting study, then clear the screen.
+
+
+#### [Bring the work on screen](https://brand.getshared.ai/brand/motion#stage-study)
+
+Reveal the slide from the screen edge beside Juan. Its edge gives the audience a path from the presenter to the material.
+
+Movement
+
+- Reveal from the left edge
+
+Timing
+
+- 220 ms · Shared ease
+
+Stays still
+
+- Presenter and screen bounds
+
+Drag to inspect the selected gesture. Arrow keys move one millisecond.
+
+Bring the work on screen
+
+- Reveal the slide from the screen edge beside Juan. Its edge gives the audience a path from the presenter to the material. 220 ms with Shared ease.
+
+Point once, then hold
+
+- Draw one blue bracket around the paper samples as Juan calls them out. Keep it on the slide while he talks. 120 ms with Shared ease.
+
+Turn to the next sheet
+
+- The drafting study slides over the samples inside the same screen. Wait for a presenter cue before advancing. 220 ms with Shared ease.
+
+Give the floor back
+
+- Retract the sheet toward the presenter when the explanation ends. Leave the camera framing intact. 220 ms with Shared ease.
+
+Keep slides inside the right two-thirds of the frame. On a phone, scale the whole frame together so Juan and the slide stay in view. See the Stage framing guide.
+
+
+### [Elio Live call](https://brand.getshared.ai/brand/motion#live-title)
+
+Follow a call from the first open mic to a captioned reply. Interrupt Elio, then carry the conversation into Chat.
+
+YouWhich paper should we use?
+
+ElioTry the cobalt stock.
+
+
+#### [Mark the open microphone](https://brand.getshared.ai/brand/motion#live-study)
+
+When the call accepts audio, a short ink line opens under Your turn. A written mic state stays beside the portrait.
+
+Movement
+
+- Underline the caller’s turn
+
+Timing
+
+- 120 ms · Shared ease
+
+Stays still
+
+- Elio’s portrait and composer
+
+Drag to inspect the selected gesture. Arrow keys move one millisecond.
+
+Mark the open microphone
+
+- When the call accepts audio, a short ink line opens under Your turn. A written mic state stays beside the portrait. 120 ms with Shared ease.
+
+Set the caption in place
+
+- Reveal Elio’s first complete phrase from its baseline when his reply starts. Keep enough room for a second line. 220 ms with Shared ease.
+
+Return the turn immediately
+
+- Release Elio’s speaking mark and return the blue rule to the caller. Keep the last caption readable while the caller answers. 120 ms with Shared ease.
+
+Carry the conversation into Chat
+
+- Bring the transcript into the work area. Try typing a draft before switching. Its text and the call stay in place. 220 ms with Shared ease.
+
+Show the call state in words as soon as it changes. Keep the composer mounted across views so the caller can complete a draft. See the Live workbench.
 
 
 ### [Using the gestures](https://brand.getshared.ai/brand/motion#motion-language)
