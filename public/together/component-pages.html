@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pages | Shared Components</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="brand-ui.css">
+<link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="page-patterns.css"><link rel="stylesheet" href="compound-patterns.css">
+<script src="studio-nav.js" defer></script><script src="compound-patterns.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="gridpaper brand-hero"><div class="wrap brand-head"><div>
+    <h1>Pages</h1><p>Complete layouts for live work, collections, item details, and settings.</p>
+  </div></div></header>
+  <!-- components-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Components menu"><div class="wrap document-menu" data-document-menu><a href="/components">Overview</a><a href="/components/pages" aria-current=page>Pages</a><a href="/components/talk">Talk</a><a href="/components/flows">Flows</a><a href="/components/generative">Generative UI</a></div></nav><!-- /studio-document-menu -->
+  <div class="wrap page-patterns">
+    <section class="page-pattern" id="page-anatomy">
+      <header><h2>Page anatomy</h2><p>Give every page a predictable reading order. Use the same page frame when the layout changes from a collection to a detail view or settings.</p></header>
+      <ol class="pattern-anatomy page-preview">
+        <li><strong>Shared shell</strong><p>Provide the skip link and product navigation. Highlight the current section and keep deep links shareable.</p></li>
+        <li><strong>Page heading</strong><p>Use one page title. Add a parent link when the page is nested and put the main action beside the title, or just below it on phones.</p></li>
+        <li><strong>Local navigation</strong><p>Use the shared menu for peer views. Keep the active label visible and place its content immediately below.</p></li>
+        <li><strong>Main content</strong><p>Use one labelled main landmark. Give the primary content the available width, then place optional context beside it or below it on phones.</p></li>
+        <li><strong>Feedback and recovery</strong><p>Keep loading, empty, error, and success messages in the region they describe. Preserve context, choices, and drafts when someone retries.</p></li>
+      </ol>
+      <p class="page-pattern-note">Use the Shared width, gutter, section spacing, and control-height tokens. Keep visual, reading, and keyboard order aligned at every width. Add a footer where the surface needs persistent secondary links.</p>
+    </section>
+    <section class="page-pattern" id="live-workbench">
+      <header><h2>Elio Live workbench</h2><p>Give Elio and the work their own space. Open on Stage and keep the composer available in Stage and Chat.</p></header>
+      <div class="page-preview elio-preview" data-elio-workbench>
+        <div class="elio-live-layout">
+          <div class="elio-call-portrait"><img class="agent-portrait" src="media/elio.webp" width="520" height="780" alt=""><strong>Elio</strong></div>
+          <div class="elio-work">
+            <div class="elio-work-header">
+              <h3 data-work-title>Stage</h3>
+              <div class="spec-toggle" role="group" aria-label="Workbench view">
+                <button class="spec-button" type="button" data-work-view aria-controls="work-chat" aria-pressed="false">Chat</button>
+                <button class="spec-button" type="button" data-work-view aria-controls="work-stage" aria-pressed="true">Stage</button>
+              </div>
+            </div>
+            <div id="work-stage" data-work-panel>
+              <div class="spec-toggle" role="group" aria-label="Stage view">
+                <button class="spec-button" type="button" data-work-mode aria-controls="work-canvas" aria-pressed="true">Canvas</button>
+                <button class="spec-button" type="button" data-work-mode aria-controls="work-sketch" aria-pressed="false">Sketch</button>
+              </div>
+              <div id="work-canvas" class="elio-sheet gridpaper" data-work-sheet>
+                <h4>Launch review</h4>
+                <ol><li>Choose the lead photograph.</li><li>Assign the first edit.</li><li>Share the approved draft.</li></ol>
+              </div>
+              <div id="work-sketch" class="elio-sheet gridpaper" data-work-sheet hidden>
+                <h4>From draft to launch</h4>
+                <ol class="elio-sketch"><li>Choose a photo</li><li>Make the edit</li><li>Publish the draft</li></ol>
+              </div>
+            </div>
+            <div id="work-chat" class="elio-chat" data-work-panel hidden>
+              <ol data-work-transcript aria-label="Conversation"><li><strong>Elio</strong><p>I’ve put the launch brief on Stage. Which lead photograph should we use?</p></li></ol>
+            </div>
+            <form class="spec-inline-form elio-composer" data-work-compose>
+              <label for="work-message">Type to Elio</label>
+              <div><input id="work-message" type="text" maxlength="160" required><button class="spec-button spec-primary" type="submit">Send</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="elio-dock"><a class="spec-button spec-primary" href="/components/talk#talk-demo">Try call controls</a><p role="status" data-work-status></p></div>
+      </div>
+      <p class="page-pattern-note">Stack the portrait above the work area on phones. Keep the composer and call controls in the same place as views change. New material can bring Stage forward when it leaves an active draft or dialog undisturbed. Messages in this preview stay in sample Chat.</p>
+    </section>
+    <section class="page-pattern" id="agent-identity">
+      <header><h2>Agent portraits and contact points</h2><p>Use Shared neon yellow (<code>--lemon</code>, <code>#F4F56E</code>) behind agent portraits. Pair the portrait with the agent’s name and a useful role or state.</p></header>
+      <div class="page-preview identity-examples">
+        <div><h3>Call tile</h3><div class="identity-contact"><img class="agent-portrait identity-tile" src="media/elio.webp" width="96" height="96" alt=""><div><strong>Elio</strong><span>Listening</span></div></div></div>
+        <div><h3>Email signature</h3><div class="identity-contact"><img class="agent-portrait" src="media/elio.webp" width="56" height="56" alt=""><div><strong>Elio</strong><span>Shared Studio agent</span></div></div></div>
+        <div><h3>Contact card</h3><div class="identity-contact"><img class="agent-portrait" src="media/elio.webp" width="56" height="56" alt=""><div><strong>Elio</strong><a href="/components/talk#talk-demo">Talk with Elio</a></div></div></div>
+      </div>
+      <p class="page-pattern-note">Use a transparent portrait over the token on web surfaces. For email, export the crop with the yellow baked into the image, and keep the name and role in live text so they remain readable with images off. Use a written label for call state. <a href="/artifacts#email">See the email specimen</a>.</p>
+    </section>
+    <section class="page-pattern" id="collection">
+      <header><h2>Collection</h2><p>Help people scan related work and find the next item to open.</p></header>
+      <div class="page-preview">
+        <div class="page-preview-bar"><div><h3>Campaign rooms</h3><span>3 rooms</span></div></div>
+        <ul class="page-collection">
+          <li><div><a href="#detail">Spring launch</a><span>Creative · Updated today</span></div><span class="page-state page-state-live">In review</span></li>
+          <li><div><strong>Studio open house</strong><span>Events · Updated yesterday</span></div><span class="page-state">Draft</span></li>
+          <li><div><strong>Field recordings</strong><span>Production · Updated Tuesday</span></div><span class="page-state">Ready</span></li>
+        </ul>
+      </div>
+      <p class="page-pattern-note">Give each entry a clear title, one useful line of metadata, and a written status when the workflow has distinct states.</p>
+    </section>
+    <section class="page-pattern" id="detail">
+      <header><h2>Detail view</h2><p>Put the title, current state, and next decision ahead of supporting information.</p></header>
+      <div class="page-preview">
+        <div class="page-preview-bar"><div><a href="#collection">Campaign rooms</a><h3>Spring launch</h3></div><span class="page-state page-state-live">In review</span></div>
+        <div class="page-detail"><h4>Choose the lead photograph</h4><p>The creative team is reviewing two selects. The final image is due for layout on Thursday.</p>
+          <dl><div><dt>Owner</dt><dd>Creative studio</dd></div><div><dt>Due</dt><dd>Thursday, 18 March</dd></div></dl>
+        </div>
+      </div>
+      <p class="page-pattern-note">Give supporting metadata stable labels. Use a breadcrumb or collection link so people can return to the list.</p>
+    </section>
+    <section class="page-pattern" id="settings">
+      <header><h2>Settings</h2><p>Group related controls and explain permissions where people make the choice.</p></header>
+      <div class="page-preview">
+        <div class="page-preview-bar"><div><h3>Room settings</h3><span>Spring launch</span></div></div>
+        <div class="page-settings">
+          <label>Room name<input type="text" value="Spring launch" maxlength="80"></label>
+          <label>Who can enter<select aria-describedby="page-access-help"><option>Invited people</option><option>Workspace members</option></select></label>
+          <p id="page-access-help">Invited people need to sign in with the address on their invitation.</p>
+          <label class="page-checkbox"><input type="checkbox" checked> Keep a transcript after the call</label>
+        </div>
+      </div>
+      <p class="page-pattern-note">Use Inter for field labels and values. Keep permission help beside its field. Changes in this specimen reset when you leave the page.</p>
+    </section>
+  </div>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand">Brand Guide</a><a href="/artifacts">Artifacts</a></div></footer>
+</body></html>

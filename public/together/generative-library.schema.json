@@ -1,0 +1,1389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shared generative view",
+  "description": "A view Nando may put on screen in a Nando Room or on a Nando Live call. It names a use case and one to three brand guide components with their data. It never carries markup.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "intent",
+    "useCase",
+    "surface",
+    "place",
+    "components"
+  ],
+  "properties": {
+    "version": {
+      "const": 2
+    },
+    "intent": {
+      "const": "use-case"
+    },
+    "useCase": {
+      "enum": [
+        "room-setup",
+        "agenda-draft",
+        "invite-list",
+        "guest-link",
+        "recording-plan",
+        "deck-ready",
+        "prep-checklist",
+        "call-plan",
+        "catch-up",
+        "waiting-list",
+        "device-check",
+        "guest-name",
+        "welcome-card",
+        "recording-notice",
+        "late-recap",
+        "who-is-here",
+        "room-controls",
+        "call-resume",
+        "agenda-progress",
+        "timebox",
+        "speaking-order",
+        "quick-poll",
+        "poll-results",
+        "parking-lot",
+        "action-capture",
+        "live-notes",
+        "room-chat",
+        "time-check",
+        "room-view",
+        "quick-reaction",
+        "compare-table",
+        "walkthrough",
+        "numbers",
+        "short-list",
+        "pros-cons",
+        "quick-note",
+        "sketch-mode",
+        "sources",
+        "bring-list",
+        "where-is-it",
+        "tap-to-answer",
+        "deck-outline",
+        "slide-pager",
+        "slide-edit",
+        "deck-export",
+        "photo-on-stage",
+        "shared-page",
+        "share-request",
+        "stage-source",
+        "presenter-notes",
+        "deck-shape",
+        "clear-stage",
+        "camera-look",
+        "thread-on-stage",
+        "either-or",
+        "trade-off",
+        "which-one",
+        "read-back",
+        "decision-record",
+        "spend-approval",
+        "decide-for-me",
+        "where-we-stand",
+        "decide-by",
+        "reopen-decision",
+        "run-of-show",
+        "supplier-quotes",
+        "volunteer-roster",
+        "budget",
+        "rsvp-count",
+        "open-loops",
+        "contact-sheet",
+        "access-needs",
+        "speaker-lineup",
+        "risks",
+        "floor-plan",
+        "sponsor-pipeline",
+        "today",
+        "find-a-time",
+        "invite-preview",
+        "move-event",
+        "cancel-event",
+        "inbox",
+        "mail-draft",
+        "read-mail",
+        "reminder",
+        "clash",
+        "rsvp-status",
+        "app-readback",
+        "screen-pictures",
+        "approve-round",
+        "build-progress",
+        "change-request",
+        "device-preview",
+        "my-apps",
+        "publish",
+        "form-questions",
+        "preview-link",
+        "undo-change",
+        "picture-request",
+        "handoff-readback",
+        "work-status",
+        "needs-you",
+        "result",
+        "cancel-work",
+        "who-has-what",
+        "built-not-live",
+        "duplicate-job",
+        "job-notes",
+        "started-on-call",
+        "recall",
+        "recent-calls",
+        "remember-this",
+        "forget",
+        "person-card",
+        "search-notes",
+        "unsure",
+        "room-memory",
+        "project-history",
+        "pin",
+        "upload",
+        "read-file",
+        "send-to-chat",
+        "room-files",
+        "no-files",
+        "recording-ready",
+        "export-notes",
+        "file-access",
+        "secret-link",
+        "made-picture",
+        "private-context",
+        "guest-roles",
+        "who-may-ask",
+        "needs-host",
+        "mute-person",
+        "mute-record",
+        "remove-guest",
+        "room-locks",
+        "what-nando-knows",
+        "room-record",
+        "role-change",
+        "languages",
+        "answer-length",
+        "speaking-speed",
+        "interruption",
+        "captions",
+        "translate",
+        "type-instead",
+        "less-motion",
+        "name-spelling",
+        "listen-only",
+        "reconnecting",
+        "no-sound",
+        "did-you-mean",
+        "build-failed",
+        "picture-uncertain",
+        "limit",
+        "stage-taken",
+        "room-full",
+        "file-refused",
+        "nothing-found",
+        "still-working",
+        "link-expired",
+        "app-asleep",
+        "room-summary",
+        "follow-up",
+        "next-room",
+        "feedback",
+        "call-receipt",
+        "carries-on",
+        "leave-room",
+        "end-room",
+        "attendance",
+        "keep-sketch",
+        "continue-in-chat"
+      ]
+    },
+    "surface": {
+      "enum": [
+        "rooms",
+        "live",
+        "both"
+      ]
+    },
+    "place": {
+      "enum": [
+        "stage",
+        "host",
+        "guest",
+        "chat",
+        "lobby",
+        "canvas",
+        "callstage",
+        "shared",
+        "presenter"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "oneOf": [
+          {
+            "title": "Key–value details",
+            "description": "Brand guide: brand.html#definition-list",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "facts"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Sortable table",
+            "description": "Brand guide: brand.html#data-table",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "caption",
+              "columns",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "columns": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Status chip",
+            "description": "Brand guide: brand.html#status-chip",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "status"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Avatar and identity",
+            "description": "Brand guide: brand.html#avatar",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "people"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Guest lobby queue",
+            "description": "Brand guide: brand.html#guest-queue",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "queue"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "File card",
+            "description": "Brand guide: brand.html#file-card",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "files"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Radio group",
+            "description": "Brand guide: brand.html#radio",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "legend",
+              "options"
+            ],
+            "properties": {
+              "type": {
+                "const": "choices"
+              },
+              "legend": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "options": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              }
+            }
+          },
+          {
+            "title": "Checkbox",
+            "description": "Brand guide: brand.html#checkbox",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "legend",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "checks"
+              },
+              "legend": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "on": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          {
+            "title": "Switch",
+            "description": "Brand guide: brand.html#switch",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "switches"
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "on": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          {
+            "title": "Toggle group",
+            "description": "Brand guide: brand.html#toggle-group",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "toggles"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "on": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          {
+            "title": "Treatment selector",
+            "description": "Brand guide: brand.html#components",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "segments"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "on": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "title": "Inline notice",
+            "description": "Brand guide: brand.html#notice",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "tone",
+              "title",
+              "text"
+            ],
+            "properties": {
+              "type": {
+                "const": "notice"
+              },
+              "tone": {
+                "enum": [
+                  "info",
+                  "warning",
+                  "success",
+                  "failure"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Empty state",
+            "description": "Brand guide: brand.html#empty",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "text",
+              "action",
+              "result"
+            ],
+            "properties": {
+              "type": {
+                "const": "empty"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "result": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Progress",
+            "description": "Brand guide: brand.html#progress",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label"
+            ],
+            "properties": {
+              "type": {
+                "const": "progress"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "steps": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "done": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Toast",
+            "description": "Brand guide: brand.html#toast",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "text"
+            ],
+            "properties": {
+              "type": {
+                "const": "toast"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Reaction picker",
+            "description": "Brand guide: brand.html#components",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "prompt"
+            ],
+            "properties": {
+              "type": {
+                "const": "reactions"
+              },
+              "prompt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Room toolbar",
+            "description": "Brand guide: brand.html#room-toolbar",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "room"
+            ],
+            "properties": {
+              "type": {
+                "const": "toolbar"
+              },
+              "room": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Stage and captions",
+            "description": "Brand guide: brand.html#stage-and-captions",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "image",
+              "alt",
+              "caption"
+            ],
+            "properties": {
+              "type": {
+                "const": "stage"
+              },
+              "image": {
+                "enum": [
+                  "floor-plan",
+                  "event-layout",
+                  "welcome-table"
+                ]
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Modal dialog",
+            "description": "Brand guide: brand.html#modal",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "open",
+              "title",
+              "summary",
+              "detail",
+              "action"
+            ],
+            "properties": {
+              "type": {
+                "const": "confirm"
+              },
+              "open": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "detail": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "danger": {
+                "type": "boolean"
+              },
+              "mark": {
+                "enum": [
+                  "alert",
+                  "bell",
+                  "calendar",
+                  "captions",
+                  "check",
+                  "close",
+                  "exit",
+                  "file",
+                  "folder",
+                  "key",
+                  "lock",
+                  "microphone",
+                  "monitor",
+                  "mute",
+                  "people",
+                  "pin",
+                  "play",
+                  "reply",
+                  "room",
+                  "seat",
+                  "share",
+                  "spark",
+                  "video",
+                  "wave"
+                ]
+              }
+            }
+          },
+          {
+            "title": "Complete forms",
+            "description": "Brand guide: brand.html#forms-group-2",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "fields",
+              "submit",
+              "receipt"
+            ],
+            "properties": {
+              "type": {
+                "const": "form"
+              },
+              "fields": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 6,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 4,
+                  "prefixItems": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 280
+                    },
+                    {
+                      "enum": [
+                        "text",
+                        "email",
+                        "tel",
+                        "url",
+                        "number",
+                        "date",
+                        "time",
+                        "datetime",
+                        "select",
+                        "textarea",
+                        "file"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "string",
+                        "array",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  ],
+                  "items": false
+                }
+              },
+              "submit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "receipt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Accordion",
+            "description": "Brand guide: brand.html#accordion",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "accordion"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Tabs",
+            "description": "Brand guide: brand.html#tabs-component",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "tabs"
+            ],
+            "properties": {
+              "type": {
+                "const": "tabs"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "tabs": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Pagination",
+            "description": "Brand guide: brand.html#pagination",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "unit",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "pager"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Search and clear",
+            "description": "Brand guide: brand.html#search-field",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "placeholder",
+              "items"
+            ],
+            "properties": {
+              "type": {
+                "const": "find"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "placeholder": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              }
+            }
+          },
+          {
+            "title": "Link and download",
+            "description": "Brand guide: brand.html#link",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "links"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 280
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^(?:brand|motion|copy|icons|photography)\\.html(?:#[\\w-]+)?$"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 280
+                    }
+                  ],
+                  "items": false,
+                  "minItems": 3
+                }
+              }
+            }
+          },
+          {
+            "title": "Range slider",
+            "description": "Brand guide: brand.html#range",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "value"
+            ],
+            "properties": {
+              "type": {
+                "const": "slider"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "marks": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              },
+              "min": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "integer"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Responsive split",
+            "description": "Brand guide: brand.html#responsive-layout",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "options"
+            ],
+            "properties": {
+              "type": {
+                "const": "compare"
+              },
+              "options": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              },
+              "pick": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Progress",
+            "description": "Brand guide: brand.html#progress",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows",
+              "unit"
+            ],
+            "properties": {
+              "type": {
+                "const": "bars"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 280
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ],
+                  "items": false,
+                  "minItems": 2
+                }
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Message and review composer",
+            "description": "Brand guide: brand.html#composer",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "rows"
+            ],
+            "properties": {
+              "type": {
+                "const": "thread"
+              },
+              "rows": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 280
+                  }
+                }
+              },
+              "compose": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Loading placeholder",
+            "description": "Brand guide: brand.html#skeleton",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "waiting",
+              "ready",
+              "action"
+            ],
+            "properties": {
+              "type": {
+                "const": "skeleton"
+              },
+              "waiting": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "ready": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          },
+          {
+            "title": "Breadcrumb",
+            "description": "Brand guide: brand.html#breadcrumbs",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "path"
+            ],
+            "properties": {
+              "type": {
+                "const": "breadcrumb"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "path": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 280
+                }
+              }
+            }
+          },
+          {
+            "title": "Invite link",
+            "description": "Brand guide: brand.html#guest-link",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "label",
+              "value",
+              "scope"
+            ],
+            "properties": {
+              "type": {
+                "const": "copy"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

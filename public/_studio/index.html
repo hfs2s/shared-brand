@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdf3e5">
+  <title>Shared Studio</title>
+  <link rel="icon" href="/together/media/reply-09.svg">
+  <link rel="stylesheet" href="/together/tokens.css">
+  <link rel="stylesheet" href="/together/style.css">
+  <link rel="stylesheet" href="/_studio/shell.css">
+  <script src="/together/section-routes.js" defer></script>
+  <script src="/_studio/shell.js" defer></script>
+</head>
+<body>
+  <header class="studio-bar">
+    <a class="studio-home" href="/" aria-label="Shared Studio home">
+      <img src="/together/media/shared-09.svg" alt="">
+    </a>
+    <nav aria-label="Studio">
+      <a href="/#work">Stories</a>
+      <a href="/brand">Brand guide</a>
+      <a href="/components">Components</a>
+      <a href="/artifacts">Artifacts</a>
+      <a href="/copy">Copy</a>
+    </nav>
+    <a class="studio-design" href="/DESIGN.md" download>DESIGN.md</a>
+  </header>
+  <main>
+    <iframe id="studio-view" title="Shared Studio" aria-busy="true"></iframe>
+    <div id="studio-loading" hidden>
+      <div class="studio-knot" data-torus-loader aria-hidden="true">
+        <div class="solo-screen">
+          <img src="/together/media/shared-09.svg" alt="">
+          <canvas></canvas>
+        </div>
+      </div>
+      <p role="status" hidden></p>
+    </div>
+  </main>
+  <noscript><p><a href="?studio_document=1">Open the studio page</a></p></noscript>
+</body>
+</html>

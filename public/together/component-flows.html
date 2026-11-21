@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flows | Shared Components</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="brand-ui.css">
+<link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="page-patterns.css"><link rel="stylesheet" href="compound-patterns.css">
+<script src="studio-nav.js" defer></script><script src="compound-patterns.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="gridpaper brand-hero"><div class="wrap brand-head"><div>
+    <h1>Flows</h1><p>Working patterns for the steps people take across Shared pages.</p>
+  </div></div></header>
+  <!-- components-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Components menu"><div class="wrap document-menu" data-document-menu><a href="/components">Overview</a><a href="/components/pages">Pages</a><a href="/components/talk">Talk</a><a href="/components/flows" aria-current=page>Flows</a><a href="/components/generative">Generative UI</a></div></nav><!-- /studio-document-menu -->
+  <div class="wrap page-patterns">
+    <section class="page-pattern" id="join-room">
+      <header><h2>Elio Rooms lobby and viewer</h2><p>Start with the room and device choices. Keep the same viewer when people enter, change views, or turn on captions.</p></header>
+      <div class="page-preview elio-preview" data-room-preview>
+        <div class="page-preview-bar"><div><h3>Spring launch review</h3><span>Hosted by Elio</span></div><span class="page-state" role="status" data-room-state>Lobby</span></div>
+        <div class="elio-room-layout">
+          <div class="elio-room-viewer">
+            <div class="elio-room-lobby" data-room-lobby><h4>Shared viewer</h4><p>Join to see who’s here and what Elio shares.</p></div>
+            <div class="elio-room-active" data-room-active hidden>
+              <div class="spec-toggle" role="group" aria-label="Room view">
+                <button class="spec-button" type="button" data-room-view aria-controls="room-people" aria-pressed="true">People</button>
+                <button class="spec-button" type="button" data-room-view aria-controls="room-stage" aria-pressed="false">Stage</button>
+              </div>
+              <div class="elio-room-center" id="room-people" data-room-panel>
+                <span class="room-self" aria-hidden="true">Y</span><p data-room-self>You · Camera off</p>
+              </div>
+              <div class="elio-room-center" id="room-stage" data-room-panel hidden>
+                <div class="elio-room-artifact"><h4>Launch review</h4><p>Choose a lead photograph for the first draft.</p></div>
+              </div>
+              <figure class="elio-room-agent"><img class="agent-portrait" src="media/elio.webp" width="70" height="70" alt=""><figcaption>Elio</figcaption></figure>
+              <p class="elio-room-captions" id="room-caption" hidden>Elio · Let’s start with the launch brief.</p>
+            </div>
+          </div>
+          <div class="elio-dock spec-actions" role="group" aria-label="In-call controls" data-room-dock hidden>
+            <button class="spec-button" type="button" data-room-mic aria-pressed="false">Microphone <span>off</span></button>
+            <button class="spec-button" type="button" data-room-camera aria-pressed="false">Camera <span>off</span></button>
+            <button class="spec-button" type="button" data-room-captions aria-controls="room-caption" aria-pressed="false">Captions <span>off</span></button>
+            <button class="spec-button spec-end" type="button" data-room-leave>Leave preview</button>
+          </div>
+          <aside class="elio-room-side" aria-label="Room controls">
+            <form class="spec-body" data-join-demo>
+              <fieldset><legend>Devices on entry</legend>
+                <label class="spec-option"><input type="checkbox" name="join-audio"> Microphone on</label>
+                <label class="spec-option"><input type="checkbox" name="join-video"> Camera on</label>
+              </fieldset>
+              <div class="spec-actions"><button type="submit" class="spec-button spec-primary">Join preview</button></div>
+            </form>
+            <div class="spec-body" data-room-guest hidden>
+              <h4>Guest lobby</h4>
+              <p><strong>Sam Rivera</strong><br><span role="status" data-guest-status>Waiting in the lobby</span></p>
+              <div class="spec-actions"><button type="button" class="spec-button spec-primary" data-guest-decision="Admitted">Admit</button><button type="button" class="spec-button" data-guest-decision="Declined">Decline</button></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <p class="page-pattern-note">Keep the call controls under the viewer in People and Stage. Keep the agent’s portrait visible in both views. Confirm guest actions against the named person and show the outcome on their row. If device access fails, explain why and offer a muted route into the room. This preview uses sample participants and device states.</p>
+    </section>
+    <section class="page-pattern" id="find-work">
+      <header><h2>Find work</h2><p>Combine search, filters, result counts, and a useful empty state.</p></header>
+      <div class="page-preview" data-search-demo>
+        <div class="page-preview-bar"><div><h3>Campaign rooms</h3><span role="status" data-search-count>3 rooms</span></div></div>
+        <div class="spec-body spec-filter">
+          <label>Search rooms<input type="search" placeholder="Room name"></label>
+          <div class="spec-field"><label for="room-status">Status</label><select id="room-status"><option value="">All statuses</option><option value="In review">In review</option><option value="Draft">Draft</option><option value="Ready">Ready</option></select></div>
+          <button class="spec-button" type="button" data-clear-filters>Clear filters</button>
+        </div>
+        <ul class="page-collection">
+          <li><div><strong>Spring launch</strong><span>Creative · Updated today</span></div><span class="page-state page-state-live">In review</span></li>
+          <li><div><strong>Studio open house</strong><span>Events · Updated yesterday</span></div><span class="page-state">Draft</span></li>
+          <li><div><strong>Field recordings</strong><span>Production · Updated Tuesday</span></div><span class="page-state">Ready</span></li>
+        </ul>
+        <div class="spec-body" data-search-empty hidden><h4>No matching rooms</h4><p>Try another name or clear your filters.</p></div>
+      </div>
+      <p class="page-pattern-note">Keep controls in place as the list changes. When a filtered list is empty, make it easy to reset it. When a collection has no items yet, offer the relevant create or import action.</p>
+    </section>
+    <section class="page-pattern" id="review-decision">
+      <header><h2>Review a decision</h2><p>Put the item, review choices, rationale, and confirmation in one place.</p></header>
+      <div class="page-preview">
+        <div class="page-preview-bar"><div><h3>Spring launch brief</h3><span>Revision 3 · Creative studio</span></div><span class="page-state" data-review-state>Awaiting review</span></div>
+        <form class="spec-body" data-review-demo>
+          <fieldset><legend>Decision</legend>
+            <label class="spec-option"><input type="radio" name="review-choice" value="Approved" required> Approve</label>
+            <label class="spec-option"><input type="radio" name="review-choice" value="Changes requested"> Request changes</label>
+          </fieldset>
+          <label class="spec-field">Review note <span data-note-optional>(optional)</span><textarea maxlength="240" rows="3"></textarea></label>
+          <div class="spec-actions"><button type="submit" class="spec-button spec-primary">Save decision</button></div>
+          <p class="spec-result" role="status"></p>
+        </form>
+      </div>
+      <p class="page-pattern-note">Show the version under review. Require a note when asking for changes and announce the outcome after saving. If saving fails, keep the decision and note.</p>
+    </section>
+    <section class="page-pattern" id="recover-work">
+      <header><h2>Recover work</h2><p>Pair a specific problem with the next action and keep the work in reach.</p></header>
+      <div class="page-preview" data-retry-demo>
+        <div class="page-preview-bar"><div><h3>Field recording notes</h3><span>Recording summary</span></div></div>
+        <div class="spec-body">
+          <div class="spec-message">
+            <h4 data-retry-title>Summary couldn’t load</h4>
+            <p role="status" data-retry-status>Your recording is available. Try loading the summary again.</p>
+            <div class="spec-actions"><button class="spec-button spec-primary" type="button" data-retry-button>Retry summary</button></div>
+          </div>
+          <details><summary>Recording details</summary><p>Open Studio · 12 minutes · Recorded Tuesday</p></details>
+        </div>
+      </div>
+      <p class="page-pattern-note">Retry only the part that failed. Show progress in that region and return the result in place. Keep the recording or other usable material accessible throughout.</p>
+    </section>
+  </div>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand">Brand Guide</a><a href="/artifacts">Artifacts</a></div></footer>
+</body></html>

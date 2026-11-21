@@ -1,0 +1,22 @@
+.paper-defs { position:absolute; pointer-events:none; }
+.paper-glyph { display:block; max-width:100%; }
+.icon-hero { border-bottom:1px solid var(--line); }
+.icon-head { display:grid; grid-template-columns:1fr minmax(300px,.75fr); align-items:center; gap:5vw; padding-block:clamp(42px,6vw,100px); }
+.icon-head h1 { font-size:calc(var(--serif-scale) * clamp(62px,7.8vw,125px)); }
+.icon-head p,.icon-source p { max-width:490px; margin-top:18px; font-size:18px; }
+.icon-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; margin-top:24px; font-size:14px; }
+
+.hero-marks { display:grid; grid-template-columns:1fr 1fr; justify-items:center; align-items:center; padding:28px; gap:8px; background:var(--mint); border:1px solid var(--line); }
+.icon-group { padding-block:42px 0; }
+.icon-group h2,.icon-source h2 { font-size:calc(var(--serif-scale) * clamp(40px,4vw,68px)); margin-bottom:18px; }
+.icon-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:var(--icon-gap); }
+.icon-card { background:var(--stock); border:1px solid var(--line); min-width:0; }
+.icon-sample { display:grid; place-items:center; padding:8px; aspect-ratio:1.68; background:var(--paper); border-bottom:1px solid var(--line); }
+.icon-sample .paper-glyph { width:56%; height:auto; }
+.icon-info { padding:14px; }
+.icon-info h3 { font-size:calc(var(--serif-scale) * 32px); }
+.icon-info p { min-height:2.8em; margin-top:7px; font-size:13px; color:var(--mute); }
+.downloads { display:flex; flex-wrap:wrap; column-gap:15px; padding-top:7px; font:12px/1.5 var(--mono); }
+.downloads a { min-height:32px; display:inline-flex; align-items:center; }
+.icon-source { margin-top:64px; padding-block:32px 56px; border-top:1px solid var(--line); }
+@media(max-width:800px){.icon-head{grid-template-columns:1fr;gap:26px}.hero-marks{padding:12px;max-width:360px}.hero-marks .paper-glyph{width:130px;height:130px}.icon-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.icon-info{padding:10px}.icon-info h3{font-size:calc(var(--serif-scale) * 29px)}.downloads{column-gap:10px}.icon-group{padding-top:32px}}

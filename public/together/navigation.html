@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navigation | Shared</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="brand-ui.css"><link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="dataviz.css"><link rel="stylesheet" href="navigation-spec.css">
+<script src="studio-nav.js" defer></script>
+</head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <section class="gridpaper brand-hero"><div class="wrap brand-head"><div><h1>Navigation</h1><p>Use the header for main destinations and one shared row for topics and pages within a section.</p></div></div></section>
+  <div class="wrap studio-reference navigation-guide">
+    <!-- navigation-content -->
+    <section class="reference-section" id="nav-desktop"><h2>Desktop header</h2>
+      <p>Position the wordmark at the start and keep utility downloads at the end. Use JetBrains Mono at 14px and a 50px target height. Mark the current route with ink text and a 3px cobalt rule. Keep other routes in muted ink with no underline.</p>
+      <figure class="nav-preview"><div class="nav-example"><img src="media/shared-09.svg" width="95" alt="Shared"><div><span>Stories</span><span data-current>Brand guide</span><span>Navigation</span><span>Artifacts</span></div><span>DESIGN.md</span></div><figcaption>Desktop · one row with a wordmark, route rail, and utility download</figcaption></figure>
+    </section>
+    <section class="reference-section" id="nav-mobile"><h2>Mobile header</h2>
+      <p>Give the wordmark and download their own row. Put the same ordered routes on a horizontally scrolling rail below, with 44px or taller targets. Bring the active route into view on a direct visit. Keep horizontal scrolling inside the rail.</p>
+      <figure class="nav-preview nav-preview-phone"><div class="nav-example"><img src="media/shared-09.svg" width="84" alt="Shared"><span>DESIGN.md</span><div><span>Stories</span><span>Brand guide</span><span data-current>Navigation</span><span>Artifacts</span></div></div><figcaption>Mobile · the horizontal rail holds the full set of routes</figcaption></figure>
+    </section>
+    <section class="reference-section" id="nav-tabs"><h2>Tabs inside a page</h2>
+      <p>Keep tabs and related library pages in one horizontally scrolling row. Use the same active rule and type for both. Keep the row in the same place as people switch between topics or open a related page. Preserve the selected topic in the URL.</p>
+      <div class="reference-links"><a href="brand#dataviz">Brand Guide tabs</a><a href="artifacts#report">Artifact tabs on a compact grid</a></div>
+    </section>
+    <section class="reference-section" id="nav-behaviour"><h2>Links, focus and history</h2>
+      <dl class="reference-spec">
+        <div><dt>Main routes</dt><dd>Use links in a named navigation landmark. Apply aria-current=page to the active route, including when a destination opens at a section anchor. Keep the main navigation in place between routes.</dd></div>
+        <div><dt>Page tabs</dt><dd>Use tablist, tab, and tabpanel for views within the current document. Use links with aria-current=page for related pages in the same row. Use Left and Right arrows to move among the local tabs, and Home and End for the first or last tab.</dd></div>
+        <div><dt>Deep links and Back</dt><dd>Give each destination a clean URL. A direct link opens the correct route and section. Browser Back and Forward restore the previous view.</dd></div>
+        <div><dt>First paint</dt><dd>Reveal each view after its styles and fonts are ready. Reserve the brand animation for an eligible full-page load. Navigation within the studio keeps the header in place.</dd></div>
+      </dl>
+    </section>
+    <!-- /navigation-content -->
+  </div>
+</main><footer class="sitefoot"><a href="./" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="brand#components">Brand Guide components</a><a href="../DESIGN.md" download>Design reference</a></div></footer>
+</body></html>

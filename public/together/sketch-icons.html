@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fdf3e5"><meta name="description" content="Browse 10,000 rounded-stroke icons for Shared Sketch mode.">
+<title>Sketch icons · Shared Studio</title><link rel="icon" href="media/reply-09.svg">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="studio-nav.css">
+<link rel="stylesheet" href="pixel-buttons.css"><script src="studio-nav.js" defer></script>
+<script src="sketch-icons-4645861fdbf3.js" type="module"></script>
+<style>
+.sketch-intro { padding-block:var(--section-space) var(--content-gap); }
+.sketch-intro p { max-width:64ch; margin-top:16px; }
+.sketch-intro h1 { font-size:calc(var(--serif-scale) * clamp(56px,8vw,116px)); }
+.sketch-index { display:flex; flex-wrap:wrap; gap:10px 20px; border-bottom:1px solid var(--line); padding-block:16px 24px; }
+.sketch-index [aria-current] { font-weight:700; }
+.sketch-catalog { padding-bottom:var(--section-space); }
+.sketch-group { margin-top:var(--content-gap); scroll-margin-top:24px; }
+.sketch-group h2 { font-size:calc(var(--serif-scale) * clamp(30px,4vw,51px)); margin-bottom:14px; scroll-margin-top:24px; }
+.sketch-group label, .sketch-group input, .sketch-group textarea { display:block; }
+.sketch-group input, .sketch-group textarea { box-sizing:border-box; width:min(100%,32rem); padding:8px 12px; border:1px solid var(--ink); background:var(--stock); color:var(--ink); font:inherit; }
+.sketch-group [hidden] { display:none; }
+#sketch-results { margin-block:12px; }
+.sketch-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,104px),1fr)); gap:8px; }
+.sketch-card { display:grid; grid-template-rows:auto 1fr auto; justify-items:center; gap:8px; border:1px solid var(--line); background:var(--stock); padding:8px 4px; min-width:0; margin:0; }
+.sketch-card svg { width:52px; max-width:100%; color:var(--ink); }
+.sketch-card path { fill:none; stroke:currentColor; stroke-width:5.4; stroke-linecap:round; stroke-linejoin:round; }
+.sketch-card figcaption { min-width:0; max-width:100%; font:12px/1.35 var(--mono); text-align:center; overflow-wrap:anywhere; }
+.sketch-card code, .sketch-card small { font:inherit; }
+.sketch-card small { display:block; margin-top:2px; }
+.sketch-card button, .sketch-pages button { font:inherit; color:var(--ink); background:var(--stock); border:1px solid var(--line); padding:6px; cursor:pointer; }
+.sketch-card button { font:12px/1.3 var(--mono); }
+.sketch-pages { display:flex; gap:12px; margin-block:12px; }
+.sketch-pages button:disabled { opacity:.6; cursor:default; }
+#sketch-copy-path:focus-within { outline:1px solid var(--ink); outline-offset:4px; }
+.sketch-visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+</style><link rel="stylesheet" href="family-pages.css"><link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main data-family-page="sketch-icons" id="main">
+<!-- studio-family-intro -->
+<section class="family-intro gridpaper"><div class="wrap family-lead">
+  <div class="family-lead-copy"><h1>Sketch Icons</h1><p>Browse 10,000 rounded-stroke icons. Copy a built-in <code>glyph</code> or custom <code>art</code> path into a Sketch mode node.</p>
+    <div class="family-links"><a href="#catalog">Browse Sketch icons</a><a href="brand#icons">Read the icon guidelines</a></div>
+  </div>
+</div></section>
+<!-- /studio-family-intro --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Brand Guide menu"><div class="wrap document-menu" data-document-menu><a href="/brand#foundations">Foundations</a><a href="/brand#type">Typography</a><a href="/brand#icons">Icon guidelines</a><a href="/brand#components">Components</a><a href="/brand#forms">Forms</a><a href="/brand#dataviz">Dataviz</a><a href="/brand#navigation">Navigation</a><a href="/brand#assets">Assets</a><a href="/brand/icons">Icons</a><a href="/brand/sketch-icons" aria-current=page>Sketch Icons</a><a href="/brand/motion">Motion</a></div></nav><!-- /studio-document-menu -->
+<div class="wrap sketch-catalog">
+<nav class="sketch-index" aria-label="Sketch icon groups"><a href="#catalog">All icons</a>
+<a href="#people" data-group="people">People</a>
+<a href="#talking" data-group="talking">Talking</a>
+<a href="#ideas" data-group="ideas">Ideas</a>
+<a href="#devices" data-group="devices">Devices</a>
+<a href="#records" data-group="records">Records</a>
+<a href="#tools" data-group="tools">Tools</a>
+<a href="#networks" data-group="networks">Networks</a>
+<a href="#safety" data-group="safety">Safety</a>
+<a href="#money" data-group="money">Money</a>
+<a href="#measures" data-group="measures">Measures</a>
+<a href="#time" data-group="time">Time</a>
+<a href="#places" data-group="places">Places</a>
+<a href="#travel" data-group="travel">Travel</a>
+<a href="#nature" data-group="nature">Nature</a>
+<a href="#science" data-group="science">Science</a>
+<a href="#kitchen" data-group="kitchen">Kitchen</a>
+<a href="#everyday" data-group="everyday">Everyday</a>
+<a href="#signs" data-group="signs">Signs</a>
+<a href="#more" data-group="more">More subjects</a>
+</nav>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><filter id="sketch-wobble" filterUnits="userSpaceOnUse" x="-12" y="-12" width="124" height="124"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="11" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="3.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>
+<section class="sketch-group" id="catalog" aria-labelledby="sketch-group-title">
+<span id="people"></span><span id="talking"></span><span id="ideas"></span><span id="devices"></span><span id="records"></span><span id="tools"></span><span id="networks"></span><span id="safety"></span><span id="money"></span><span id="measures"></span><span id="time"></span><span id="places"></span><span id="travel"></span><span id="nature"></span><span id="science"></span><span id="kitchen"></span><span id="everyday"></span><span id="signs"></span><span id="more"></span><h2 id="sketch-group-title" tabindex="-1">All icons</h2>
+<label for="sketch-search">Search icons</label><input id="sketch-search" type="search" placeholder="Hand, coffee, bicycle…" disabled>
+<p id="sketch-results" role="status">Loading icons…</p>
+<noscript><p>Enable JavaScript to browse the icon catalog.</p></noscript>
+<div id="sketch-copy-path" hidden><label for="sketch-copy-value">Copy this Sketch node property</label><textarea id="sketch-copy-value" readonly rows="3"></textarea></div>
+<p id="sketch-feedback" class="sketch-visually-hidden" role="status"></p>
+<div class="sketch-pages" role="group" aria-label="Icon pages" hidden><button type="button" data-step="-1">Previous page</button><button type="button" data-step="1">Next page</button></div>
+<div class="sketch-grid"></div>
+<div class="sketch-pages" role="group" aria-label="Icon pages" hidden><button type="button" data-step="-1">Previous page</button><button type="button" data-step="1">Next page</button></div>
+<p><a href="sketch-icons-licenses.txt" target="_blank" rel="noopener">Tabler Icons and Hugeicons license notices</a></p>
+</section>
+</div></main>
+<footer class="sitefoot"><a href="index.html"><img class="logo" src="media/shared-09.svg" alt="Shared home"></a></footer></body></html>

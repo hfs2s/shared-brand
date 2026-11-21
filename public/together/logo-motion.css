@@ -1,0 +1,24 @@
+.solo-loader{margin:0;min-width:0;overflow:hidden;border:1px solid var(--ink);background:#fbf1e2;box-shadow:4px 4px 0 #d2c7af}
+.solo-screen{position:relative;aspect-ratio:1.58;display:grid;place-items:center;isolation:isolate;}
+.solo-screen,[data-edition="paper"] .logo-shelf canvas{background:radial-gradient(ellipse at 50% 48%,#fffaf0 15%,#f6e8d6 100%)}
+.solo-screen img{width:94%;height:auto}
+.solo-screen canvas{position:absolute;inset:0;width:100%;height:100%;visibility:hidden}
+.solo-loader.animated canvas{visibility:visible}
+.solo-loader.animated img{visibility:hidden}
+.solo-loader figcaption{display:flex;align-items:center;justify-content:space-between;min-height:46px;padding:5px 14px;border-top:1px solid var(--ink);font:12px var(--mono)}
+.solo-loader button{background:var(--ink);color:var(--paper);border:0;border-radius:2px;min-width:78px;min-height:36px;padding:6px 12px;font:inherit; font-family:var(--mono);cursor:pointer}
+@media(prefers-reduced-motion:reduce){.solo-loader.animated canvas{visibility:hidden}.solo-loader.animated img{visibility:visible}}
+
+.solo-controls{display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:6px}
+.solo-controls[hidden],.logo-index[hidden],.solo-play[hidden]{display:none}
+.solo-controls select{font:inherit;border:1px solid var(--ink);color:var(--ink);background:var(--paper);height:38px;padding:0 6px;max-width:100%}
+.solo-actions{display:flex;gap:4px}.solo-actions button{min-width:36px}.solo-actions .solo-play{min-width:65px}
+.logo-index{padding-block:18px}.logo-index summary{cursor:pointer;font:600 15px var(--mono);width:fit-content}
+.logo-collections{display:grid;gap:24px;padding:24px 0}
+.logo-collections h2{font:500 26px var(--serif);margin:0 0 9px}
+.logo-shelf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.logo-shelf button{padding:0;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-align:left;cursor:pointer;min-width:0}
+.logo-shelf button[aria-current=true]{outline:2px solid var(--blue);outline-offset:-2px}
+.logo-shelf canvas{display:block;width:100%;height:auto}
+.logo-shelf span{display:block;padding:7px 9px;border-top:1px solid var(--line);font:12px var(--mono)}
+@media(max-width:700px){.logo-shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.solo-loader figcaption{padding-inline:8px}}

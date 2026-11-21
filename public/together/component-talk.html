@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Talk | Shared Components</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="brand-ui.css">
+<link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="page-patterns.css"><link rel="stylesheet" href="compound-patterns.css">
+<script src="studio-nav.js" defer></script><script src="compound-patterns.js" defer></script>
+<link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
+<main id="main">
+  <header class="gridpaper brand-hero"><div class="wrap brand-head"><div>
+    <h1>Talk</h1><p>Give people a clear way to start a conversation, take a turn, and keep going if voice is unavailable.</p>
+  </div></div></header>
+  <!-- components-menu --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Components menu"><div class="wrap document-menu" data-document-menu><a href="/components">Overview</a><a href="/components/pages">Pages</a><a href="/components/talk" aria-current=page>Talk</a><a href="/components/flows">Flows</a><a href="/components/generative">Generative UI</a></div></nav><!-- /studio-document-menu -->
+  <div class="wrap page-patterns">
+    <section class="page-pattern" id="talk-demo">
+      <header><h2>Interactive call</h2><p>Try a sample call with Elio. The preview uses scripted replies and needs no microphone.</p></header>
+      <div class="page-preview talk-specimen" data-talk-demo>
+        <div class="page-preview-bar spec-toolbar">
+          <div><h3>Talk with Elio</h3><span>Open Studio</span></div>
+          <div class="spec-field">
+            <label for="talk-scenario">Scenario</label>
+            <select id="talk-scenario" data-talk-scenario>
+              <option value="normal">Standard call</option>
+              <option value="blocked">Microphone blocked</option>
+              <option value="dropped">Connection interrupted</option>
+            </select>
+          </div>
+        </div>
+        <div class="talk-scene gridpaper">
+          <img class="agent-portrait" src="media/elio.webp" width="160" height="160" alt="">
+          <div class="talk-copy">
+            <span class="page-state" data-talk-state role="status">Ready</span>
+            <p class="talk-caption" data-talk-caption>Ask about the Open Studio programme.</p>
+          </div>
+        </div>
+        <div class="spec-body">
+          <div class="spec-actions talk-actions">
+            <button class="spec-button spec-primary" type="button" data-talk-main>Start call</button>
+            <button class="spec-button" type="button" data-talk-type hidden>Type a message</button>
+            <button class="spec-button spec-end" type="button" data-talk-end hidden>End call</button>
+          </div>
+          <form class="spec-inline-form" data-talk-form hidden>
+            <label for="talk-message">Message to Elio</label>
+            <div><input id="talk-message" type="text" required maxlength="160"><button class="spec-button spec-primary" type="submit">Send</button></div>
+          </form>
+        </div>
+        <details><summary>Transcript</summary><p data-talk-empty>Turns appear here once the call starts.</p><ol class="talk-transcript" data-talk-transcript aria-label="Conversation"></ol></details>
+      </div>
+      <p class="page-pattern-note">Open captions with the first spoken reply. Keep a transcript available without moving focus on new turns. Announce meaningful state changes once and keep the current turn visible in text.</p>
+    </section>
+    <section class="page-pattern" id="call-states">
+      <header><h2>Call states</h2><p>Use the same language and controls wherever people talk to an agent.</p></header>
+      <div class="page-preview">
+        <dl class="spec-rules">
+          <div><dt>Ready → Connecting</dt><dd>Show the agent and the reason to start. Ask for audio access after a deliberate action and show progress while connecting.</dd></div>
+          <div><dt>Your turn → Listening</dt><dd>Show when the mic is open with a text label and a clear way to stop listening. Keep typing in reach.</dd></div>
+          <div><dt>Thinking → Speaking</dt><dd>Keep the last turn visible while thinking. Caption the reply as it plays and provide an interruption control.</dd></div>
+          <div><dt>Microphone blocked</dt><dd>Explain how to allow the microphone and leave the typing path ready.</dd></div>
+          <div><dt>Reconnecting</dt><dd>Keep the transcript and any typed draft. Offer a retry if reconnecting needs help, and keep End call in reach.</dd></div>
+          <div><dt>Call ended</dt><dd>Show the ended state, leave the transcript available when policy permits, and make a fresh call an explicit action.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="page-pattern" id="call-layout">
+      <header><h2>Talk and workbench layouts</h2><p>Use Talk for a conversation. Add a workbench when the agent and the person need to look at the same material.</p></header>
+      <div class="spec-layouts">
+        <article class="page-preview"><div class="page-preview-bar"><h3>Talk</h3></div><ol class="pattern-anatomy">
+          <li><strong>Agent and turn</strong><p>Keep the agent identity and the current state together.</p></li>
+          <li><strong>Captions and controls</strong><p>Put captions above the mic, typing and end controls. Keep the controls reachable as captions wrap.</p></li>
+          <li><strong>Transcript</strong><p>Give it a stable disclosure below the call controls.</p></li>
+        </ol></article>
+        <article class="page-preview"><div class="page-preview-bar"><h3>Live workbench</h3></div><ol class="pattern-anatomy">
+          <li><strong>Agent and call state</strong><p>Put the agent name and call state with the portrait.</p></li>
+          <li><strong>Stage and Chat</strong><p>Open on Stage. Give the work most of the space and let people switch to Chat in the same region.</p></li>
+          <li><strong>Composer and call controls</strong><p>Keep the composer available in both views and position the call controls below the workbench.</p></li>
+        </ol></article>
+      </div>
+      <p class="page-pattern-note"><a href="/components/pages#live-workbench">Try the Elio Live workbench</a> · <a href="/components/flows#join-room">Try the Elio Rooms lobby</a> · <a href="/components/pages#agent-identity">Read the agent portrait standard</a></p>
+    </section>
+  </div>
+</main>
+<footer class="sitefoot"><a href="/" aria-label="Shared home"><img class="logo" src="media/shared-09.svg" alt="Shared"></a><div><a href="/brand">Brand Guide</a><a href="/artifacts">Artifacts</a></div></footer>
+</body></html>

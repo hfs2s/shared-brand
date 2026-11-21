@@ -1,0 +1,199 @@
+chart,category,series,value,unit
+reviews-by-room,Workshop,Reviews,12,reviews
+reviews-by-room,Studio,Reviews,8,reviews
+reviews-by-room,Library,Reviews,5,reviews
+weekly-room-activity,1,Reviews,2,events per week
+weekly-room-activity,2,Reviews,4,events per week
+weekly-room-activity,3,Reviews,5,events per week
+weekly-room-activity,4,Reviews,7,events per week
+weekly-room-activity,1,Follow-ups,1,events per week
+weekly-room-activity,2,Follow-ups,3,events per week
+weekly-room-activity,3,Follow-ups,2,events per week
+weekly-room-activity,4,Follow-ups,4,events per week
+pilot-outcomes,6 Nov,Decided,5,reviews
+pilot-outcomes,6 Nov,Still open,2,reviews
+pilot-outcomes,13 Nov,Decided,6,reviews
+pilot-outcomes,13 Nov,Still open,2,reviews
+pilot-outcomes,20 Nov,Decided,7,reviews
+pilot-outcomes,20 Nov,Still open,2,reviews
+review-duration,15,Frequency,1,reviews
+review-duration,20,Frequency,2,reviews
+review-duration,25,Frequency,3,reviews
+review-duration,30,Frequency,2,reviews
+review-duration,35,Frequency,1,reviews
+scatter,1,Prep,2,minutes
+scatter,1,Review,34,minutes
+scatter,2,Prep,3,minutes
+scatter,2,Review,30,minutes
+scatter,3,Prep,4,minutes
+scatter,3,Review,31,minutes
+scatter,4,Prep,5,minutes
+scatter,4,Review,24,minutes
+scatter,5,Prep,6,minutes
+scatter,5,Review,23,minutes
+scatter,6,Prep,7,minutes
+scatter,6,Review,27,minutes
+scatter,7,Prep,8,minutes
+scatter,7,Review,18,minutes
+scatter,8,Prep,10,minutes
+scatter,8,Review,16,minutes
+scatter,9,Prep,11,minutes
+scatter,9,Review,19,minutes
+dumbbell,Workshop,Before,34,minutes
+dumbbell,Workshop,After,23,minutes
+dumbbell,Studio,Before,29,minutes
+dumbbell,Studio,After,21,minutes
+dumbbell,Library,Before,27,minutes
+dumbbell,Library,After,24,minutes
+histogram,10–<15,Count,2,reviews per duration bin
+histogram,15–<20,Count,4,reviews per duration bin
+histogram,20–<25,Count,8,reviews per duration bin
+histogram,25–<30,Count,6,reviews per duration bin
+histogram,30–<35,Count,3,reviews per duration bin
+histogram,35–<40,Count,1,reviews per duration bin
+heatmap,Mon,AM,1,bookings
+heatmap,Mon,Midday,3,bookings
+heatmap,Mon,PM,1,bookings
+heatmap,Tue,AM,2,bookings
+heatmap,Tue,Midday,6,bookings
+heatmap,Tue,PM,4,bookings
+heatmap,Wed,AM,3,bookings
+heatmap,Wed,Midday,8,bookings
+heatmap,Wed,PM,5,bookings
+heatmap,Thu,AM,2,bookings
+heatmap,Thu,Midday,7,bookings
+heatmap,Thu,PM,3,bookings
+heatmap,Fri,AM,1,bookings
+heatmap,Fri,Midday,4,bookings
+heatmap,Fri,PM,2,bookings
+waterfall,Opening,"Opening, change or ending",12,open items
+waterfall,Added,"Opening, change or ending",8,open items
+waterfall,Closed,"Opening, change or ending",-11,open items
+waterfall,Merged,"Opening, change or ending",-2,open items
+waterfall,Ending,"Opening, change or ending",7,open items
+bullet,Workshop,Actual,9,reviews
+bullet,Workshop,Target,10,reviews
+bullet,Studio,Actual,8,reviews
+bullet,Studio,Target,8,reviews
+bullet,Library,Actual,5,reviews
+bullet,Library,Target,6,reviews
+diverging,Share earlier,Concern,2,votes
+diverging,Share earlier,Support,8,votes
+diverging,Extend review,Concern,6,votes
+diverging,Extend review,Support,4,votes
+diverging,Keep a record,Concern,1,votes
+diverging,Keep a record,Support,9,votes
+interval,Facilitate,Low,14,minutes
+interval,Facilitate,Estimate,18,minutes
+interval,Facilitate,High,28,minutes
+interval,Synthesize,Low,8,minutes
+interval,Synthesize,Estimate,12,minutes
+interval,Synthesize,High,20,minutes
+interval,Follow up,Low,4,minutes
+interval,Follow up,Estimate,7,minutes
+interval,Follow up,High,13,minutes
+ledger-funnel,Arrived,People,120,people
+ledger-funnel,Started sign-in,People,78,people
+ledger-funnel,Opened workspace,People,48,people
+ledger-funnel,Built an app,People,30,people
+ledger-stacked-time,17 Nov,Input,32,thousand tokens
+ledger-stacked-time,17 Nov,Cache,19,thousand tokens
+ledger-stacked-time,17 Nov,Output,12,thousand tokens
+ledger-stacked-time,18 Nov,Input,44,thousand tokens
+ledger-stacked-time,18 Nov,Cache,14,thousand tokens
+ledger-stacked-time,18 Nov,Output,19,thousand tokens
+ledger-stacked-time,19 Nov,Input,37,thousand tokens
+ledger-stacked-time,19 Nov,Cache,17,thousand tokens
+ledger-stacked-time,19 Nov,Output,23,thousand tokens
+ledger-stacked-time,20 Nov,Input,56,thousand tokens
+ledger-stacked-time,20 Nov,Cache,20,thousand tokens
+ledger-stacked-time,20 Nov,Output,16,thousand tokens
+ledger-donut,Input,Tokens (000s),54,thousand tokens
+ledger-donut,Cache read,Tokens (000s),27,thousand tokens
+ledger-donut,Cache write,Tokens (000s),6,thousand tokens
+ledger-donut,Output,Tokens (000s),13,thousand tokens
+ledger-coverage,Web,Measured,24,receipts
+ledger-coverage,Web,Estimated,3,receipts
+ledger-coverage,Web,Missing count,2,receipts
+ledger-coverage,Rooms,Measured,18,receipts
+ledger-coverage,Rooms,Estimated,4,receipts
+ledger-coverage,Rooms,Missing count,5,receipts
+ledger-coverage,Meet,Measured,12,receipts
+ledger-coverage,Meet,Estimated,1,receipts
+ledger-coverage,Meet,Missing count,1,receipts
+ledger-quota,Observed · people,Participant minutes,2100,participant minutes
+ledger-quota,Observed · agents and recorders,Participant minutes,1100,participant minutes
+ledger-quota,Forecast additional,Participant minutes,2200,participant minutes
+ledger-quota,Monthly limit,Participant minutes,5000,participant minutes
+ledger-lanes,Live call,Start,09:15,local time (Europe/Madrid)
+ledger-lanes,Live call,End,10:00,local time (Europe/Madrid)
+ledger-lanes,Review,Start,10:00,local time (Europe/Madrid)
+ledger-lanes,Review,End,11:30,local time (Europe/Madrid)
+ledger-lanes,Council,Start,11:15,local time (Europe/Madrid)
+ledger-lanes,Council,End,12:15,local time (Europe/Madrid)
+ledger-log-bubble,Model A,Prompt (000s),16,thousand tokens
+ledger-log-bubble,Model A,Output (000s),4,thousand tokens
+ledger-log-bubble,Model A,Receipts,40,receipts
+ledger-log-bubble,Model B,Prompt (000s),32,thousand tokens
+ledger-log-bubble,Model B,Output (000s),2,thousand tokens
+ledger-log-bubble,Model B,Receipts,20,receipts
+ledger-log-bubble,Model C,Prompt (000s),64,thousand tokens
+ledger-log-bubble,Model C,Output (000s),8,thousand tokens
+ledger-log-bubble,Model C,Receipts,55,receipts
+ledger-log-bubble,Model D,Prompt (000s),128,thousand tokens
+ledger-log-bubble,Model D,Output (000s),16,thousand tokens
+ledger-log-bubble,Model D,Receipts,95,receipts
+ledger-log-bubble,Model E,Prompt (000s),256,thousand tokens
+ledger-log-bubble,Model E,Output (000s),8,thousand tokens
+ledger-log-bubble,Model E,Receipts,65,receipts
+ledger-telemetry,09:00,Mean %,61,percent RAM used
+ledger-telemetry,09:00,Low %,54,percent RAM used
+ledger-telemetry,09:00,High %,72,percent RAM used
+ledger-telemetry,10:00,Mean %,74,percent RAM used
+ledger-telemetry,10:00,Low %,62,percent RAM used
+ledger-telemetry,10:00,High %,80,percent RAM used
+ledger-telemetry,11:00,Mean %,79,percent RAM used
+ledger-telemetry,11:00,Low %,69,percent RAM used
+ledger-telemetry,11:00,High %,87,percent RAM used
+ledger-telemetry,12:00,Mean %,87,percent RAM used
+ledger-telemetry,12:00,Low %,80,percent RAM used
+ledger-telemetry,12:00,High %,92,percent RAM used
+ledger-telemetry,13:00,Mean %,,percent RAM used
+ledger-telemetry,13:00,Low %,,percent RAM used
+ledger-telemetry,13:00,High %,,percent RAM used
+ledger-telemetry,14:00,Mean %,72,percent RAM used
+ledger-telemetry,14:00,Low %,64,percent RAM used
+ledger-telemetry,14:00,High %,78,percent RAM used
+ledger-stacked-area,08:00,Working,8,GiB
+ledger-stacked-area,08:00,Reclaimable cache,4,GiB
+ledger-stacked-area,08:00,Other,1,GiB
+ledger-stacked-area,10:00,Working,9,GiB
+ledger-stacked-area,10:00,Reclaimable cache,3,GiB
+ledger-stacked-area,10:00,Other,1,GiB
+ledger-stacked-area,12:00,Working,12,GiB
+ledger-stacked-area,12:00,Reclaimable cache,2,GiB
+ledger-stacked-area,12:00,Other,2,GiB
+ledger-stacked-area,14:00,Working,11,GiB
+ledger-stacked-area,14:00,Reclaimable cache,3,GiB
+ledger-stacked-area,14:00,Other,1,GiB
+ledger-stacked-area,16:00,Working,9,GiB
+ledger-stacked-area,16:00,Reclaimable cache,4,GiB
+ledger-stacked-area,16:00,Other,1,GiB
+ledger-sparklines,Collector A,08:00 %,68,percent CPU used
+ledger-sparklines,Collector A,10:00 %,65,percent CPU used
+ledger-sparklines,Collector A,12:00 %,73,percent CPU used
+ledger-sparklines,Collector A,14:00 %,79,percent CPU used
+ledger-sparklines,Collector A,16:00 %,72,percent CPU used
+ledger-sparklines,Collector A,Status,Current,state
+ledger-sparklines,Collector B,08:00 %,31,percent CPU used
+ledger-sparklines,Collector B,10:00 %,24,percent CPU used
+ledger-sparklines,Collector B,12:00 %,25,percent CPU used
+ledger-sparklines,Collector B,14:00 %,30,percent CPU used
+ledger-sparklines,Collector B,16:00 %,28,percent CPU used
+ledger-sparklines,Collector B,Status,Stale,state
+ledger-sparklines,Collector C,08:00 %,,percent CPU used
+ledger-sparklines,Collector C,10:00 %,,percent CPU used
+ledger-sparklines,Collector C,12:00 %,,percent CPU used
+ledger-sparklines,Collector C,14:00 %,,percent CPU used
+ledger-sparklines,Collector C,16:00 %,,percent CPU used
+ledger-sparklines,Collector C,Status,Unavailable,state

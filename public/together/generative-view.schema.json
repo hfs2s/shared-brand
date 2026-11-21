@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shared generative UI view",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "version",
+        "intent",
+        "title",
+        "summary",
+        "components"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "intent": {
+          "const": "review"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "components": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "required": [
+                "type",
+                "subjectId"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "const": "review-card"
+                },
+                "subjectId": {
+                  "const": "draftHandoff"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "type",
+                "subjectId",
+                "reactionIds",
+                "actions"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "const": "reviewer-reactions"
+                },
+                "subjectId": {
+                  "const": "draftHandoff"
+                },
+                "reactionIds": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "thumbsUp",
+                      "heart",
+                      "check",
+                      "eyes",
+                      "thinking"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 5,
+                  "maxItems": 5
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "toggle-reaction"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "maxItems": 1
+                }
+              }
+            }
+          ],
+          "minItems": 2,
+          "items": false
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "version",
+        "intent",
+        "title",
+        "summary",
+        "components"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "intent": {
+          "const": "assets"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "components": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "required": [
+                "type",
+                "assetIds",
+                "actions"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "const": "asset-list"
+                },
+                "assetIds": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "campaignPhotos",
+                      "campaignFilm",
+                      "agentCutouts"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "download-asset"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "maxItems": 1
+                }
+              }
+            }
+          ],
+          "minItems": 1,
+          "items": false
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "version",
+        "intent",
+        "title",
+        "summary",
+        "components"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "intent": {
+          "const": "access"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "components": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "required": [
+                "type",
+                "subjectId",
+                "roleIds",
+                "proposedRoleId",
+                "actions"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "const": "permission-review"
+                },
+                "subjectId": {
+                  "const": "springDraft"
+                },
+                "roleIds": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "viewer",
+                      "commenter",
+                      "none"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "proposedRoleId": {
+                  "enum": [
+                    "viewer",
+                    "commenter",
+                    "none"
+                  ]
+                },
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "preview-access",
+                      "confirm-access"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              }
+            }
+          ],
+          "minItems": 1,
+          "items": false
+        }
+      }
+    }
+  ]
+}

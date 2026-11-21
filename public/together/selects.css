@@ -1,0 +1,16 @@
+:root { --select-caret-inset:16px; --select-caret-clearance:41px; }
+select:not([multiple]):not([size]) {
+  appearance:none;
+  letter-spacing:0;
+  padding-inline-end:var(--select-caret-clearance) !important;
+  background-image:url("media/pixel-caret.svg") !important;
+  background-repeat:no-repeat !important;
+  background-size:11px 7px !important;
+  background-position:right var(--select-caret-inset) center !important;
+}
+select:not([multiple]):not([size]):dir(rtl) {
+  background-position:left var(--select-caret-inset) center !important;
+}
+@media(forced-colors:active){
+  select:not([multiple]):not([size]) { appearance:auto; background-image:none !important; padding-inline-end:revert !important; }
+}

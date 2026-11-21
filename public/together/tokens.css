@@ -1,0 +1,81 @@
+/* Shared foundations */
+:root {
+  --paper: #fdf3e5;
+  --stock: #f7eee2;
+  --ink: #1e1e1b;
+  --mute: #5c5a54;
+  --line: #d8d0bf;
+  --blue: #3157c8;
+  --lemon: #f4f56e;
+  --mint: #dceee0;
+  --metal: #a7ada1;
+  --orange: #f18d53;
+  --body-size: 1rem;
+  --body-leading: 1.5;
+  --display-weight: 400;
+  --display-tracking: -.012em;
+  --display-serif-scale: 1.14;
+  --serif-scale: 1;
+  --type-h1: clamp(71px, 9.6vw, 165px);
+  --type-h2: clamp(27px, 3.1vw, 42px);
+  --type-h3: clamp(20px, 1.9vw, 26px);
+  --type-h4: clamp(17px, 1.35vw, 20px);
+  --type-card-title: clamp(16px, 1.2vw, 18px);
+  --type-meta: .75rem;
+  --type-lead: clamp(17px, 1.4vw, 23px);
+  --gutter: clamp(22px, 6vw, 112px);
+  --section-space: clamp(50px, 7vw, 116px);
+  --content-gap: clamp(18px, 3vw, 48px);
+  --form-gap: clamp(16px, 2vw, 27px);
+  --wrap-max: 1680px;
+  --grid-step: 28px;
+  --focus-width: 3px;
+  --focus-offset: 4px;
+  --control-height: 44px;
+  --control-radius: 4px;
+  --control-pad-y: 9px;
+  --control-pad-x: 18px;
+  --icon-gap: 16px;
+  --display-serif: "Instrument Serif", serif;
+  --serif: var(--sans);
+  --sans: Inter, Arial, sans-serif;
+  --mono: JetBrains, monospace;
+  --motion-fast: 120ms;
+  --motion-enter: 220ms;
+  --motion-loop: 1200ms;
+  --motion-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* Display type for page titles. */
+h1 {
+  --serif: var(--display-serif);
+  --serif-scale: var(--display-serif-scale);
+  font-family: var(--display-serif);
+}
+.tr-role-example :is(h1,h2,h3) {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* Studio heading roles also govern older page rules with local display sizes.
+   Embedded artwork and type specimens keep their own proportional scale. */
+main h2:not(:where(.sheet *, .tr-role-example *, .page-preview *)) {
+  font-family: var(--sans);
+  font-size: var(--type-h2) !important;
+  font-weight: 620;
+  line-height: 1.16;
+  letter-spacing: -.025em;
+}
+main h3:not(:where(.sheet *, .page-preview *, .tr-role-example *, .variant-card *, .reaction-card *, .pg-card *, .sketch-card *, .poster-variant > h3, .social-group > h3, .artifact-notes *)) {
+  font-size: var(--type-h3) !important;
+  font-weight: 620;
+  line-height: 1.24;
+  letter-spacing: -.018em;
+}
+main h4:not(:where(.sheet *, .page-preview *, .tr-role-example *, .social-card *, .tr-role-copy *)) {
+  font-size: var(--type-h4) !important;
+  line-height: 1.3;
+}
+
+/* Heading role governs the font family in Studio pages and specimens. */
+h2, h3 { font-family: var(--sans) !important; }

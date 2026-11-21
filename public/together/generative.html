@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdf3e5">
+  <meta name="description" content="What Nando puts on screen in a Nando Room or on a Nando Live call: every use case, built from Shared brand guide components.">
+  <title>Generative UI | Shared</title>
+  <link rel="icon" href="media/reply-09.svg">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="brand-ui.css">
+  <link rel="stylesheet" href="system-components.css">
+  <link rel="stylesheet" href="room-dialogs.css">
+  <link rel="stylesheet" href="generative.css">
+  <link rel="stylesheet" href="retro-controls.css">
+  <link rel="stylesheet" href="generative-library.css?v=uc1">
+  <script src="generative-catalog.js?v=uc1" defer></script>
+  <script src="generative-components.js?v=uc1" defer></script>
+  <script src="generative-library.js?v=uc1" defer></script>
+  <script src="generative.js?v=uc1" defer></script>
+<link rel="stylesheet" href="selects.css"><link rel="stylesheet" href="studio-spacing.css"><link rel="stylesheet" href="studio-nav.css">
+<script src="studio-nav.js" defer></script>
+<link rel="stylesheet" href="pixel-buttons.css"><link rel="stylesheet" href="family-pages.css"><link rel="stylesheet" href="document-menu.css"><script src="document-menu.js" defer></script></head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <shared-header>
+  <noscript><nav class="studio-header-fallback" aria-label="Main"><a href="index.html">Shared home</a><a href="brand.html">Brand guide</a><a href="generative.html">Generative UI</a></nav></noscript>
+</shared-header>
+
+  <main data-family-page="generative" id="main">
+    <!-- studio-family-intro -->
+<section class="family-intro gridpaper"><div class="wrap family-lead">
+  <div class="family-lead-copy"><h1>Generative UI</h1><p>Build task-specific views from Shared components in Nando Rooms and live calls. Try a prompt, browse the working examples, or inspect the view contract.</p>
+    <div class="family-links"><a href="#prototype">Try the prototype</a><a href="#component-library">Component examples</a><a href="#flow">Generation flow</a><a href="#contract">View contract</a><a href="#qa-review">Review and QA</a></div>
+  </div>
+</div></section>
+<!-- /studio-family-intro --><!-- studio-document-menu --><nav class="document-tabrail" aria-label="Components menu"><div class="wrap document-menu" data-document-menu><a href="/components">Overview</a><a href="/components/pages">Pages</a><a href="/components/talk">Talk</a><a href="/components/flows">Flows</a><a href="/components/generative" aria-current=page>Generative UI</a></div></nav><!-- /studio-document-menu -->
+
+    <section id="prototype" class="wrap gen-section">
+      <div class="gen-section-head">
+        <h2>Say it to Nando.</h2>
+        <p>Type a line the way you would say it in a room or on a call. The page finds the use case and builds its view from brand guide components. Everything runs locally on this page.</p>
+      </div>
+      <div class="gen-workbench">
+        <form id="gen-form" class="gen-prompt">
+          <fieldset class="gen-examples">
+            <legend>Sample lines</legend>
+            <button type="button" data-line="Nando, who’s waiting?" aria-pressed="true">Nando, who’s waiting?</button>
+            <button type="button" data-line="Compare the three venues." aria-pressed="false">Compare the three venues.</button>
+            <button type="button" data-line="Next slide." aria-pressed="false">Next slide.</button>
+            <button type="button" data-line="Is anything waiting on me?" aria-pressed="false">Is anything waiting on me?</button>
+          </fieldset>
+          <label for="gen-request">What do you say?</label>
+          <textarea id="gen-request" name="request" rows="4" maxlength="240" required>Nando, who’s waiting?</textarea>
+          <button class="action gen-primary" type="submit">Show the view</button>
+          <p id="gen-status" class="gen-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="gen-output">
+          <section id="gen-view" class="gen-view" aria-labelledby="gen-view-title"></section>
+          <details class="gen-json">
+            <summary>Inspect the view specification</summary>
+            <pre id="gen-spec" tabindex="0" aria-label="Validated view specification"></pre>
+          </details>
+        </div>
+      </div>
+      <noscript>The composer and the use-case previews need JavaScript. The generation flow and the scope notes are below.</noscript>
+    </section>
+
+    <section id="component-library" class="wrap gen-section gl-library" aria-labelledby="gl-title">
+      <div class="gen-section-head">
+        <h2 id="gl-title">Use cases.</h2>
+        <p>Every moment of a Nando Room or a Nando Live call where a view helps. Each use case gives the line someone says, the view Nando shows, the brand guide components it is built from and the rule it follows.</p>
+      </div>
+      <div class="ds-index gl-filters" role="search" aria-label="Find use cases">
+        <label>Find a use case<input type="search" id="gl-search" placeholder="Try waiting, deck or invite" autocomplete="off"></label>
+        <fieldset class="backgrounds">
+          <legend>Where</legend>
+          <label><input type="radio" name="gl-surface" value="" checked><span>Both</span></label>
+          <label><input type="radio" name="gl-surface" value="rooms"><span>Nando Rooms</span></label>
+          <label><input type="radio" name="gl-surface" value="live"><span>Nando Live</span></label>
+        </fieldset>
+        <label>Built from<select id="gl-component"><option value="">Any component</option></select></label>
+        <label class="gl-moment-pick">Moment<select id="gl-moment"></select></label>
+        <button type="button" class="action" id="gl-clear">Clear filters</button>
+        <output id="gl-count" role="status"></output>
+      </div>
+      <div class="gl-workspace">
+        <nav class="gl-index" aria-label="Moments of a room or a call"><ol id="gl-moments"></ol></nav>
+        <div class="gl-entries" id="gl-entries"></div>
+      </div>
+    </section>
+
+    <section id="flow" class="gen-flow-section">
+      <div class="wrap gen-section">
+        <div class="gen-section-head">
+          <h2>From a line to a view.</h2>
+          <p>Nando can propose a view. The application decides what the view contains and which actions a person can take.</p>
+        </div>
+        <ol class="gen-flow">
+          <li><h3>Hear the request</h3><p>Identify the task, the thing it concerns and who is asking: the host, a guest or the caller. Ask once when the line could mean two things.</p></li>
+          <li><h3>Check the view</h3><p>Check the version, the use case and every component against the registry. A view that fails is not shown, and Nando answers in words.</p></li>
+          <li><h3>Build from the brand guide</h3><p>Build each component with the application’s own data and the brand guide’s markup. Labels, keyboard behaviour and states stay as specified.</p></li>
+          <li><h3>Confirm and report</h3><p>Sending, spending, removing and publishing show their effect first. On confirmation the application checks permission again, acts and shows the result.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contract" class="wrap gen-section">
+      <div class="gen-section-head">
+        <h2>Component registry.</h2>
+        <p>A view may use only the components below. Each one is a brand guide component and accepts data, never markup. The application supplies the data and owns every action.</p>
+      </div>
+      <dl class="facts gen-spec-fields">
+        <div><dt>version</dt><dd>2. A view with another version is refused.</dd></div>
+        <div><dt>useCase</dt><dd>The address of a use case in the library above.</dd></div>
+        <div><dt>surface, place</dt><dd>Nando Rooms, Nando Live or both, and where the view appears. Both must match the use case.</dd></div>
+        <div><dt>components</dt><dd>One to three components from the registry, each with exactly the data its row lists.</dd></div>
+      </dl>
+      <div class="gen-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Component</th><th scope="col">Brand guide source</th><th scope="col">Data the application supplies</th><th scope="col">Used in</th></tr></thead>
+          <tbody id="gen-registry"></tbody>
+        </table>
+      </div>
+      <div class="gen-resources"><a href="generative-library.schema.json" download>Download the view schema</a><a href="brand.html#components">See the working components</a><a href="copy.html">Read the voice and writing guide</a></div>
+    </section>
+  <section id="qa-review" class="wrap gen-section gl-review" aria-labelledby="qa-heading">
+      <div class="gen-section-head"><h2 id="qa-heading">Code review and design QA.</h2>
+      <p>The review covers Shared Studio’s nine pages, eight brand tabs and the browser behavior of the use-case library.</p></div>
+      <details open><summary>Checks on the use cases</summary><ul>
+        <li><strong>The catalog is built.</strong> A build step refuses a use case without a unique address, a moment, a surface, a line or an event, a rule, or a view of one to three registered components. The same step writes the view schema from the registry this page runs.</li>
+        <li><strong>Every view was rendered.</strong> All <span data-use-case-count>the</span> use cases were built in Chromium from their specifications under this page’s content security policy, with no script errors. Each specification was also validated against the schema. A specification with another version, an unknown component or an extra field is refused.</li>
+        <li><strong>Components come from the brand guide.</strong> Views use the brand guide’s classes and style sheets for buttons, fields, chips, notices, tables, dialogs and the Room toolbar. This page adds layout.</li>
+        <li><strong>Widths and focus.</strong> The page was checked at 320, 390, 768 and 1440 pixels with no sideways scrolling. Confirmations open with focus on Cancel, close on Escape and return focus to the control that opened them.</li>
+      </ul></details>
+      <details open><summary>Changes made during the studio review</summary><ul>
+        <li><strong>Stale generated views.</strong> Unsupported requests used to leave the previous preview and its controls on screen. The composer now clears the old view and JSON, and offers a supported next action.</li>
+        <li><strong>Confirmation focus.</strong> Opening a confirmation used to focus the confirming button. The preview now focuses Cancel first. Sending, spending, publishing and removal examples describe their effects before confirmation.</li>
+        <li><strong>SVG rendering.</strong> The icon browser used serialized markup for previews and downloads. Both now use one SVG builder with a fixed set of elements and attributes.</li>
+        <li><strong>Clipboard feedback.</strong> Copying a photography prompt could update the message on a different image if the viewer moved on. The receipt now belongs to the image that initiated the copy.</li>
+        <li><strong>Navigation and spacing.</strong> One shared header component supplies navigation on every page. The mobile menu supports Escape and returns focus to its trigger. Component layouts share the existing section spacing and use larger actions, clear labels and inset caret artwork.</li>
+        <li><strong>Status regions.</strong> Status regions stay available to assistive technology before the first update.</li>
+      </ul></details>
+      <details open><summary>Studio verification</summary><ul>
+        <li>Walked the nine pages and all eight brand tabs in Chrome at 320, 390, 768 and 1440 pixels. Checked desktop and phone screenshots, page landmarks, image text alternatives, script syntax and local anchors.</li>
+        <li>Exercised keyboard navigation, the Room toolbar, form errors and recovery, modal cancellation, type controls, both icon finishes and SVG download, prompt copying, component progress and confirmation.</li>
+      </ul></details>
+      <details><summary>Scope and limits</summary>
+      <p>The examples use made-up people, rooms, dates and amounts. Nothing on this page sends, books, spends, records or removes anything. Each control answers with a local receipt, and the consent it shows is still needed when the view is connected to a real application action.</p>
+      <p>The composer matches a typed line to a use case by its words. It does not listen, and it is not the model Nando uses on a call.</p>
+      <p>The hfs2s application checks also ran. The repository test stopped in the Juan Rooms interaction suite. The host TypeScript check reported two errors in Rooms test files. Studio pages were checked independently from those application tests.</p></details>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    <a href="brand.html" aria-label="Shared brand guide"><img class="logo" src="media/shared-09.svg" alt="Shared"></a>
+    <a href="icons.html">Pixel icons</a>
+  <a href="motion.html">Motion &amp; loading</a></footer>
+</body>
+</html>

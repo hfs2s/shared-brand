@@ -1,0 +1,16 @@
+.ensemble {margin:0;min-width:0;position:relative;border:1px solid var(--ink);background:#faf4e8;box-shadow:4px 4px 0 #d2c7af}
+.ensemble-art {display:block;width:100%;height:auto;background-image:radial-gradient(#c6bca9 .8px,transparent .9px);background-size:12px 12px}
+.ensemble-art text {font:15px var(--mono);fill:var(--ink);paint-order:stroke;stroke:#faf4e8;stroke-width:4px}
+.ensemble-art .wire,.ensemble-art .ticks {fill:none;stroke:#b7aa97;stroke-width:1.25}
+.ensemble-art .ticks {stroke:var(--ink)}
+.ensemble-art .signal {fill:none;stroke:var(--trace);stroke-width:3;stroke-dasharray:.16 1;opacity:0}
+.ensemble figcaption {padding:8px 15px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:8px;font:12px var(--mono)}
+.ensemble button {background:var(--ink);color:var(--paper);border:0;border-radius:2px;padding:8px 12px;min-height:36px;font:inherit; font-family:var(--mono);cursor:pointer}
+@media(prefers-reduced-motion:no-preference){
+  .ensemble.playing .station {animation:ensemble-arrive .48s var(--delay) both ease-out}
+  .ensemble.playing .signal {animation:ensemble-send 1.15s var(--delay) both ease-in-out}
+  .ensemble.playing .band {animation:ensemble-print .72s var(--delay) both cubic-bezier(.16,.8,.28,1)}
+}
+@keyframes ensemble-arrive {from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes ensemble-send {0%{opacity:0;stroke-dashoffset:.16}15%,80%{opacity:1}100%{opacity:0;stroke-dashoffset:-1}}
+@keyframes ensemble-print {from{opacity:0;transform:translateX(var(--slide))}to{opacity:1;transform:none}}

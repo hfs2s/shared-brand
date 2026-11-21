@@ -1,0 +1,180 @@
+/* Generative UI: the use-case library.
+   Component looks come from the brand guide's own sheets (brand-ui.css, system-components.css, room-dialogs.css) and
+   the stepped finish from retro-controls.css's tokens. This sheet only lays the library out around them. */
+.gl-library { border-top:1px solid var(--line); scroll-margin-block-start:24px; }
+
+/* Filters: the brand guide's reference index (.ds-index), with one more row for the count. */
+.gl-filters.ds-index { align-items:end; gap:14px 24px; padding-block:20px; border-block:1px solid var(--line); }
+.gl-filters label { display:grid; gap:5px; font:600 14px/1.4 var(--sans); }
+.gl-filters :is(input[type=search],select) { display:block; width:min(280px,80vw); min-height:44px; margin:0; padding:7px 10px; border:1px solid var(--console-shadow,var(--mute)); border-image:var(--console-step) 6 / 6px stretch; border-radius:0; background-color:var(--console-field,#fffaf0); box-shadow:inset 0 3px 0 #dfd0b950; color:var(--ink); font:400 15px/1.4 var(--sans); }
+.gl-filters :is(input[type=search],select):focus-visible { border-image-source:var(--console-blue); }
+.gl-filters .backgrounds { margin:0; }
+.gl-filters .backgrounds legend { padding:0 0 5px; font:600 14px/1.4 var(--mono); }
+.gl-filters .backgrounds span { display:grid; place-items:center; min-height:44px; padding:5px 14px; border-radius:0; background:var(--paper); font-size:14px; }
+.gl-filters .action { cursor:pointer; background:var(--paper); color:var(--ink); font-family:var(--mono); }
+.gl-filters output { flex-basis:100%; font:12px/1.5 var(--mono); color:var(--mute); }
+.gl-moment-pick { display:none !important; }
+
+/* Moments on the left, their use cases on the right. */
+.gl-workspace { display:grid; grid-template-columns:minmax(190px,16.5rem) minmax(0,1fr); align-items:start; gap:clamp(22px,4vw,68px); padding-top:clamp(20px,3vw,44px); }
+.gl-index { position:sticky; top:12px; max-height:calc(100vh - 24px); overflow:auto; scrollbar-width:thin; }
+.gl-index ol { list-style:none; margin:0; padding:0; border-bottom:1px solid var(--line); }
+.gl-index a { display:flex; align-items:baseline; justify-content:space-between; gap:12px; min-height:44px; padding:11px 12px; border-top:1px solid var(--line); color:var(--ink); text-decoration:none; }
+.gl-index a span { font:12px var(--mono); color:var(--mute); }
+.gl-index a:hover { color:var(--ink); text-decoration:underline; }
+.gl-index a[aria-current] { background:var(--lemon); box-shadow:inset 4px 0 0 var(--blue); font-weight:650; }
+.gl-index a[aria-current] span { color:var(--ink); }
+.gl-index a[data-none]:not([aria-current]) { color:var(--mute); }
+.gl-index :focus-visible { outline-offset:-3px; }
+
+.gl-entries { min-width:0; }
+.gl-group + .gl-group { margin-top:clamp(44px,6vw,96px); }
+.gl-group-head { padding-bottom:6px; }
+.gl-group-head h3 { font-size:calc(var(--serif-scale) * clamp(34px,3.7vw,60px)); }
+.gl-group-head p { max-width:56ch; margin-top:9px; color:var(--mute); font-size:var(--type-lead); line-height:1.45; letter-spacing:-.015em; }
+
+/* One use case: the brand guide's row, with the copy on the left and the live view on the right. */
+.gl-entry.brand-row { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(20px,3.2vw,54px); padding-block:clamp(28px,3.2vw,48px); scroll-margin-top:14px; }
+.gl-entry h4 { margin:0 0 14px; font:var(--display-weight) clamp(27px,2.35vw,38px)/1.03 var(--serif); letter-spacing:-.042em; text-wrap:balance; }
+.gl-entry h4:focus-visible { outline-offset:6px; }
+.gl-entry .row-copy p { max-width:46ch; }
+.gl-entry .row-copy .gl-shows { color:var(--ink); }
+.gl-entry .gl-built { margin-top:12px; font-size:13px; }
+
+/* The line that triggers the view, set as a caption: the brand guide's stage caption band. */
+.gl-said { display:grid; justify-items:start; gap:5px; margin-bottom:16px; }
+.gl-said p { margin:0; }
+.gl-said .gl-who, .gl-said .gl-when { font:600 13px/1.4 var(--sans); color:var(--mute); }
+.gl-said .gl-when { font-weight:400; color:var(--ink); font-size:15px; }
+.gl-said .gl-when span { font-weight:600; color:var(--mute); font-size:13px; }
+.gl-said .gl-line { padding:5px 9px 6px; background:var(--mint); color:var(--ink); font:500 16px/1.38 var(--sans); }
+.gl-said .gl-also { padding:0 9px; background:transparent; color:var(--mute); font-size:14px; font-weight:400; }
+
+/* The frame a view sits in: the brand guide's live component panel, full width here. */
+.gl-view.component-live { max-width:none; background:var(--console-face,var(--stock)); border:1px solid var(--console-shadow,var(--line)); border-image:var(--console-step) 6 / 6px stretch; box-shadow:inset 0 4px 0 #fff4; }
+.gl-view .component-cue { font-size:13px; color:var(--mute); }
+.gl-view .component-cue .context-chip { color:var(--ink); background:var(--paper); }
+.gl-view.gl-bare { padding:0; }
+.gl-blocks.ds-preview { display:grid; gap:20px; padding:16px 0 2px; }
+.gl-blocks > * { min-width:0; }
+.gl-view p { margin:0 0 8px; }
+.gl-entry-actions { margin-top:14px; gap:8px 16px; font-size:14px; }
+.gl-entry .ds-markup { margin-top:12px; }
+.gl-entry .ds-markup .action { margin-top:8px; }
+.gl-entry .row-sample > .ds-status { margin-top:8px; }
+.gl-entry-actions .action, .gl-entry .ds-markup .action, .gl-ask .action { cursor:pointer; background:var(--paper); color:var(--ink); font-family:var(--mono); white-space:normal; }
+.gl-entry-actions .action.quiet { border-color:transparent; }
+
+/* The brand guide's stepped finish (retro-controls.css) for controls inside a generated view. */
+.gl-view button.action { cursor:pointer; border-radius:0; background-color:var(--paper); color:var(--ink); font-family:var(--mono); white-space:normal; }
+.gl-view button.action:not(.quiet):not(.danger-action) { box-shadow:inset 0 2px 0 #fff9, inset 0 -3px 0 #92734b44; }
+.gl-view button.action.filled { background-color:var(--lemon); box-shadow:inset 0 2px 0 #fff8, inset 0 -3px 0 #a09b3866, 2px 2px 0 var(--ink); }
+.gl-view button.action.quiet { box-shadow:none; background-color:transparent; }
+.gl-view button.action.danger-action { border-image-source:var(--console-red); }
+.gl-view button.action:is([aria-pressed="true"],[aria-selected="true"]) { background-color:var(--mint); border-image-source:var(--console-blue); }
+.gl-view .ds-field label > :is(input,textarea):not([type=range]) { border:1px solid var(--console-shadow); border-image:var(--console-step) 6 / 6px stretch; border-radius:0; background-color:var(--console-field); box-shadow:inset 0 3px 0 #dfd0b950; font-family:var(--sans); }
+.gl-view .ds-field [aria-invalid] { border-image-source:var(--console-red) !important; }
+.gl-view .ds-field :is(input,select,textarea):focus-visible { border-image-source:var(--console-blue); }
+.gl-view .ds-field input::file-selector-button { margin-inline-end:8px; padding:5px 8px; border:1px solid var(--ink); border-image:var(--console-key) 6 / 6px stretch; background:var(--stock); color:var(--ink); font:600 13px var(--mono); cursor:pointer; }
+.gl-view .ds-field { max-width:none; }
+.gl-view .ds-control input:is([type=checkbox],[type=radio]) { appearance:none; flex:0 0 auto; width:19px; height:19px; margin:0; border:1px solid var(--ink); border-image:var(--console-key) 6 / 6px stretch; background:var(--console-field) center / 12px no-repeat; }
+.gl-view .ds-control input[type=checkbox]:checked { background-color:var(--lemon); background-image:url("media/ui-check.svg"); }
+.gl-view .ds-control input[type=radio]:checked { background-color:var(--mint); background-image:url("media/ui-radio.svg"); }
+.gl-view .ds-control { min-height:36px; cursor:pointer; }
+.gl-view .ds-choices { margin:0; background:var(--paper); }
+.gl-view .ds-choices legend { padding-inline:4px; font:600 14px/1.4 var(--mono); }
+.gl-view .ds-switch { position:relative; min-height:36px; cursor:pointer; }
+.gl-view .ds-switch input + span { box-shadow:inset 0 2px 0 #947c5750; }
+.gl-view .ds-field input[type=range] { appearance:none; background:transparent; }
+.gl-view .ds-field input[type=range]::-webkit-slider-runnable-track { height:7px; background:var(--console-face); border:1px solid var(--console-shadow); box-shadow:inset 0 2px 0 #795d3b38; }
+.gl-view .ds-field input[type=range]::-webkit-slider-thumb { appearance:none; width:17px; height:17px; margin-top:-6px; border:1px solid var(--ink); border-image:var(--console-key) 6 / 6px stretch; background:var(--lemon); }
+.gl-view .ds-field input[type=range]::-moz-range-track { height:7px; background:var(--console-face); border:1px solid var(--console-shadow); }
+.gl-view .ds-field input[type=range]::-moz-range-thumb { width:17px; height:17px; border-radius:0; border:1px solid var(--ink); background:var(--lemon); }
+.gl-view .reaction-picker button { border-radius:0; border-image:var(--console-step) 6 / 6px stretch; }
+.gl-view .reaction-picker button[aria-pressed="true"] { border-image-source:var(--console-blue); }
+.gl-view :is(.ds-file,.ds-empty,.ds-notice,.ds-toast,.ds-layout-example>div) { background-color:var(--paper); }
+.gl-view .ds-notice { margin:0; }
+.gl-view .ds-notice .action { margin-top:10px; }
+.gl-view .ds-toast { margin:0; }
+.gl-view .room-demo { max-width:none; background:var(--paper); }
+.gl-view .ds-stage img { height:auto; }
+.gl-view .facts { margin:0; }
+.gl-view .brand-data caption { font-weight:650; }
+.gl-view [hidden] { display:none !important; }
+.gl-dialog:not(.studio-confirm) { width:min(100% - 36px, 496px); }
+
+/* Small pieces the brand guide leaves to the page. */
+.gl-rows { display:grid; gap:8px; }
+.gl-view .asset-list li { align-items:center; }
+.gl-view .asset-list li > div { display:grid; gap:1px; min-width:0; }
+.gl-view .asset-list :is(.ds-badge,.context-chip) { color:var(--ink); font-size:12px; white-space:nowrap; }
+.gl-view .asset-list .ds-avatar { color:var(--ink); font-size:15px; font-weight:600; }
+.gl-view .ds-stage + .action { margin-top:10px; }
+.gl-segments { display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; border:0; }
+.gl-segments legend { padding:0 0 8px; font:600 14px/1.4 var(--mono); }
+.gl-segments label { position:relative; cursor:pointer; }
+.gl-segments input { position:absolute; opacity:0; }
+.gl-segments span { display:flex; align-items:center; gap:10px; min-height:44px; padding:8px 15px; border:1px solid var(--console-shadow); border-image:var(--console-step) 6 / 6px stretch; background:var(--console-field); font:550 14px var(--sans); }
+.gl-segments span::before { content:""; flex:none; width:8px; height:8px; border:1px solid #8c8e81; background:#c9c6ba; }
+.gl-segments input:checked + span { background:var(--lemon); border-image-source:var(--console-key); }
+.gl-segments input:checked + span::before { background:var(--ink); border-color:var(--ink); }
+.gl-segments input:focus-visible + span { outline:var(--focus-width) solid var(--blue); outline-offset:2px; }
+.gl-progress label { display:grid; gap:7px; font:600 14px/1.4 var(--sans); }
+.gl-progress progress, .gl-bars progress { display:block; width:100%; height:12px; accent-color:var(--blue); }
+.gl-steps { margin:12px 0; padding:0; list-style:none; counter-reset:gl-step; }
+.gl-steps li { display:flex; align-items:center; gap:10px; min-height:40px; padding:6px 0; border-top:1px solid var(--line); counter-increment:gl-step; }
+.gl-steps li::before { content:counter(gl-step); min-width:1.4em; font:12px var(--mono); color:var(--mute); }
+.gl-steps li span:first-of-type { flex:1; }
+.gl-steps .gl-now { font-weight:650; }
+.gl-bars { display:grid; gap:12px; margin:0; padding:0; list-style:none; }
+.gl-bars li { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 12px; }
+.gl-bars strong { font:500 13px var(--mono); }
+.gl-bars progress { grid-column:1 / -1; }
+.gl-thread { margin:0; padding:0; list-style:none; }
+.gl-thread li { display:grid; grid-template-columns:minmax(5.5rem,auto) minmax(0,1fr); gap:2px 16px; padding:10px 0; border-top:1px solid var(--line); }
+.gl-thread strong { font-size:13px; }
+.gl-thread p { margin:0; }
+.gl-thread + .ds-form { margin-top:12px; }
+.gl-slide { display:grid; align-content:center; gap:10px; max-width:540px; aspect-ratio:16 / 9; margin-bottom:12px; padding:clamp(16px,3vw,36px); border:1px solid var(--line); background:var(--paper); }
+.gl-slide strong { font:var(--display-weight) clamp(24px,2.7vw,40px)/1.02 var(--serif); letter-spacing:-.042em; }
+.gl-slide p { margin:0; color:var(--mute); }
+.gl-tabpanel { padding-top:12px; }
+.gl-found { margin:12px 0 6px; padding-left:18px; }
+.ds-layout-example.gl-even { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.gl-even > div { display:grid; align-content:start; justify-items:start; gap:8px; }
+.gl-even p { margin:0; }
+
+/* The composer's own additions. */
+.gl-ask { display:grid; justify-items:start; gap:8px; }
+.gl-more { margin-top:14px; font-size:14px; }
+.gen-view .gl-view.component-live { margin-top:4px; }
+.gen-view h3:focus { outline:none; }
+.gen-link { padding:0; border:0; background:none; color:inherit; font:inherit; cursor:pointer; }
+.gen-link:hover { color:var(--blue); }
+.gen-spec-fields { max-width:60rem; margin-bottom:1.6rem; }
+
+@media(max-width:1180px) {
+ .gl-entry.brand-row { grid-template-columns:minmax(0,1fr); gap:18px; }
+ .gl-entry .row-copy p { max-width:60ch; }
+}
+@media(max-width:900px) {
+ .gl-workspace { grid-template-columns:minmax(0,1fr); }
+ .gl-index { display:none; }
+ .gl-moment-pick { display:grid !important; }
+}
+@media(max-width:560px) {
+ .gl-filters :is(input[type=search],select) { width:100%; }
+ .gl-filters > label { flex:1 1 100%; }
+ .gl-thread li, .ds-layout-example.gl-even { grid-template-columns:minmax(0,1fr); }
+}
+@media(forced-colors:active) {
+ .gl-view .ds-control input:is([type=checkbox],[type=radio]), .gl-view .ds-field input[type=range] { appearance:auto; }
+ .gl-view :is(.action,.component-live), .gl-segments span { border-image:none; }
+}
+
+.gl-review { border-top:1px solid var(--line); }
+.gl-review ul { padding-left:20px; max-width:83ch; line-height:1.65; }
+.gl-review li+li { margin-top:11px; }
+.gl-review details { padding:14px 0; border-top:1px solid var(--line); }
+.gl-review details p { max-width:83ch; }
+.gl-review summary { font-weight:660; }
