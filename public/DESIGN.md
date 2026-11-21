@@ -1682,45 +1682,6 @@ Sandbox, Docs and demo libraries
 Make interactive marks reachable by keyboard and touch. Keep selection and exact values visible outside the plot. Update data tables and CSV when filters change. Distinguish observed zero, unavailable, stale, estimated, and future periods.
 
 
-### [Navigation](https://brand.getshared.ai/brand#panel-navigation)
-
-Keep each section’s tabs and library pages in one shared row.
-
-
-### [Desktop header](https://brand.getshared.ai/brand#nav-desktop)
-
-Position the wordmark at the start and keep utility downloads at the end. Use JetBrains Mono at 14px and a 50px target height. Mark the current route with ink text and a 3px cobalt rule. Keep other routes in muted ink with no underline.
-
-
-### [Mobile header](https://brand.getshared.ai/brand#nav-mobile)
-
-Give the wordmark and download their own row. Put the same ordered routes on a horizontally scrolling rail below, with 44px or taller targets. Bring the active route into view on a direct visit. Keep horizontal scrolling inside the rail.
-
-
-### [Tabs inside a page](https://brand.getshared.ai/brand#nav-tabs)
-
-Keep tabs and related library pages in one horizontally scrolling row. Use the same active rule and type for both. Keep the row in the same place as people switch between topics or open a related page. Preserve the selected topic in the URL.
-
-
-### [Links, focus and history](https://brand.getshared.ai/brand#nav-behaviour)
-
-Main routes
-
-- Use links in a named navigation landmark. Apply aria-current=page to the active route, including when a destination opens at a section anchor. Keep the main navigation in place between routes.
-
-Page tabs
-
-- Use tablist, tab, and tabpanel for views within the current document. Use links with aria-current=page for related pages in the same row. Use Left and Right arrows to move among the local tabs, and Home and End for the first or last tab.
-
-Deep links and Back
-
-- Give each destination a clean URL. A direct link opens the correct route and section. Browser Back and Forward restore the previous view.
-
-First paint
-
-- Reveal each view after its styles and fonts are ready. Reserve the brand animation for an eligible full-page load. Navigation within the studio keeps the header in place.
-
-
 ### [Assets](https://brand.getshared.ai/brand#panel-assets)
 
 Download master artwork, fonts, source styles and starter files for Shared projects.
@@ -3124,7 +3085,73 @@ Retry only the part that failed. Show progress in that region and return the res
 
 [Open the working examples](https://brand.getshared.ai/brand#navigation)
 
-Use the header for main destinations and one shared row for topics and pages within a section.
+Use headers for main destinations, sidebars for app sections and chapters, and local tabs for views inside a section.
+
+
+### [Side navigation](https://brand.getshared.ai/brand#nav-sidebars)
+
+Use a sidebar when people move between sections of an app or chapters of a document. Keep the current destination visible as the content changes.
+
+
+### [App sidebar](https://brand.getshared.ai/brand#nav-app-sidebar)
+
+Group destinations by task, as Elio does with Workspace, Communications, and Manage. Keep the rail visible on wider screens and open it from a compact header on phones.
+
+Elio app
+
+
+#### [Live](https://brand.getshared.ai/brand#nav-app-sidebar)
+
+Talk to Elio and use the workbench to follow what he shows.
+
+Desktop
+
+- Start with Elio’s 264 px rail. Let the link list scroll independently and keep account details at the foot. Reserve the rail’s space so page content stays aligned.
+
+Current section
+
+- Use a filled row and aria-current="page". Open a collapsed group when it contains the current route. Keep local tabs in the content area.
+
+Phone
+
+- Use a top bar with identity, the current page, and a Menu button. Open the drawer under it. Close it on selection, Escape, or a tap outside. Restore focus to the Menu button when dismissed.
+
+
+### [Documentation sidebar](https://brand.getshared.ai/brand#nav-doc-sidebar)
+
+Put “On this page” first so readers can jump within the current chapter. List related chapters below and group them by subject.
+
+Systems
+
+
+#### [Multi-node architecture](https://brand.getshared.ai/brand#nav-doc-sidebar)
+
+
+##### [Node ownership](https://brand.getshared.ai/brand#doc-nav-ownership)
+
+Give each node an owner who can answer for its services and recover them.
+
+
+##### [App placement](https://brand.getshared.ai/brand#doc-nav-placement)
+
+Record where each app runs, where it stores state, and who can change the placement.
+
+
+##### [Release verification](https://brand.getshared.ai/brand#doc-nav-release)
+
+Check the public route, identify the revision it serves, and record the rollback target.
+
+Chapter and section
+
+- Keep chapter links and section links in separate, named navigation landmarks. Mark the active chapter as the current page and the active heading as the current location.
+
+Long chapters
+
+- Keep the rail in reach while the article scrolls. Use a readable article width and update the outline highlight as the reader moves through the article. Give each heading a stable fragment URL.
+
+Phone
+
+- Expand both lists from one Contents control. Collapse it on selection and focus the chosen section so reading can continue there.
 
 
 ### [Desktop header](https://brand.getshared.ai/brand#nav-desktop)
@@ -3139,7 +3166,7 @@ Give the wordmark and download their own row. Put the same ordered routes on a h
 
 ### [Tabs inside a page](https://brand.getshared.ai/brand#nav-tabs)
 
-Keep tabs and related library pages in one horizontally scrolling row. Use the same active rule and type for both. Keep the row in the same place as people switch between topics or open a related page. Preserve the selected topic in the URL.
+Keep peer topics in a horizontally scrolling row. If a topic has related views of its own, place them in a second row under that topic, as Icons does. Use the same active rule and type in both rows. Preserve the selected topic and view in the URL.
 
 
 ### [Links, focus and history](https://brand.getshared.ai/brand#nav-behaviour)
@@ -3150,7 +3177,7 @@ Main routes
 
 Page tabs
 
-- Use tablist, tab, and tabpanel for views within the current document. Use links with aria-current=page for related pages in the same row. Use Left and Right arrows to move among the local tabs, and Home and End for the first or last tab.
+- Use tablist, tab, and tabpanel for views within the current document. Use links with aria-current=page for related pages. Use Left and Right arrows to move among the local tabs, and Home and End for the first or last tab.
 
 Deep links and Back
 

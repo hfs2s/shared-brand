@@ -12,3 +12,54 @@
 .nav-preview-phone .nav-example>div{grid-column:1/-1;justify-content:start}
 .nav-preview-phone .nav-example>div span{min-height:44px}
 @media(max-width:550px){.nav-preview .nav-example{grid-template-columns:auto minmax(0,1fr);gap:.5rem 1rem}.nav-example>span{grid-column:2;grid-row:1}.nav-preview .nav-example>div{grid-column:1/-1;justify-content:start}}
+
+.side-example{--side-width:264px;--side-height:455px;isolation:isolate}
+.side-frame{display:grid;grid-template-columns:var(--side-width) minmax(0,1fr);position:relative;min-width:0}
+.side-top{display:none}
+.side-rail{display:flex;flex-direction:column;min-width:0;height:var(--side-height);overflow:auto;background:var(--paper);border-inline-end:1px solid var(--line)}
+.side-brand{display:block;padding:14px 18px 10px;font:400 2.15rem/1.05 var(--serif)}
+.side-rail nav{flex:none;min-height:0;padding-bottom:.3rem}
+.side-rail nav:only-of-type{flex:1;overflow:auto}
+.side-group{margin:.4rem 0}
+.side-group>strong,.side-group>summary{display:block;padding:.5rem 18px;color:var(--mute);font:650 .72rem/1.45 var(--mono);text-transform:uppercase;letter-spacing:.07em}
+.side-group>summary{display:list-item;cursor:pointer}
+.side-group a{display:flex;align-items:center;min-height:36px;padding:.38rem 18px;color:var(--ink);text-decoration:none;font:500 .88rem/1.35 var(--sans)}
+.side-group a:hover,.side-group a:focus-visible{background:var(--stock)}
+.side-group a:focus-visible,.side-group summary:focus-visible{outline-offset:-3px}
+.side-group a[aria-current]{background:var(--lemon);font-weight:650;box-shadow:inset 3px 0 var(--ink)}
+.side-outline{border-bottom:1px solid var(--line)}
+.side-outline a{padding-inline-start:24px}
+.side-outline a[aria-current]{background:var(--mint)}
+.side-footer{flex:none;padding:.75rem 18px;border-top:1px solid var(--line);font:.82rem/1.4 var(--sans)}
+.side-footer small,.side-footer strong{display:block}
+.side-footer small{color:var(--mute)}
+.side-content{min-width:0;height:var(--side-height);padding:clamp(15px,4vw,58px);background:var(--stock)}
+.side-page{max-width:660px;padding:clamp(14px,3vw,34px);border:1px solid var(--line);background:var(--paper)}
+.side-content h3{margin:.5rem 0;font:400 clamp(1.8rem,4.4vw,4.5rem)/1 var(--serif)}
+.side-content p{max-width:60ch}
+.side-kicker{color:var(--mute);font:600 .75rem/1.5 var(--mono)}
+.side-doc-content{position:relative;overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin}
+.side-doc-section{min-height:8rem;margin-top:1.3rem;padding:1.1rem 0;border-top:1px solid var(--line)}
+.side-doc-section:last-child{min-height:var(--side-height)}
+.side-doc-section h4{margin:0 0 .45rem;font:650 1.12rem/1.4 var(--sans)}
+.side-scrim{display:none}
+.side-spec{margin-top:1rem}
+@media(max-width:800px){
+  .side-example{--side-height:365px}
+  .side-frame{grid-template-columns:minmax(0,1fr)}
+  .side-top{height:52px;align-items:center;gap:.55rem;padding:4px 10px;background:var(--paper);border-bottom:1px solid var(--line)}
+  .side-top img{border-radius:50%;background:var(--lemon);object-fit:cover}
+  .side-top>span{min-width:0;margin-inline-start:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--mute)}
+  .side-top button{min-height:44px;margin-inline-start:auto;padding:0 .6rem;border:1px solid var(--line);border-radius:var(--control-radius);background:var(--paper);color:var(--ink);font:600 .85rem var(--sans);cursor:pointer}
+  .side-example[data-side-ready] .side-top{display:flex}
+  .side-example[data-side-ready] .side-rail{position:absolute;inset:0 auto 0 0;z-index:2;width:min(300px,86%);visibility:hidden;transform:translateX(-100%)}
+  .side-example[data-side-ready] .side-frame{overflow:hidden}
+  .side-example[data-side-open] .side-rail{visibility:visible;transform:none;transition:transform var(--motion-enter) var(--motion-ease)}
+  .side-example[data-side-open] .side-scrim{display:block;position:absolute;inset:0;z-index:1;background:#1e1e1b66}
+  .side-group a,.side-group summary{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.side-example[data-side-open] .side-rail{transition:none}}
+@media(max-width:800px){
+  .side-example[data-side-doc][data-side-open] .side-rail{position:static;width:auto;height:auto;max-height:min(60dvh,18rem);transition:none}
+  .side-example[data-side-doc][data-side-open] .side-scrim{display:none}
+}

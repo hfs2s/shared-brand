@@ -2,13 +2,105 @@
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nav | Shared</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="brand-ui.css"><link rel="stylesheet" href="studio-nav.css"><link rel="stylesheet" href="dataviz.css"><link rel="stylesheet" href="navigation-spec.css">
-<script src="studio-nav.js" defer></script>
+<script src="studio-nav.js" defer></script><script src="navigation-spec.js" defer></script>
 </head>
 <body><a class="skip" href="#main">Skip to content</a><shared-header></shared-header>
 <main id="main">
-  <section class="gridpaper brand-hero"><div class="wrap brand-head"><div><h1>Nav</h1><p>Use the header for main destinations and the local rows for topics and their related views.</p></div></div></section>
+  <section class="gridpaper brand-hero"><div class="wrap brand-head"><div><h1>Nav</h1><p>Use headers for main destinations, sidebars for app sections and chapters, and local tabs for views inside a section.</p></div></div></section>
   <div class="wrap studio-reference navigation-guide">
     <!-- navigation-content -->
+    <section class="reference-section" id="nav-sidebars"><h2>Side navigation</h2>
+      <p>Use a sidebar when people move between sections of an app or chapters of a document. Keep the current destination visible as the content changes.</p>
+      <div class="reference-links"><a href="#nav-app-sidebar">App sidebar</a><a href="#nav-doc-sidebar">Documentation sidebar</a></div>
+    </section>
+    <section class="reference-section" id="nav-app-sidebar"><h2>App sidebar</h2>
+      <p>Group destinations by task, as Elio does with Workspace, Communications, and Manage. Keep the rail visible on wider screens and open it from a compact header on phones.</p>
+      <figure class="nav-preview">
+        <div class="side-example" data-side-example>
+          <div class="side-top"><img src="media/elio.webp" width="32" height="32" alt=""><strong>Elio</strong><span data-side-title>Live</span><button type="button" data-side-toggle aria-expanded="false" aria-controls="app-side-rail">Menu</button></div>
+          <div class="side-frame">
+            <aside class="side-rail" id="app-side-rail" aria-label="Elio app">
+              <strong class="side-brand">Elio</strong>
+              <nav aria-label="Elio app sections">
+                <div class="side-group"><strong>Workspace</strong>
+                  <a href="https://elio.hfs2s.app/elio/health" data-side-route>Overview</a>
+                  <a href="https://elio.hfs2s.app/elio/work" data-side-route>Work</a>
+                </div>
+                <div class="side-group"><strong>Communications</strong>
+                  <a href="https://elio.hfs2s.app/elio/mail" data-side-route>Mail</a>
+                  <a href="https://elio.hfs2s.app/elio/rooms" data-side-route>Rooms</a>
+                  <a href="https://elio.hfs2s.app/elio/live" data-side-route aria-current="page">Live</a>
+                </div>
+                <details class="side-group"><summary>Manage</summary>
+                  <a href="https://elio.hfs2s.app/settings" data-side-route>Settings</a>
+                </details>
+              </nav>
+              <div class="side-footer"><small>Signed in as</small><strong>Demo account</strong></div>
+            </aside>
+            <div class="side-scrim" data-side-scrim aria-hidden="true"></div>
+            <div class="side-content" data-side-content>
+              <div class="side-page">
+                <p class="side-kicker">Elio app</p>
+                <h3 data-side-heading tabindex="-1">Live</h3>
+                <p data-side-description>Talk to Elio and use the workbench to follow what he shows.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Elio-inspired app shell · Try a section or open Manage. At phone widths, use Menu.</figcaption>
+      </figure>
+      <dl class="reference-spec side-spec">
+        <div><dt>Desktop</dt><dd>Start with Elio’s 264 px rail. Let the link list scroll independently and keep account details at the foot. Reserve the rail’s space so page content stays aligned.</dd></div>
+        <div><dt>Current section</dt><dd>Use a filled row and <code>aria-current="page"</code>. Open a collapsed group when it contains the current route. Keep local tabs in the content area.</dd></div>
+        <div><dt>Phone</dt><dd>Use a top bar with identity, the current page, and a Menu button. Open the drawer under it. Close it on selection, Escape, or a tap outside. Restore focus to the Menu button when dismissed.</dd></div>
+      </dl>
+      <div class="reference-links"><a href="https://elio.hfs2s.app/">Open the Elio app</a></div>
+    </section>
+    <section class="reference-section" id="nav-doc-sidebar"><h2>Documentation sidebar</h2>
+      <p>Put “On this page” first so readers can jump within the current chapter. List related chapters below and group them by subject.</p>
+      <figure class="nav-preview">
+        <div class="side-example" data-side-example data-side-doc>
+          <div class="side-top"><strong>Standards</strong><button type="button" data-side-toggle aria-expanded="false" aria-controls="doc-side-rail">Contents</button></div>
+          <div class="side-frame">
+            <aside class="side-rail" id="doc-side-rail" aria-label="Standards contents">
+              <strong class="side-brand">Handbook</strong>
+              <nav class="side-outline" aria-label="On this page">
+                <div class="side-group"><strong>On this page</strong>
+                  <a href="#doc-nav-ownership" data-side-anchor aria-current="location">Node ownership</a>
+                  <a href="#doc-nav-placement" data-side-anchor>App placement</a>
+                  <a href="#doc-nav-release" data-side-anchor>Release verification</a>
+                </div>
+              </nav>
+              <nav aria-label="Handbook chapters">
+                <div class="side-group"><strong>Engineering</strong>
+                  <a href="https://standards.getshared.ai/topics/testing/">Testing and evals</a>
+                  <a href="https://standards.getshared.ai/topics/release/">Release and rollback</a>
+                </div>
+                <div class="side-group"><strong>Systems</strong>
+                  <a href="https://standards.getshared.ai/topics/nodes/" aria-current="page">Multi-node architecture</a>
+                  <a href="https://standards.getshared.ai/topics/incidents/">Incidents and postmortems</a>
+                </div>
+              </nav>
+            </aside>
+            <div class="side-scrim" data-side-scrim aria-hidden="true"></div>
+            <div class="side-content side-doc-content" data-side-content tabindex="0" role="region" aria-label="Sample chapter">
+              <p class="side-kicker">Systems</p>
+              <h3>Multi-node architecture</h3>
+              <div class="side-doc-section"><h4 id="doc-nav-ownership" tabindex="-1">Node ownership</h4><p>Give each node an owner who can answer for its services and recover them.</p></div>
+              <div class="side-doc-section"><h4 id="doc-nav-placement" tabindex="-1">App placement</h4><p>Record where each app runs, where it stores state, and who can change the placement.</p></div>
+              <div class="side-doc-section"><h4 id="doc-nav-release" tabindex="-1">Release verification</h4><p>Check the public route, identify the revision it serves, and record the rollback target.</p></div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Standards-inspired reading layout · Try the section links. At phone widths, use Contents.</figcaption>
+      </figure>
+      <dl class="reference-spec side-spec">
+        <div><dt>Chapter and section</dt><dd>Keep chapter links and section links in separate, named navigation landmarks. Mark the active chapter as the current page and the active heading as the current location.</dd></div>
+        <div><dt>Long chapters</dt><dd>Keep the rail in reach while the article scrolls. Use a readable article width and update the outline highlight as the reader moves through the article. Give each heading a stable fragment URL.</dd></div>
+        <div><dt>Phone</dt><dd>Expand both lists from one Contents control. Collapse it on selection and focus the chosen section so reading can continue there.</dd></div>
+      </dl>
+      <div class="reference-links"><a href="https://standards.getshared.ai/topics/nodes/">Open the Standards chapter</a></div>
+    </section>
     <section class="reference-section" id="nav-desktop"><h2>Desktop header</h2>
       <p>Position the wordmark at the start and keep utility downloads at the end. Use JetBrains Mono at 14px and a 50px target height. Mark the current route with ink text and a 3px cobalt rule. Keep other routes in muted ink with no underline.</p>
       <figure class="nav-preview"><div class="nav-example"><img src="media/shared-09.svg" width="95" alt="Shared"><div><span>Stories</span><span data-current>Brand guide</span><span>Navigation</span><span>Artifacts</span></div><span>DESIGN.md</span></div><figcaption>Desktop · one row with a wordmark, route rail, and utility download</figcaption></figure>
