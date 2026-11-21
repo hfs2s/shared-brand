@@ -53,6 +53,9 @@
 .video-content {
   padding-block: clamp(1.6rem, 4vw, 3.5rem) clamp(3rem, 7vw, 6rem);
 }
+.video-content [id] {
+  scroll-margin-top: 64px;
+}
 .video-content > section + section {
   margin-top: clamp(2.75rem, 6vw, 5.25rem);
   padding-top: clamp(1.7rem, 3.25vw, 3rem);
@@ -177,7 +180,9 @@
   font-size: 1.05rem;
 }
 .video-framing-rules p,
-.video-steps p {
+.video-steps p,
+.video-listening-prompt,
+.video-speaking-prompt {
   font-size: .9375rem;
 }
 .video-section-head p {
@@ -192,8 +197,31 @@
   border-bottom: 1px solid var(--video-rule);
   font-size: 1.125rem;
 }
-#presence .video-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+#presence .video-grid,
+#listening .video-grid,
+#speaking .video-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 840px;
+}
+.video-listening-prompt {
+  margin-top: 1.5rem;
+  padding-top: .85rem;
+  border-top: 1px solid var(--video-rule);
+}
+.video-listening-prompt p {
+  max-width: 70ch;
+}
+.video-listening-prompt h4,
+.video-speaking-prompt h4 {
+  margin-bottom: .45rem;
+  font-size: 1.025rem;
+}
+.video-listening-prompt ol {
+  margin: .7rem 0 0;
+  padding-inline-start: 1.25rem;
+}
+.video-listening-prompt li + li {
+  margin-top: .25rem;
 }
 .video-card {
   min-width: 0;
@@ -279,11 +307,6 @@
   padding-top: .75rem;
   border-top: 1px solid var(--video-rule);
 }
-@media (max-width: 1050px) {
-  #presence .video-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 @media (max-width: 760px) {
   .video-lead,
   .video-feature,
@@ -310,6 +333,8 @@
   .video-framing-rules,
   .video-grid,
   #presence .video-grid,
+  #listening .video-grid,
+  #speaking .video-grid,
   .video-steps {
     grid-template-columns: minmax(0, 1fr);
   }

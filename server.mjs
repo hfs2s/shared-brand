@@ -17,6 +17,24 @@ const mime = {
 const filename = /^\/(?:[\w+-][\w.+ -]*\/)*(?:[\w+-][\w.+ -]*)?$/;
 const aliases = new Map([['/visuals','/artifacts/photography'], ['/visuals.html','/artifacts/photography'], ['/brand-studies','/brand-studies/']]);
 const policy = "default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-ancestors ";
+const videoPage = '/artifacts/video';
+const videoGuide = videoPage + '.md';
+
+function describeVideoPage(shell) {
+  return shell.replace('<title>Shared Studio</title>', `<title>Stage video · Shared Studio</title>
+  <meta name="description" content="Stage video production guide with motion warnings, framing, clip specifications and Juan’s active-listening reference.">
+  <link rel="canonical" href="https://brand.getshared.ai${videoPage}">
+  <link rel="alternate" type="text/markdown" title="Stage video production guide" href="${videoGuide}">`)
+    .replace(/\s*<noscript>.*?<\/noscript>/, '')
+    .replace('<main>', `<main>
+    <noscript>
+      <section class="wrap">
+        <h1>Stage video</h1>
+        <p><a href="/together/video?studio_document=1">Open the video guide and reference clips</a></p>
+        <p><a href="${videoGuide}">Read the production guide in Markdown</a></p>
+      </section>
+    </noscript>`);
+}
 
 async function resolve(path) {
   const file = await realpath(join(root, path)).catch(() => null);
@@ -69,6 +87,10 @@ async function serve(req, res) {
     if (!specimen) asset = await resolve('/_studio/index.html');
     res.setHeader('Content-Type',mime[type]);
     let html = await readFile(asset.file,'utf8');
+    if (!specimen && path === '/together/artifacts/video.html') {
+      res.setHeader('Link', `<${videoGuide}>; rel="alternate"; type="text/markdown"`);
+      html = describeVideoPage(html);
+    }
     if (specimen) {
       res.setHeader('Content-Security-Policy',policy + "'self'");
       if (req.headers['sec-fetch-dest'] === 'iframe') {

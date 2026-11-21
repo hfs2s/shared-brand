@@ -6,7 +6,7 @@ For hfs2s deliverables, apply the [official hfs2s brand kit](https://hfs2s.app/b
 
 **Heading typography.** Use Instrument Serif only for H1 page titles. Use Inter for H2 and H3 headings. [Typography guide](https://brand.getshared.ai/brand#type).
 
-Studio source revision: `213dfd82e506126b`.
+Studio source revision: `57f2a77fcac96da2`.
 
 ## Design tokens
 
@@ -5925,6 +5925,26 @@ Open the Instagram examples
 Framing, reactions, and production specifications for Stage agents, illustrated with Juan’s studio.
 
 
+### [Motion warnings for every clip](https://brand.getshared.ai/artifacts/video#motion-warnings-title)
+
+Encourage light, natural head movement whenever the agent is on screen. Small shifts, tilts and blinks keep the performance alive.
+
+
+#### [Keep faces nearly front-facing](https://brand.getshared.ai/artifacts/video#head-turns)
+
+Avoid large or sharp head turns, profile views and hidden eyes or lips. Use the eyes first for a glance. Entrance and exit can include the turn needed to walk, with seated frames facing the lens.
+
+
+#### [Keep breathing quiet](https://brand.getshared.ai/artifacts/video#heavy-breathing)
+
+Allow shallow, barely visible breathing. Reject gasps, sighs, conspicuous chest or shoulder lifts, and open-mouth breaths. Keep lips gently closed in seated takes prepared for lip sync.
+
+
+#### [Keep the air still](https://brand.getshared.ai/artifacts/video#still-air)
+
+Keep hair, clothing, plants and loose paper steady. Reject visible wind or drafts, audible breath and air noise. Export a silent clip with no audio track.
+
+
 ### [A full-height Stage screen](https://brand.getshared.ai/artifacts/video#framing-title)
 
 A translucent overlay gives slides, sketches and photos a quiet surface while letting the studio show through.
@@ -5964,7 +5984,7 @@ Use the same overlay position for the seated, empty-room and writing keyframes. 
 
 ### [Juan’s Stage takes](https://brand.getshared.ai/artifacts/video#juan-title)
 
-Ten silent clips from the live Stage. Use the same set of movements and pose transitions for each agent.
+Ten silent takes from the live Stage and one production reference for active listening. Use these movements and pose transitions when planning a new Stage.
 
 
 #### [Presence](https://brand.getshared.ai/artifacts/video#presence-title)
@@ -5977,25 +5997,58 @@ Ten silent clips from the live Stage. Use the same set of movements and pose tra
 Juan walks in from his side of the frame and settles into the seated pose.
 
 
-##### [Quiet idle](https://brand.getshared.ai/artifacts/video#idle-title)
-
-15 s · Seated loop
-
-The default listening look. Small blinks and breathing return to the same pose.
-
-
-##### [Neutral motion](https://brand.getshared.ai/artifacts/video#neutral-title)
-
-15 s · Seated → seated
-
-A slightly livelier listening take with a breath and a settling nod.
-
-
 ##### [Exit](https://brand.getshared.ai/artifacts/video#exit-title)
 
 5 s · Seated → empty
 
 Juan unfolds his arms, rises and leaves on his side of the frame.
+
+
+#### [Idle and listening](https://brand.getshared.ai/artifacts/video#listening-title)
+
+
+##### [Quiet idle](https://brand.getshared.ai/artifacts/video#idle-title)
+
+15 s · Seated loop
+
+Use between cues. Keep head movement minimal, with natural blinks and barely visible breathing. Return to the same seated pose.
+
+
+##### [Active listening](https://brand.getshared.ai/artifacts/video#active-listening-title)
+
+15 s · Seated loop · Production reference
+
+Use while someone else speaks. Add more visible head movement than in quiet idle, with small shifts and occasional acknowledgment nods.
+
+
+##### [Direction for a new listening take](https://brand.getshared.ai/artifacts/video#listening-prompt)
+
+Make a silent 15-second shot at natural speed with a locked camera. Use the same approved seated keyframe at both ends. Keep the agent nearly front-facing, eyes near the lens, forearms supported and lips gently closed. Keep breathing shallow and the room air still.
+
+- 0–3 s. Start seated with natural blinks and small head adjustments.
+
+- 3–6 s. Incline gently to one side, then give a small, slow nod.
+
+- 6–10 s. Ease toward center and continue listening.
+
+- 10–12 s. Give a second small nod.
+
+- 12–15 s. Ease back into the opening pose, gaze and expression for a seamless loop.
+
+
+#### [Speaking](https://brand.getshared.ai/artifacts/video#speaking-title)
+
+
+##### [Neutral motion](https://brand.getshared.ai/artifacts/video#neutral-title)
+
+15 s · Seated → seated · Lip-sync base
+
+Use as the base video while the agent speaks. The source video is silent with closed lips. Live lip sync supplies the mouth movement.
+
+
+##### [Direction for a new speaking take](https://brand.getshared.ai/artifacts/video#speaking-prompt)
+
+Start and finish on the approved seated frame. Use natural blinks and gentle head shifts through the middle. Keep the face nearly front-facing, mouth visible, jaw relaxed and lips together so the lip-sync layer can track the face throughout. Keep the breathing quiet and the room air still.
 
 
 #### [Reactions](https://brand.getshared.ai/artifacts/video#reactions-title)
@@ -6058,7 +6111,7 @@ Approve the seated portrait with the screen area marked. Derive the empty room a
 
 #### [Keep pose transitions repeatable](https://brand.getshared.ai/artifacts/video#clip-states)
 
-Use the same approved seated frame where clips meet. Use the writing frame to join Start writing, Writing loop and Return from writing. Keep lips closed during the five seated takes used for live lip sync. Return to the seated pose before speech begins after writing.
+Generate each take with image-to-video from its approved opening and closing frames. Supply the same frame at both ends of a loop. Use the seated frame where seated clips meet and the writing frame to join the three writing takes. Keep lips closed in seated takes prepared for lip sync. Return to the seated pose before speech begins after writing.
 
 
 #### [Export and record the takes](https://brand.getshared.ai/artifacts/video#export)
@@ -6068,7 +6121,7 @@ Use silent 1920 × 1080 H.264 MP4 at 24 fps. Keep the approved keyframes, motion
 
 #### [Review takes and overlays together](https://brand.getshared.ai/artifacts/video#review)
 
-Check each take at full speed and inspect the first and last frames side by side. Replay both loops twice. Review for jumps in pose, exposure or props, then check the screen clearance throughout every take, including entrance, exit and the full presenting gesture.
+Check each take at full speed and inspect the first and last frames side by side. Replay every loop twice. Reject large head turns, exaggerated breathing and signs of a draft. Check that the listening nods are visible, spaced apart and settle into the loop. Check screen clearance throughout each take, including entrance, exit and the full presenting gesture.
 
 ## Pixel studies
 

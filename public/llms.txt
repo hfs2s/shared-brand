@@ -1,0 +1,11 @@
+# Shared Studio
+
+> Shared brand, interface and production guidance with working examples and downloadable references.
+
+## Production guides
+
+- [Stage video production](https://brand.getshared.ai/artifacts/video.md): Framing, motion warnings, quiet idle, active-listening timing, neutral motion for lip sync, export checks and media downloads.
+
+## Design reference
+
+- [Shared Studio design reference](https://brand.getshared.ai/DESIGN.md): Design tokens and guidance across the Studio.
