@@ -71,3 +71,12 @@
 @media(prefers-reduced-motion:reduce){
   .rotating .scene {transition:none; transform:none}
 }
+
+.community-mark {display:flex; align-items:center; gap:12px; margin-bottom:clamp(16px,2vw,30px); font:600 13px/1.3 var(--mono)}
+.community-mark img {flex:none; width:40px; height:40px; object-fit:contain}
+@media(max-width:760px) and (orientation:portrait) {
+  .studio-hero picture img {object-position:50% 40%}
+  .scene {grid-template-rows:auto 1fr}
+  .scene>img {height:auto; aspect-ratio:2.3; align-self:start}
+  .scene figcaption {align-self:start}
+}
