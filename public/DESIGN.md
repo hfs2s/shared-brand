@@ -6,7 +6,7 @@ For hfs2s deliverables, apply the [official hfs2s brand kit](https://hfs2s.app/b
 
 **Heading typography.** Use Instrument Serif only for H1 page titles. Use Inter for H2 and H3 headings. [Typography guide](https://brand.getshared.ai/brand#type).
 
-Studio source revision: `6c14172d7d34083c`.
+Studio source revision: `213dfd82e506126b`.
 
 ## Design tokens
 
@@ -2043,7 +2043,7 @@ Set a date to review the next draft
 
 The deck moves from the invitation to a comparison, a workshop photograph and a closing checklist. Step through it as you would on the live-call stage.
 
-The hfs2s deck store paints the slides using warm gridded paper, tactile cutouts and sparse cobalt accents. The official hfs2s mark sits on the cover. Each slide has a readable transcript below.
+The cover uses the official Shared wordmark. Warm gridded paper, tactile cutouts and cobalt accents carry through the deck. Each slide has a readable transcript below.
 
 
 ##### [Design QA](https://brand.getshared.ai/artifacts#panel-slides)
