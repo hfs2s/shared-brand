@@ -2,7 +2,7 @@
 
 Generated from the saved [Shared Studio](https://brand.getshared.ai/) pages. Use the live examples to inspect layout, interaction and assets.
 
-For hfs2s deliverables, apply the [official hfs2s brand kit](https://hfs2s.app/brand/) and the repository branding rules. Use this reference for Shared Studio patterns and for work that adopts the Shared identity.
+This guide is the default look for everything made for Shared. Use the older [hfs2s brand kit](https://hfs2s.app/brand/) only when a job asks for it. A customer's own brand (their app, their deck) stays theirs. "hfs2s" remains the technical name of repositories, hosts and paths.
 
 **Heading typography.** Use Instrument Serif only for H1 page titles. Use Inter for H2 and H3 headings. [Typography guide](https://brand.getshared.ai/brand#type).
 
